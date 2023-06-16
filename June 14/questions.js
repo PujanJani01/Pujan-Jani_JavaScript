@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
+
          
                 // Error: number can't be a first letter of variable name.
                 // var 1num=13;
@@ -284,6 +276,84 @@
                 // var pi = 3.14;
                 
                
-    </script>
-</body>
-</html>
+            //    console.log(name);
+            //    var name = "Ahmedabad";
+
+            //    console.log(fname);
+            //    var fname="Pujan";
+
+    
+            //  function()
+            // {
+            //     var x=15;
+            // }
+            // console.log(x);
+        
+            // var x=15;
+            // {
+            //     console.log(x);
+            //     var x=16;
+            // }
+
+            // var abc=10;
+            // console.log(abc);
+            // let const=10;
+            // console.log(const);
+ 
+
+            // const p=10;
+            // function abc(){
+            //     console.log(p);
+            // }
+            // abc();
+
+            // const p=10;
+            // {
+            //     function abc(){
+            //         console.log(p);
+            //     }
+            //     abc();
+            // }
+           
+            // const p=10;
+            // {
+            //     function abc(){
+            //         console.log(p);
+            //     }
+            // }
+            // abc();
+            
+            // var let = 5;
+            // console.log(let);
+
+            // It will show ERROR
+            // var const = 6;
+            // console.log(const);
+
+            // It will show ERROR
+            // var var = 6;
+            // console.log(var);
+
+            // It will show ERROR
+            // let var = 45;
+            // console.log(var);
+
+            // It will show ERROR
+            // let const = 43;
+            // console.log(const);
+
+             // It will show ERROR
+            // let let = 43;
+            // console.log(let);
+
+            // It will show ERROR
+            // const var = 43;
+            // console.log(var);
+
+            // It will show ERROR
+            // const let = 43;
+            // console.log(let);
+
+            // It will show ERROR
+            // const const = 43;
+            // console.log(const);
