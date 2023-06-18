@@ -26,6 +26,47 @@
 // }
 
 
+// var obj1 = {age:18};
+// {
+//     obj2=obj1;
+// }
+// console.log(obj1.age);
+
+
+// {
+//     var obj1 = {age:18};
+//     {
+//         obj2=obj1;
+//     }
+// }
+// console.log(obj1.age);
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2=obj1;
+//     console.log(obj2.age);
+// }
+// abc();
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2=obj1;
+//     console.log(obj1.age);
+// }
+// abc();
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2=obj1;
+    
+// }
+// console.log(obj1.age);
+// abc();
+
+
 // var obj1={age:24};
 // {
 //     console.log(obj1.age);
@@ -92,6 +133,126 @@
 // obj2=obj1;
 // obj2.age=20;
 // console.log(obj2['age']);
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2=obj1;
+//     obj2.age=20;
+// }
+// console.log(obj1.age);
+// abc();
+
+// ERROR: obj2 is not defined
+// var obj1 = {age:18};
+// function abc(){
+//     obj2=obj1;
+//     obj2.age=20;
+// }
+// console.log(obj2.age);
+// abc();
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2=obj1;
+//     obj2.age=20;
+// }
+// abc();
+// console.log(obj1.age);
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2=obj1;
+//     obj2.age=20;
+// }
+// abc();
+// console.log(obj2.age);
+
+
+// var obj1 = {age:18};
+// obj2=obj1;
+// function abc(){
+//     obj2.age=20;
+// }
+// abc();
+// console.log(obj1.age);
+
+
+// var obj1 = {age:18};
+// obj2=obj1;
+// function abc(){
+//     obj2.age=20;
+// }
+// abc();
+// console.log(obj2.age);
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2.age=20;
+// }
+// obj2=obj1;
+// abc();
+// console.log(obj1.age);
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2.age=20;
+// }
+// obj2=obj1;
+// abc();
+// console.log(obj2.age);
+
+
+// ERROR: obj2 is not defined
+// var obj1 = {age:18};
+// function abc(){
+//     obj2.age=20;
+// }
+// abc();
+// obj2=obj1;
+// console.log(obj1.age);
+
+
+// ERROR: obj2 is not defined
+// var obj1 = {age:18};
+// function abc(){
+//     obj2.age=20;
+// }
+// abc();
+// obj2=obj1;
+// console.log(obj2.age);
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2=obj1;
+// }
+// abc();
+// obj2.age=20;
+// console.log(obj1.age);
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2=obj1;
+// }
+// abc();
+// obj2.age=20;
+// console.log(obj2.age);
+
+
+// var obj1 = {age:18};
+// function abc(){
+//     obj2=obj1;
+// }
+// abc();
+// console.log(obj1.age);
+// obj2.age=20;
+
 
 
 // var obj1={
@@ -243,3 +404,4 @@
 //     }
 // }
 // console.log(obj.SPI());
+
