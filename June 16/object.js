@@ -214,3 +214,32 @@
 // console.log(sou.college[0].socet[1].branch[2].fees);
 
 
+
+// let obj = {
+//     fname: 'pujan',
+//     lname: 'jani',
+//     age: 18
+// }
+// // delete obj.age;
+// console.log(obj);
+// // console.log('fname' in obj);
+// // console.log('address' in obj);
+
+// for(let key in obj) {
+//     console.log(key);
+// }
+
+// for(let key in obj) {
+//     console.log(key + ': ' + obj[key]);
+// }
+
+
+// let obj = {
+//     fname: 'pujan',
+//     lname: 'jani',
+//     age: 18,
+//     SPI: function(){
+//         return 8.84;
+//     }
+// }
+// console.log(obj.SPI());
