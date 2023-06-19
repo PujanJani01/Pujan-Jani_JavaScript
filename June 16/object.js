@@ -405,3 +405,17 @@
 // }
 // console.log(obj.SPI());
 
+//-------------------------------------------------------------------------------------------------
+
+// var obj1 = { age: 18 };
+// obj2 = obj1;
+// obj2.age = 20;
+// console.log(obj1);
+// console.log(obj2);
+
+
+// var obj1 = { age: 18 };
+// obj2 = obj1;
+// obj2 = { age: 20 };
+// console.log(obj1);
+// console.log(obj2);
