@@ -16,3 +16,18 @@
 
 // var student = ['pujan', 'deepak', 'jainil'];
 // console.log(student[2]);
+
+//----------------------------------------------------------------------------------------------------
+
+// var array1 = [10,20,30,40,50];
+// array2=array1;
+// array2[3] = 100;
+// console.log(array1);
+// console.log(array2);
+
+
+// var array1 = [10,20,30,40,50];
+// array2=array1;
+// array2 = [100,200,300,400,500];
+// console.log(array1);
+// console.log(array2);
