@@ -1,8 +1,7 @@
-
+// Arithmetic Operators
 
 // var a=3, b=10;
 
-// Arithmetic Operators
 // console.log(a+b);
 // console.log(a-b);
 // console.log(a*b);
@@ -22,9 +21,10 @@
 
 //--------------------------------------------------------------------------------------------------------------
 
+// Comparison Operators
+
 // var a = 12, b = 23;
 
-// Comparison Operators
 // console.log(a==b);
 // console.log(a!=b);
 // console.log(a===b);
