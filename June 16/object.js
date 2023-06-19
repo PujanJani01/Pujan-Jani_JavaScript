@@ -419,3 +419,36 @@
 // obj2 = { age: 20 };
 // console.log(obj1);
 // console.log(obj2);
+
+//-------------------------------------------------------------------------------------------------
+
+// var obj = {
+//     p: 18,
+//     j: 19,
+//     b: 17,
+//     v: 18
+// };
+
+// let array = ['p','j','b','v'];
+// console.log(obj[array[1]]);
+// console.log(obj[array]); // undefined
+
+// var fname = 'j';
+// var fname = j;   // ERROR: j is not defined
+// console.log(obj[fname]);
+
+//-------------------------------------------------------------------------------------------------
+
+// var obj = {
+//     'first@name' : 'pujan',
+//     'last-name' : 'jani'
+
+// }
+// console.log(obj['first@name']);
+// console.log(obj['last-name']);
+
+// var obj = {
+//     age: 18
+// };
+// console.log(obj["age"]);
+
