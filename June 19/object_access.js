@@ -16,3 +16,4 @@
 // var fname = 'j';
 // var fname = j;   // ERROR: j is not defined
 // console.log(obj[fname]);
+
