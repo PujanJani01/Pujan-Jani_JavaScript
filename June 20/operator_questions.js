@@ -135,3 +135,146 @@ after that, precendence of multiplication and remainder is same, so based on ass
 /* precedence of parenthesis is greater, so addtion inside parenthesis will be first then precedence of multiplication and 
    remainder is same, so so based on associativity operators will be operated left to right and then addition and subtraction because of 
    associativity */
+
+// console.log( "5" + "3");
+
+// console.log("7" - "2");
+
+// console.log("10" * "2");
+// here both numbers are string though there will be multiplication between operands. 
+
+// console.log( "15" / "5");
+
+// console.log("10" % "3");
+// here both numbers are string though it will give remainder after dividing 10 by 3.
+
+// console.log(("2.5") + 1.8);
+
+// console.log(4 - Number("2.5"));
+// here we specified the datatype, so it will take it as a number
+
+// console.log(1.5 * Number("3.2"));
+
+// console.log(9.8 / Number("2"));
+// here we specified the datatype, so it will take it as a number
+
+// console.log("7" + String(2.5));
+
+// console.log(10 - Number("2.5"));
+// here we specified the datatype, so it will take it as a number
+
+// console.log(3.5 * Number("2"));
+
+// console.log(8 / Number("2.5"));
+// here we specified the datatype, so it will take it as a number
+
+// console.log(String(1.2) + "0.5");
+
+// console.log(6 - Number("1.2"));
+// here we specified the datatype, so it will take it as a number
+
+// const result = 10 * 2 / 5 + Math.pow(2, 3) - 4 % 3;
+// console.log(result);
+
+// console.log("hello" && 0);
+
+// console.log("" || "world");
+
+// console.log(null && true);
+// Logical AND tries to covert first operander into false, here it can so return first operander
+
+// console.log(NaN || "value");
+
+// console.log(undefined && null);
+// Logical AND tries to covert first operander into false, here it can so return first operander
+
+// console.log(10 && "number");
+
+// console.log("" || 0);
+// Logical OR tries to covert first operander into true, here it can't so return second operander
+
+// console.log(NaN && "value");
+
+// console.log(null || undefined);
+// Logical OR tries to covert first operander into true, here it can't so return second operander
+
+// console.log(false && "false");
+
+// console.log("hello" || 0);
+
+// console.log(0 && true);
+// Logical AND tries to covert first operander into false, here it can so return first operander
+
+// console.log(NaN || null);
+
+// console.log(undefined && "undefined");
+// Logical AND tries to covert first operander into false, here it can so return first operander
+
+// console.log(10 || "number");
+
+// console.log( "" && 0);
+// Logical AND tries to covert first operander into false, here it can so return first operander
+
+// console.log(NaN || "");
+
+// console.log(null && undefined);
+
+// console.log(false || "false");
+// Logical OR tries to covert first operander into true, here it can't so return second operander
+
+// console.log("hello" && 10);
+
+// console.log(true ? "Yes" : "No");
+
+// console.log(false ? 10 : 5);
+
+// console.log(3 > 5 ? "Greater" : "Less");
+// 3 is not greater 5 so it will return second value
+
+// console.log(10 === 10 ? "Equal" : "Not equal");
+
+// console.log(false ? "Hello" : "World");
+// condition is false so it will return second value
+
+// console.log(null ? "NotNull" : "Null");
+
+// console.log(undefined ? "Defined" : "Undefined");
+// undefined is false so it will return second value
+
+// console.log('a' !== 'b' ? "Different" : "Same");
+
+// console.log(1 < 0 ? "True" : "False");
+// 1 is not less than 0 so it will return second value
+
+// console.log(0 ? "Truthy" : "Falsy");
+
+// console.log("" ? "Truthy" : "Falsy");
+
+// console.log(NaN ? "Valid" : "Invalid");
+// NaN is false so it will return second value
+
+// console.log([] ? "NotEmpty" : "Empty");
+// Doubt
+
+// console.log([1, 2] ? "Exists" : "Not exists");
+// comma operator take value after it so here 2 is true so it will return first value
+
+// console.log({} ? "Object" : "Not object");
+// Doubt
+
+// console.log(0.5 ? "True" : "False");
+// 0.5 is true so it will return first value
+
+// console.log(undefined === null ? "Equal" : "Not equal");
+
+// console.log(10 > 5 ? "Greater" : "Less");
+
+// console.log(null !== undefined ? "Different" : "Same");
+// null and undefined both are different in datatype and value so it will return first value
+
+// console.log(true ? 1 : 0);
+
+// let a = 3;
+// let b = 6;
+// let c = 1;
+// console.log(a>b?(a>c?a:c):(b>c)?b:c);
