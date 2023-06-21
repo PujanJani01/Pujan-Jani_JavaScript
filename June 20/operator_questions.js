@@ -254,13 +254,11 @@ after that, precendence of multiplication and remainder is same, so based on ass
 // NaN is false so it will return second value
 
 // console.log([] ? "NotEmpty" : "Empty");
-// Doubt
 
 // console.log([1, 2] ? "Exists" : "Not exists");
 // comma operator take value after it so here 2 is true so it will return first value
 
 // console.log({} ? "Object" : "Not object");
-// Doubt
 
 // console.log(0.5 ? "True" : "False");
 // 0.5 is true so it will return first value

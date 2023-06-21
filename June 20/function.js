@@ -1,4 +1,4 @@
-// Without defining parameters
+// Without defining parameters and arguments
 
 // let a = 10;
 // let b = 15;
@@ -12,7 +12,7 @@
 
 //---------------------------------------------------------------------------------------------------------
 
-// With defining parameters
+// With defining parameters and arguments
 
 // let a = 10;
 // let b = 15;
@@ -26,7 +26,7 @@
 
 //---------------------------------------------------------------------------------------------------------
 
-//  defining parameters only in function call
+//  defining only arguments
 
 // let a = 10;
 // let b = 15;
@@ -40,7 +40,7 @@
 
 //---------------------------------------------------------------------------------------------------------
 
-//  defining parameters only in function definition
+//  defining only parameters 
 
 // let a = 10;
 // let b = 15;
@@ -242,3 +242,8 @@
 
 //---------------------------------------------------------------------------------------------------------
 
+// self-invoking function
+
+// (function(){
+//    console.log('self-invoking function');
+// })();

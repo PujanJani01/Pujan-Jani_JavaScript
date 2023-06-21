@@ -25,3 +25,18 @@
 // person('pujan');
 
 //---------------------------------------------------------------------------------------------------------
+
+// Duplicate parameter are not allowed in arrow function
+
+// const sum = (a,b,a) => {
+//      console.log(a+b+a);   // ERROR
+// }
+// sum(1,2,3);  
+
+
+// Duplicate parameter are allowed in normal function
+
+// function sum(a,b,a){
+//     console.log(a+b+a); // 8
+// }
+// sum(1,2,3);  // it will take b = 2 and a = 3
