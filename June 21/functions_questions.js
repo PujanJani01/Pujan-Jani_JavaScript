@@ -339,16 +339,24 @@
 //     if(params==undefined){
 //         console.log('Anonymous');
 //     }
-//     else console.log();
+//     else console.log(params);
 // }
 // greet('good morning');
 
 //-----------------------------------------------------------------------------------------------------
 
 // function exponent(num,power){
-//     if(power==undefined){
-//           return num**2;
+//     if(num==undefined && power==undefined){
+//           return 0;
+//     }
+//     else if(power==undefined){
+//              return num**2;
 //     }
 //     else return num**power;
 // }
+// console.log(exponent());
 // console.log(exponent(5,3));
+// console.log(exponent(5));
+
+//-----------------------------------------------------------------------------------------------------
+
