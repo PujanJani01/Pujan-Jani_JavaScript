@@ -181,46 +181,46 @@ after that, precendence of multiplication and remainder is same, so based on ass
 // console.log("" || "world");
 
 // console.log(null && true);
-// Logical AND tries to covert first operander into false, here it can so return first operander
+// Logical AND tries to covert first operand into false, here it can so return first operand
 
 // console.log(NaN || "value");
 
 // console.log(undefined && null);
-// Logical AND tries to covert first operander into false, here it can so return first operander
+// Logical AND tries to covert first operand into false, here it can so return first operand
 
 // console.log(10 && "number");
 
 // console.log("" || 0);
-// Logical OR tries to covert first operander into true, here it can't so return second operander
+// Logical OR tries to covert first operand into true, here it can't so return second operand
 
 // console.log(NaN && "value");
 
 // console.log(null || undefined);
-// Logical OR tries to covert first operander into true, here it can't so return second operander
+// Logical OR tries to covert first operand into true, here it can't so return second operand
 
 // console.log(false && "false");
 
 // console.log("hello" || 0);
 
 // console.log(0 && true);
-// Logical AND tries to covert first operander into false, here it can so return first operander
+// Logical AND tries to covert first operand into false, here it can so return first operand
 
 // console.log(NaN || null);
 
 // console.log(undefined && "undefined");
-// Logical AND tries to covert first operander into false, here it can so return first operander
+// Logical AND tries to covert first operand into false, here it can so return first operand
 
 // console.log(10 || "number");
 
 // console.log( "" && 0);
-// Logical AND tries to covert first operander into false, here it can so return first operander
+// Logical AND tries to covert first operand into false, here it can so return first operand
 
 // console.log(NaN || "");
 
 // console.log(null && undefined);
 
 // console.log(false || "false");
-// Logical OR tries to covert first operander into true, here it can't so return second operander
+// Logical OR tries to covert first operand into true, here it can't so return second operand
 
 // console.log("hello" && 10);
 
