@@ -240,6 +240,15 @@
 // }
 // console.log(oddSum(1,3,5,7,9));
 
+
+// it doest not work with arrow function
+
+// const oddSum = (a,b,c,d,e) =>{
+//    console.log('the first argument is ', arguments[0]);
+//    return a+b+c+d+e;
+//  }
+//  console.log(oddSum(1,3,5,7,9));
+
 //---------------------------------------------------------------------------------------------------------
 
 // self-invoking function
