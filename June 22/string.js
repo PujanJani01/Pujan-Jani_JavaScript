@@ -65,6 +65,7 @@
 // x = String(undefined);
 
 // x = string({fname:'pujan'});   // ERROR
+
 // const obj ={age:18};
 // x = String(obj); 
 
@@ -230,8 +231,7 @@ and if given string is not their it will return -1 */
 // console.log(a.slice(4));       // ame is khan
 
 
-// split - 
-
+// split -  dobut
 
 
 // subString - same as slice
