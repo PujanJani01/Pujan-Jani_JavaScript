@@ -231,15 +231,34 @@ and if given string is not their it will return -1 */
 // console.log(a.slice(4));       // ame is khan
 
 
-// split -  dobut
+// split - 
+
+// let a = 'javascript';
+// console.log(a.split(''));
+// console.log(a.split(' '));
+// console.log(a.split('s'));
 
 
 // subString - same as slice
 
-// let a = 'my name is khan';
+let a = 'my name is khan';
 // console.log(a.substring(4,9));   // ame i
-// console.log(a.slice(4));       // ame is khan
+// console.log(a.substring(4));       // ame is khan
+// console.log(a.substring(-5,1));    // -1 will be 0 and print 'my na'
+// console.log(a.substring(-1,-1));      // whitespace
+// console.log(a.substring(-1));         // my name is khan
+// console.log(a.substring(0));        // my name is khan
+// console.log(a.substring(1));      // y name is khan
+// console.log(a.substring('a'));      // my name is khan
+// console.log(a.substring(true));     // y name is khan
+// console.log(a.substring(false));    // my name is khan
+// console.log(a.substring(null));         // my name is khan
+// console.log(a.substring(undefined));         // my name is khan
+// console.log(a.substring());         // my name is khan
+// console.log(a.substring(NaN));         // my name is khan
 
+
+ 
 
 // toLowerCase - convert string to lower case
 
@@ -282,3 +301,5 @@ and if given string is not their it will return -1 */
 // const text = "Pujan";
 // console.log(text.substring(3, 2));    // j
 // console.log(text.slice(3, 2));    // whitespace
+
+

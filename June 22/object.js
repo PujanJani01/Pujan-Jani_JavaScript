@@ -241,3 +241,39 @@
 // console.log(obj3); 
 
 
+//-------------------------------------------------------------------------------------------------------
+
+// ERROR: SyntaxError: Identifier 'a' has already been declared
+// const obj = {a:10, b:15};
+// let a = 15;
+// console.log(a);
+// let {a,b} = obj;
+// console.log(a);
+
+// ERROR: ReferenceError: Cannot access 'a' before initialization
+// const obj = {a:10, b:15};
+// let c = 15;
+// console.log(a);
+// let {a,b} = obj;
+// console.log(a);
+
+// const obj = {a:10, b:15};
+// var a = 15;
+// console.log(a);     // 15
+// var {a,b} = obj;
+// console.log(a);     // 10
+
+// const obj = {a:10, b:15};
+// var a = 15;
+// console.log(a);     // 15
+// var {a:newc,b} = obj;
+// console.log(a);     // 15
+
+// const obj = {a:10, b:15};
+// var a = 15;
+// console.log(a);     // 15
+// var {a:hello,b} = obj;
+// console.log(a);     // 15
+
+
+              
