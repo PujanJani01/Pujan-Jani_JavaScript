@@ -378,3 +378,32 @@
 // }
 // console.log(capitalize('js string exercises'));
 // console.log(capitalize('hello it is me'));
+
+//--------------------------------------------------------------------------------------------------------
+
+// function capitalize_Words(input){
+//     const words = input.split(' ');
+//     for(var i=0; i< words.length;i++){
+//         words[i] = words[i].charAt(0).toUpperCase()+words[i].slice(1);
+//     }
+//     return words.join(" ");
+// }
+// console.log(capitalize_Words('js string exercises'));
+        
+//--------------------------------------------------------------------------------------------------------
+
+// function insert(input,insertInput,position){
+//     if(insertInput==undefined && position==undefined){
+//         return input;
+//     }
+//     else if(position==undefined){
+//         return insertInput.concat(input);
+//     }
+//     else return input.slice(0,position-1) + input.charAt(position-1).concat(insertInput)+input.slice(position);
+// }
+// console.log(insert('We are doing some exercises.'));
+// console.log(insert('We are doing some exercises.','JavaScript '));
+// console.log(insert('We are doing some exercises.','JavaScript ',18));
+// console.log(insert('We are doing some exercises.','JavaScript ',13));
+
+//--------------------------------------------------------------------------------------------------------
