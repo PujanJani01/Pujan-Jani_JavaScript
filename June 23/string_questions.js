@@ -392,18 +392,12 @@
         
 //--------------------------------------------------------------------------------------------------------
 
-// function insert(input,insertInput,position){
-//     if(insertInput==undefined && position==undefined){
-//         return input;
-//     }
-//     else if(position==undefined){
-//         return insertInput.concat(input);
-//     }
-//     else return input.slice(0,position-1) + input.charAt(position-1).concat(insertInput)+input.slice(position);
-// }
-// console.log(insert('We are doing some exercises.'));
-// console.log(insert('We are doing some exercises.','JavaScript '));
-// console.log(insert('We are doing some exercises.','JavaScript ',18));
-// console.log(insert('We are doing some exercises.','JavaScript ',13));
+function insert(input,insertInput='',position=0){
+    return input.slice(0,position) + insertInput +input.slice(position);
+}
+console.log(insert('We are doing some exercises.'));
+console.log(insert('We are doing some exercises.','JavaScript '));
+console.log(insert('We are doing some exercises.','JavaScript ',18));
+console.log(insert('We are doing some exercises.','JavaScript ',13));
 
 //--------------------------------------------------------------------------------------------------------
