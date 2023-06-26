@@ -331,14 +331,13 @@
 //-------------------------------------------------------------------------------------------------------
 
 // function is_Blank(input){
-//     if(input=='')
+//     if(input.trim()=='')
 //          return true;
 //     else return false;
 // }
-// console.log(is_Blank('')); // true
-// console.log(is_Blank('abc')); // false
-// console.log(is_Blank(""));     // true
-// console.log(is_Blank(" "));     // true
+// console.log(is_Blank(''));         // true
+// console.log(is_Blank('abc'));     // false
+// console.log(is_Blank("        "));   // true
 
 //-------------------------------------------------------------------------------------------------------
 
@@ -392,12 +391,12 @@
         
 //--------------------------------------------------------------------------------------------------------
 
-function insert(input,insertInput='',position=0){
-    return input.slice(0,position) + insertInput +input.slice(position);
-}
-console.log(insert('We are doing some exercises.'));
-console.log(insert('We are doing some exercises.','JavaScript '));
-console.log(insert('We are doing some exercises.','JavaScript ',18));
-console.log(insert('We are doing some exercises.','JavaScript ',13));
+// function insert(input,insertInput='',position=0){
+//     return input.slice(0,position) + insertInput +input.slice(position);
+// }
+// console.log(insert('We are doing some exercises.'));
+// console.log(insert('We are doing some exercises.','JavaScript '));
+// console.log(insert('We are doing some exercises.','JavaScript ',18));
+// console.log(insert('We are doing some exercises.','JavaScript ',13));
 
 //--------------------------------------------------------------------------------------------------------

@@ -16,6 +16,20 @@
 //     console.log('a is greater');
 // }
 
+// let test;
+// if(true){
+//     test = 'test';
+// }
+// console.log(test);
+
+// let test;
+// if(false){
+//     test = 'test';
+// }
+// console.log(test);
+
+
+
 //----------------------------------------------------------------------------------------------------
 
 // var fname ='Sujal';
