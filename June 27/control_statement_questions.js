@@ -36,7 +36,7 @@
 
 //----------------------------------------------------------------------------------------------------------
 
-// let string = ''
+// let string = '';
 // for(i=1;i<=5;i++){
 //     for(j=1;j<=5;j++){
 //         string += '*'
@@ -47,7 +47,7 @@
 
 //----------------------------------------------------------------------------------------------------------
 
-// let string = ''
+// let string = '';
 // for(i=1;i<=5;i++){
 //     for(j=1;j<=i;j++){
 //         string += '*'
@@ -58,7 +58,7 @@
 
 //----------------------------------------------------------------------------------------------------------
 
-// let string = ''
+// let string = '';
 // for(i=5;i>=1;i--){
 //     for(j=i;j>=1;j--){
 //         string += '*'
@@ -103,7 +103,7 @@
 //     else if(month==4 || month==6 || month==9 || month==11){
 //         console.log(30);
 //     }
-    
+
 // }
 // getNumberOfDays(6);
 
@@ -161,3 +161,154 @@
 //    console.log(names[i]);
 // }
 
+//----------------------------------------------------------------------------------------------------------
+
+// function calculate(operation,num1,num2){
+//     switch(operation){
+//         case '+':
+//               console.log(num1+num2);  break;
+//         case '-':
+//               console.log(num1-num2);  break;
+//         case '*': 
+//               console.log(num1*num2);  break;
+//         case '/':
+//               console.log(num1/num2);  break;
+//         case '%':
+//             console.log(num1%num2);  break;
+//         default:
+//              console.log('Invalid input');
+//     }
+// }
+// calculate('+',5,6);
+// calculate('-',10,6);
+// calculate('*',3,9);
+// calculate('/',6,8);
+// calculate('%',7,3);
+// calculate();
+
+//----------------------------------------------------------------------------------------------------------
+
+// function grade(marks){
+//     if(marks <= 30){
+//         console.log('Fail');
+//     }
+//     else if(marks > 30 && marks < 50){
+//         console.log('C Grade');
+//     }
+//     else if(marks >=50 && marks < 70){
+//         console.log('B Grade');
+//     }
+//     else if(marks >= 70 && marks < 90){
+//         console.log('A Grade');
+//     }
+//     else if(marks >=90 && marks <=100){
+//         console.log('O grade');
+//     }
+//     else console.log('Invaild Input');
+// }
+// grade(86);
+// grade(95);
+// grade(-12);
+// grade(null);
+// grade(undefined);
+
+//----------------------------------------------------------------------------------------------------------
+
+// function reverse(str){
+//     console.log(str.split('').reverse().join(''));
+// }
+// reverse('pujan jani');
+// reverse('inaj najup');
+// reverse();            // ERROR
+
+//----------------------------------------------------------------------------------------------------------
+
+// function printProps(obj){
+//     for(let keys in obj){
+//          console.log(keys ,obj[keys]);
+//     }
+// }
+// const obj1 = {a:1, b:2, c:3};
+// printProps(obj1);
+// printProps();
+
+//----------------------------------------------------------------------------------------------------------
+
+// function isStringContainsNum(str) {
+//     const regex = /\d/;
+//     console.log(regex.test(str)); 
+//   }
+// isStringContainsNum('assad');
+// isStringContainsNum('agfh1'); 
+// isStringContainsNum('ag1sdf'); 
+// isStringContainsNum('111'); 
+
+//----------------------------------------------------------------------------------------------------------
+
+// function isDigitMessege(str) {
+//     if (/^\d+$/.test(str)) {
+//       console.log("String is a number");
+//     } else if (/\d/.test(str)) {
+//       console.log("String contains a number");
+//     } else {
+//       console.log("String does not contain a number");
+//     }
+//   }
+//   isDigitMessege("1212");     // String is number
+//   isDigitMessege("sadfsd");   // String deos not contain a number
+//   isDigitMessege("sad2q");    // String contains number
+
+//----------------------------------------------------------------------------------------------------------
+
+// function digitIndex(str){
+//     for(i=0;i<str.length;i++){
+//         if(!isNaN(str[i]))
+//         {
+//             let index = console.log(i);
+//             return index;
+//         }
+            
+//     }
+// }
+// digitIndex('puj4n');
+// digitIndex('123');
+// digitIndex('dsefsdf23');
+// digitIndex('');
+
+//----------------------------------------------------------------------------------------------------------
+
+// function firstCapital(str) {
+//     for (i=0; i<str.length;i++) {
+//         if (str[i] >= 'A' && str[i] <= 'Z') {
+//             console.log(i);
+//             break;
+//         }
+//     }
+// }
+// firstCapital("puJaLn");
+
+//----------------------------------------------------------------------------------------------------------
+
+// function printOdd(start, end){
+// 	for(let i = start; i< end; i++){
+//         if(i%2!=0)
+// 	       console.log(i);
+//    }
+// }
+// printOdd(1,10);
+
+//----------------------------------------------------------------------------------------------------------
+
+// function printOdd(start, end){
+//    let count = 0;
+//    for(i=start;i<=end;i++){
+//     if(i%2!=0){
+//         console.log(i);
+//         count ++ ;
+//        if(count == 10){
+//            break;
+//        }
+//     }
+//    }
+// }
+// printOdd(1,30);
