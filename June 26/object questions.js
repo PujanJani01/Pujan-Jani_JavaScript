@@ -165,4 +165,8 @@
   
 //----------------------------------------------------------------------------------------------------
 
-
+const target = { a: { b: { c: 1 } } };
+const source = { a: { b: { d: 2 } } };
+const result = Object.assign(target, source);
+result.a.b.d = 3;
+console.log(source);
