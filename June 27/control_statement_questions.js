@@ -129,7 +129,7 @@
 
 //----------------------------------------------------------------------------------------------------------
 
-// function printOddNumber(first,last){
+// function printEvenNumber(first,last){
 //     let print = '';
 //     for(i=first;i<=last;i++){
 //         if(i%2==0){
@@ -138,7 +138,7 @@
 //     }
 //     console.log(print.slice(0,-1));
 // }
-// printOddNumber(1,10);
+// printEvenNumber(1,10);
 
 //----------------------------------------------------------------------------------------------------------
 
@@ -235,8 +235,7 @@
 //----------------------------------------------------------------------------------------------------------
 
 // function isStringContainsNum(str) {
-//     const regex = /\d/;
-//     console.log(regex.test(str)); 
+//     console.log(/\d/.test(str)); 
 //   }
 // isStringContainsNum('assad');
 // isStringContainsNum('agfh1'); 
