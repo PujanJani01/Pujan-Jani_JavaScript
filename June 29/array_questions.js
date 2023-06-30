@@ -109,4 +109,4 @@
 // console.log(isArrayContainNumber(["a", 3, "gh"]));        
 // console.log(isArrayContainNumber(["a", '3df', "gh"]));    
 
-
+//------------------------------------------------------------------------------------------------
