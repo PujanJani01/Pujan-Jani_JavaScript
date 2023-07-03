@@ -197,7 +197,10 @@
 //     {a:10, b:20, c:[{a:11, b:21, d:['p','q']}]},
 //     {a:12, b:18, c:[{a:8, b:25, d:[1,2,'p']}]},
 //     {a:16, b:29, c:[{a:5, b:10, d:['q','r','s']}]},
-//     {a:15, b:20, c:[{a:11, b:21, d:5}]}
+//     {a:15, b:20, c:[{a:11, b:21, d:[5,'p']}]}
 // ]
-// let arr2 = arr.filter((value) => value.c.filter((cvalue)=> cvalue.d.filter((cvaluevalue) => cvaluevalue == 'p').length));
+// let arr2 = arr.filter((value) => value.c.filter((c)=> c.d.filter((char) => char == 'p').length).length);
 // console.log(arr2);
+
+//------------------------------------------------------------------------------------------------------
+
