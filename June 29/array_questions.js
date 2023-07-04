@@ -7,26 +7,14 @@
 // {first_name: "Demors", last_name: "Poet"},
 // {first_name: "Aleos", last_name: "Lkeu"},
 // ]
-
-// // first method:
-// for(let i=0; i<names.length;i++){
-//     names[i].full_name = names[i].first_name + ' ' + names[i].last_name;
+// function addFullName(array){
+//     let newArray = array.map((value)=>{
+//         value.full_name = value.first_name + ' ' +value.last_name
+//         return value;
+//     })
+//     return newArray
 // }
-// console.log(names);
- 
-// // second method:
-// names.map((value)=>{
-//     value.full_name = value.first_name + ' ' +value.last_name
-//     return value;
-// })
-// console.log(names);
-// console.log(newArray);
-
-// // third method:
-// for(let value of names){
-//     value.full_name = value.first_name + ' ' +value.last_name;
-// }
-// console.log(names);
+// console.log(addFullName(names));
 
 //------------------------------------------------------------------------------------------------
 
@@ -39,18 +27,21 @@
 //     {first_name: "Dedfgmors", last_name: "Poet", age: 60},
 //     {first_name: "Ale4tos", last_name: "Lkeu", age: 16},
 //    ]
-// const newArray = users.map((value)=>{
-//      if(value.age >= 18){
-//         value.isMature = 'Yes';
-//         return value;
-//      }
-//      else {
-//         value.isMature = 'No'
-//         return value;
-//      }
-// });
-// console.log(users);
-// console.log(newArray);
+//    function isMature(array){
+//     const newArray = array.map((value)=>{
+//         if(value.age >= 18){
+//            value.isMature = 'Yes';
+//            return value;
+//         }
+//         else {
+//            value.isMature = 'No'
+//            return value;
+//         }
+//    });
+//    return newArray;
+//  }
+// console.log(isMature(users));
+
 
 //------------------------------------------------------------------------------------------------
 
@@ -64,10 +55,13 @@
 //     [4, 5, 6],
 //     [7, 8, 9],
 //   ];
-// const flatArray = nestedArray.flat();
-// for(let value of flatArray){
-//     console.log(value);
-// }  
+//   function flatArray(array){
+//     const flatArr = array.flat();
+//     for(let value of flatArr){
+//         console.log(value);
+//     }  
+//   }
+// flatArray(nestedArray);
 
 //------------------------------------------------------------------------------------------------
 
@@ -439,7 +433,7 @@
 // function groupAlphabetically(array){
 //     let group = {};
 //     let firstChar = array.map((word) => word[0].toUpperCase());
-//     firstChar.forEach((char) => {
+//     firstChar.map((char) => {
 //         let nameChar = array.filter((word) => word[0].toUpperCase() === char);
 //         group[char] = nameChar;
 //     });
