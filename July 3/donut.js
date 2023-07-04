@@ -198,19 +198,19 @@ const array =[
 // Using findIndex
 
 // function toppingChocolate(arr){
-//     let arr2 = arr.filter(value => value.topping.findIndex(topping => topping.type == 'Chocolate') != undefined)
+//     let arr2 = arr.filter(value => value.topping.findIndex(topping => topping.type == 'Chocolate') !== -1)
 //     return arr2;
 // }
 // console.log(toppingChocolate(array)); 
 
 // function toppingChocolateAndBatterRegular(arr){
-//     let arr2 = arr.filter(value => value.topping.find(topping => topping.type == 'Chocolate') && value.batters.batter.find(batter => batter.type == 'Regular'))
+//     let arr2 = arr.filter(value => value.topping.findIndex(topping => topping.type == 'Chocolate') !== -1 && value.batters.batter.findIndex(batter => batter.type == 'Regular') !== -1)
 //     return arr2;
 // }
 // console.log(toppingChocolateAndBatterRegular(array)); 
 
 // function toppingChocolateAndSugar(arr){
-//     let arr2 = arr.filter(value => value.topping.find(topping => topping.type == 'Chocolate') && value.topping.find(topping => topping.type == 'Sugar'))
+//     let arr2 = arr.filter(value => value.topping.findIndex(topping => topping.type == 'Chocolate') !== -1 && value.topping.find(topping => topping.type == 'Sugar') !== -1)
 //     return arr2;
 // }
 // console.log(toppingChocolateAndSugar(array)); 
