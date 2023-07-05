@@ -332,7 +332,7 @@
 // console.log(abc('Every developer likes to mix kubernetes and javascript'));
 
 
-// function abc(str){
+// function numeronyms(str){
 //     let words = str.split(' ');
 //     let a = words.map((word) => {
 //       if(word.length >= 4 ){
@@ -344,7 +344,7 @@
 //     return b;
         
 // }
-// console.log(abc('Every developer likes to mix kubernetes and javascript'));
+// console.log(numeronyms('Every developer likes to mix kubernetes and javascript'));
 
 //------------------------------------------------------------------------------------------------
 
@@ -571,3 +571,150 @@
 //     example(0, 1, 2);
     
 //----------------------------------------------------------------------------------------------
+
+// let arr = [1,2,3,4,5];
+
+// function squareSum(array){
+//     let arr2 = array.map(value => value**2).reduce((a,c) => a+c);
+//     return arr2
+// }
+// console.log(squareSum(arr));   // 55
+
+//----------------------------------------------------------------------------------------------
+
+// const students = [
+//     { name: 'Alice', age: 20, grade: 'A' },
+//     { name: 'Bob', age: 18, grade: 'B' },
+//     { name: 'Charlie', age: 19, grade: 'A' },
+//     { name: 'David', age: 20, grade: 'C' },
+//   ];
+
+// function sortByAge(array){
+//     array.sort((a,c) => a.age - c.age);
+//     return array;
+// }
+// console.log(sortByAge(students));
+
+
+// function sortByGrade(array){
+//     array.sort((a,c) =>{
+//         if(a.grade < c.grade){
+//             return -1;
+//         }
+//         else if(a.grade < c.grade){
+//             return 1;
+//         }
+//         return 0;
+//     });
+//     return array;
+// }
+// console.log(sortByGrade(students));
+
+// function sortByName(array){
+//     array.sort((a,c) =>{
+//         if(a.name < c.name){
+//             return -1;
+//         }
+//         else if(a.name < c.name){
+//             return 1;
+//         }
+//         return 0;
+//     });
+//     return array;
+// }
+// console.log(sortByName(students));
+
+// function ageSum(array){
+//     let sum = array.map(el =>el.age).reduce((a,c) => a+c);
+//     return sum;
+// }
+// console.log(ageSum(students));   // 77
+
+// function ageAverage(array){
+//     let ageArr = array.map(el =>el.age)
+//     let ageSum =ageArr.reduce((a,c) => a+c);
+//     let average = ageSum/ageArr.length;
+//     return average
+// }
+// console.log(ageAverage(students));     // 19.25
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// const nestedArray = [[1, 2], [3, 4], [5, 6]];
+
+// function flatArray(array){
+//     const flatArr = array.reduce((a,c) => a.concat(c));
+//     return flatArr
+// }
+// console.log(flatArray(nestedArray));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// function evenSquare(array){
+//     const even = array.filter(value => value%2 == 0).map(even => even**2);
+//     return even;
+// }
+// console.log(evenSquare(numbers));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// const numbers = [1, 2, 2, 3, 4, 4, 5];
+
+// function duplicateFilter(array){
+//     const arr = array.reduce((a,c)=>{
+//         if(a.indexOf(c) === -1){
+//             a.push(c);
+//         }
+//         return a;
+//     },[]);
+//     return arr;
+// }
+// console.log(duplicateFilter(numbers));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// const words = ['apple', 'banana', 'orange'];
+
+// function containsA(array){
+//     let word = array.find(str => str.includes('a'));
+//     return word;
+// }
+// console.log(containsA(words));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// const numbers = [2, 4, 6, 8, 9, 10];
+
+// function firstOdd(array){
+//     let oddNum = array.findIndex(value => value%2 != 0);
+//     return oddNum;
+// }
+// console.log(firstOdd(numbers));  // 4
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// function factorial(num){
+//     return num > 1 ? num*factorial(num-1) : num;
+// }
+// console.log(factorial(5));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// const people = [
+//     { name: 'Alice', age: 21 },
+//     { name: 'Bob', age: 20 },
+//     { name: 'Charlie', age: 19 },
+//     { name: 'Alice', age: 18 },
+//     { name: 'David', age: 21 }
+//   ];
+
+// function firstCharA(array){
+//     let person = array.findIndex(person => person.name[0] == 'A' && person.age < 20 );
+//     return person;
+// }
+// console.log(firstCharA(people));
+  
+//------------------------------------------------------------------------------------------------------------------------
+
