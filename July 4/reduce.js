@@ -255,3 +255,17 @@
 // let arr = [10,15,20,25,30];
 // let arr2 = arr.reduce((previous,current)=> previous+current,{});
 // console.log(arr2);  // [object Object]1015202530
+
+
+// let arr = [1,20,13,4,5];
+// let arr2 = arr.sort().reduce((a,c) => [a+c]).map(value => value);
+// console.log(arr);  // [1,13,20,4,5]
+// console.log(arr2);  // [ '142045' ]
+
+// let arr = [{a:4},{b:5,c:6},{a:10},{c:3,d:2}];
+// let arr2 = arr.reduce((a,c) => Object.assign(a,c))
+// console.log(arr2);
+
+// let arr = [{a:4},{b:5,c:6},{a:10},{c:3,d:2}];
+// let arr2 = arr.reduce((a,c) =>{return {...a,...c}})
+// console.log(arr2);
