@@ -199,3 +199,59 @@
 // console.log(uniqueAgeGroup); // [ 18, 21, 1, 51, 5, 7, 10 ]
 
 
+// let arr = [];
+// let arr2 = arr.reduce((previous,current)=> previous-current);
+// console.log(arr2);           // TypeError: Reduce of empty array with no initial value
+
+// let arr = [];
+// let arr2 = arr.reduce((previous,current)=> previous-current, 10);
+// console.log(arr2);     // 10
+
+// let arr = [];
+// let arr2 = arr.reduce((previous,current)=> previous-current,[10]);
+// console.log(arr2);   // [10]
+
+// let arr = [];
+// let arr2 = arr.reduce((previous,current)=> previous-current, {a:10});
+// console.log(arr2);   // {a: 10}
+
+// let arr = [{a:10}];
+// let arr2 = arr.reduce((previous,current)=> previous-current,{a:10});
+// console.log(arr2);  // NaN
+
+// let arr = [[10]];
+// let arr2 = arr.reduce((previous,current)=> previous-current,20);
+// console.log(arr2);  // 10
+
+// let arr = [[10],[25]];
+// let arr2 = arr.reduce((previous,current)=> previous-current,20);
+// console.log(arr2); // -15
+
+// let arr = [[10,3],[25]];
+// let arr2 = arr.reduce((previous,current)=> previous-current,20);
+// console.log(arr2);  // NaN
+
+// let arr = [[10],[25]];
+// let arr2 = arr.reduce((previous,current)=> previous+current,20);
+// console.log(arr2); // string - 201025
+
+// let arr = [1,2,3,4,5];
+// let arr2 = arr.reduce((previous,current)=> previous+current,[]);
+// console.log(arr2);  // string - 12345 
+
+
+// let arr = [10,15,20,25,30];
+// let arr2 = arr.reduce((previous,current)=> previous+current,undefined);
+// console.log(arr2);  // NaN
+
+// let arr = [10,15,20,25,30];
+// let arr2 = arr.reduce((previous,current)=> previous+current,null);
+// console.log(arr2);  // 100
+
+// let arr = [10,15,20,25,30];
+// let arr2 = arr.reduce((previous,current)=> previous+current,[]);
+// console.log(arr2);  // string - 1015202530
+
+// let arr = [10,15,20,25,30];
+// let arr2 = arr.reduce((previous,current)=> previous+current,{});
+// console.log(arr2);  // [object Object]1015202530
