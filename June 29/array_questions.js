@@ -720,3 +720,140 @@
   
 //------------------------------------------------------------------------------------------------------------------------
 
+// function fun_name(arrayOfArray, array){
+//   let a = arrayOfArray.some(arr => arr.sort().every((value,index) => value == array.sort()[index]));
+//   return a;
+// }
+// console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [1, 2]));
+// console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [2, 1]));
+// console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [22, 15]));
+// console.log(fun_name([[1, 2], [34, 67], [67, 77], [22, 90, 15], [88, 90]], [22, 15, 90]));
+// console.log(fun_name([[1, 2], [34, 67], [67, 77], [22, 90, 15], [22, 15],[88, 90]], [15, 22]));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// function fun_name(arrayOfArray, array){
+//   let a = arrayOfArray.some(arr => arr.every((value,index) => value == array[index]));
+//   return a;
+// }
+// console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [1, 2]));
+// console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [2, 1]));
+// console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [22, 15]));
+// console.log(fun_name([[1, 2], [34, 67], [67, 77], [22, 90, 15], [88, 90]], [22, 15, 90]));
+// console.log(fun_name([[1, 2], [34, 67], [67, 77], [22, 90, 15], [22, 15],[88, 90]], [22, 15]));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// function union(arr1,arr2){
+//     let arr = arr1.concat(arr2).sort((a,b) => a-b).reduce((a,c) => {
+//         if(a.indexOf(c) === -1){
+//           a.push(c);
+//         }
+//         return a;
+//     }, []);
+//     return arr;
+// }
+// console.log(union([1, 2, 3], [100, 2, 1, 10]));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+
+function difference(array1, array2) {
+    var arr = [];
+    for(i=0; i<array1.flat(Infinity).length; i++){
+          if(array2.flat(Infinity).indexOf(array1.flat(Infinity)[i]) === -1){
+            arr.push(array1.flat(Infinity)[i]);
+          }
+    }
+    for(i=0; i<array2.flat(Infinity).length; i++) {
+           if(array1.flat(Infinity).indexOf(array2.flat(Infinity)[i]) === -1){
+               arr.push(array2.flat(Infinity)[i]);
+           } 
+    }
+    return arr.sort((a,b) => a-b);
+    }
+console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]])); 
+console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// function findPair(numbers, target) {
+//     let result = [];
+//     for (let i = 0; i < numbers.length; i++) {
+//       for (let j = 0; j < numbers.length; j++) {
+//         if (numbers[i] + numbers[j] === target) {
+//           result.push(numbers[i], numbers[j]);
+//           break;
+//         }
+//       }
+//       if (result.length > 0) break;
+//     }
+//     return result;
+//   }
+//   console.log(findPair([10,20,10,40,50,60,70], 50));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// let arr = [NaN, 0, 15, false, -22, '',undefined, 47, null];
+// let arr2 = arr.filter(value => Number(value));
+// console.log(arr2);
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// function num_string_range(start, end, step) {
+//     let arr = []
+//     if(typeof start == 'string' && typeof end == 'string'){
+//         if(start.charCodeAt(0) < end.charCodeAt(0)){
+//             for(let i= start.charCodeAt(0); i<=end.charCodeAt(0); i+= step){
+//                 arr.push(String.fromCharCode(i));
+//            }
+//         }
+//         else if(start.charCodeAt(0) > end.charCodeAt(0)){
+//             for(let i= start.charCodeAt(0); i>=end.charCodeAt(0); i-= step){
+//                 arr.push(String.fromCharCode(i));
+//            }
+//         }
+//     }
+//     else {
+//         if(start < end){
+//             for(let i= start; i<=end; i += step){
+//                 arr.push(i);
+//            }
+//         }
+//         else if(start > end){
+//             for(let i= start; i=end; i -= step){
+//                 arr.push(i);
+//            }
+//         }
+        
+//     }
+//     return arr;
+//   }
+  
+//   console.log(num_string_range('a', 'z', 2));
+//   console.log(num_string_range('Z', 'A', 2));
+//   console.log(num_string_range(0, -5, 1));
+//   console.log(num_string_range(0, 25, 5));
+//   console.log(num_string_range(20, 5, 5));
+  
+//------------------------------------------------------------------------------------------------------------------------
+
+// function remove_array_element(arr,num){
+//     let arr2 = arr.filter(value => value != num);
+//     return arr2;
+// }
+// console.log(remove_array_element([2, 5, 9, 6], 5));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// function contains(arr,num){
+//     if(typeof num == 'string' || typeof num == 'number' ){
+//         return arr.includes(num);
+//     }
+// }
+// console.log(contains([2,5,9,6],5));
+// console.log(contains([2,5,9,6],10));
+
+//------------------------------------------------------------------------------------------------------------------------
+
