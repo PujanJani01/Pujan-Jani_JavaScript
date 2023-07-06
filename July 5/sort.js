@@ -87,4 +87,54 @@
 
 // let arr = [5,10,27,9];
 // arr.sort(()=> Math.random() - 0.5);
+// console.log(arr); 
+
+// let dates = ['2023/05/06', '2022/12/25', '2024/01/01', '2023/03/18'];
+// dates.sort();
+// console.log(dates);
+
+// let dates = ['2023-05-06', '2022-12-25', '2024-01-01', '2023-03-18'];
+// dates.sort();
+// console.log(dates);
+
+// let arr = [19, 18.45,22,35];
+// arr.sort();
 // console.log(arr);
+
+// let arr = ['pujan','bhaumik','sachin','jeel','vansh'];
+// arr.sort((a,b) => a.length - b.length);
+// console.log(arr);
+
+
+// let arr = ['pujan','bhaumik','sachin','jeel','vansh'];
+// arr.sort((a,b) =>{
+//     if(a.at(-1) < b.at(-1)){
+//         return -1;
+//     }
+//     else if(a.at(-1) > b.at(-1)){
+//         return 1;
+//     }
+//     return 0;
+// });
+// console.log(arr);
+
+
+// Doubt
+// let arr = [10, 'pujan', 5, 'amit', 8, 'bansi'];
+// arr.sort((a, b) => {
+//   if (typeof a === 'number' && typeof b === 'number') {
+//     return a - b;
+//   } 
+//   else if (typeof a !== 'string' && typeof b === 'string') {
+//     if(a.toLowerCase < b.toLowerCase){
+//         return -1;
+//     }
+//     else if(a.toLowerCase > b.toLowerCase){
+//         return 1;
+//     }
+//     return 0;
+// }
+// });
+// console.log(arr);
+
+
