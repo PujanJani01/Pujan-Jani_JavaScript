@@ -758,23 +758,23 @@
 //------------------------------------------------------------------------------------------------------------------------
 
 
-function difference(array1, array2) {
-    var arr = [];
-    for(i=0; i<array1.flat(Infinity).length; i++){
-          if(array2.flat(Infinity).indexOf(array1.flat(Infinity)[i]) === -1){
-            arr.push(array1.flat(Infinity)[i]);
-          }
-    }
-    for(i=0; i<array2.flat(Infinity).length; i++) {
-           if(array1.flat(Infinity).indexOf(array2.flat(Infinity)[i]) === -1){
-               arr.push(array2.flat(Infinity)[i]);
-           } 
-    }
-    return arr.sort((a,b) => a-b);
-    }
-console.log(difference([1, 2, 3], [100, 2, 1, 10]));
-console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]])); 
-console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+// function difference(array1, array2) {
+//     var arr = [].sort((a,b) => a-b);
+//     array1.flat(Infinity).forEach((value) => {
+//        if(!array2.flat(Infinity).includes(value)){
+//            arr.push(value);
+//        }
+//       })
+//      array2.flat(Infinity).forEach((value) => {
+//         if(!array1.flat(Infinity).includes(value)){
+//             arr.push(value);
+//         }
+//     } )
+//     return arr;
+//     }
+// console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+// console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]])); 
+// console.log(difference([1, 2, 3], [100, 2, 1, 10]));
 
 //------------------------------------------------------------------------------------------------------------------------
 
