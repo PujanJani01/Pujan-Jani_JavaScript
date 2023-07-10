@@ -765,17 +765,17 @@
 // function findPair(numbers, target) {
 //     let result = [];
 //     for (let i = 0; i < numbers.length; i++) {
-//       for (let j = i; j < numbers.length; j++) {
+//       for (let j = 0; j < numbers.length; j++) {
 //         if (numbers[i] + numbers[j] === target) {
-//           result = (numbers[i], numbers[j]);
+//           result.push(numbers[i], numbers[j]);
 //           break;
 //         }
 //       }
 //       if (result.length > 0) break;
 //     }
 //     return result;
-// }
-// console.log(findPair([10,20,10,40,50,60,70], 100));
+//   }
+//   console.log(findPair([10,20,10,40,50,60,70], 100));
 
 //------------------------------------------------------------------------------------------------------
 
@@ -855,10 +855,10 @@
 //     let count = arr.filter(element => Array.isArray(element)).reduce((a,c) => a.length >= c.length ? a.length : c.length,0);
 //     return count;
 // }
-// console.log(countArray([2,8,[6],3,3,5,3,4,[5,4]]));
-// console.log(countArray([2,8,[6,3,3],[4],5,[3,4,[5,4]]]));
-// console.log(countArray([2,8,[6,3,3],[4],5,[3,4,[5,4]], [23,56]]));
-// console.log(countArray([1,5,2,6,4,23,89]));
+// console.log(countArray([2,8,[6],3,3,5,3,4,[5,4]]));  // 2
+// console.log(countArray([2,8,[6,3,3],[4],5,[3,4,[5,4]]]));   // 3
+// console.log(countArray([2,8,[6,3,3],[4],5,[3,4,[5,4]], [23,56]]));  // 3
+// console.log(countArray([1,5,2,6,4,23,89]));  // 0
 
 //------------------------------------------------------------------------------------------------------------------------
 
