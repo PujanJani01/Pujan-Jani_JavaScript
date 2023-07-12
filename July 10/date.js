@@ -199,76 +199,35 @@
 //     console.log(Date());
 // },'1000');
 
-
 // console.log(Date().length);
 
-// let current = new Date();
-// console.log(current.getFullYear() + '-' + current.getMonth() + '-' + current.getDate());
-// console.log(current.getFullYear() + '/' + current.getMonth() + '/' + current.getDate());
-// console.log(current.getDate() + '/' + current.getMonth() + '/' + current.getFullYear());
-// console.log(current.getMonth() + '/' + current.getDate() + '/' + current.getFullYear());
-
 //-----------------------------------------------------------------------------------------------------
 
-// function is_date(input){
-//     return Object.prototype.toString.call(input) === '[object Date]';
-// };
-// console.log(is_date("October 13, 2014 11:13:00"));
-// console.log(is_date(new Date(86400000)));
-// console.log(is_date(new Date(99,5,24,11,33,30,0)));
-// console.log(is_date([1, 2, 4, 0]));
+// The Coordinated Universal Time (UTC) is 5.5 hours behind of India Standard Time (IST).
 
-//-----------------------------------------------------------------------------------------------------
+// let date = new Date();
 
-// function curday(separator){
-//     let current = new Date();
-//     return current.getMonth() + separator + current.getDate() + separator + current.getFullYear();
-// }
-// console.log(curday('/'));
-// console.log(curday('-'));
+// console.log(date.getFullYear());     // 2023
+// console.log(date.getUTCFullYear());  // 2023
 
-//-----------------------------------------------------------------------------------------------------
+// console.log(date.getMonth());     // 6
+// console.log(date.getUTCMonth());  // 6
 
-// function getDaysInMonth(month,year){
-//     let dt = new Date(year,month,0)
-//     return dt.getDate();
-// }   
-// console.log(getDaysInMonth(1, 2012));
-// console.log(getDaysInMonth(2, 2012));
-// console.log(getDaysInMonth(9, 2012));
-// console.log(getDaysInMonth(12, 2012));
 
-//-----------------------------------------------------------------------------------------------------
+// console.log(date.getDate());     // 11
+// console.log(date.getUTCDate());  // 11
 
-// function month_name(date){
-//    const months = ['January','February','March','April','May','June','July','Augest',
-//                         'September','October','November','December'];
-//     return months[date.getMonth()];
-// };
-// console.log(month_name(new Date("10/11/2009")));
-// console.log(month_name(new Date("11/13/2014")));
+// console.log(date.getHours());     // 16
+// console.log(date.getUTCHours());  // 10
 
-// function month_name(dt){
-//     var moment = require('moment');
-//     return moment(dt).format('MMMM');
-//  };
-//  console.log(month_name(new Date("10/11/2009")));
-//  console.log(month_name(new Date("11/13/2014")));
+// console.log(date.getMinutes());     
+// console.log(date.getUTCMinutes());  
 
-//-----------------------------------------------------------------------------------------------------
+// console.log(date.getSeconds());     // same as UTC
+// console.log(date.getUTCSeconds()); 
 
-// function compare_dates(date1,date2){
-//     if(date1 > date2){
-//         return "Date1 > Date2";
-//      } 
-//      else if(date1 < date2){
-//         return "Date1 < Date2";
-//      }
-//      return 'Date1 = Date2';
-// };
-// console.log(compare_dates(new Date('11/14/2013 00:00'), new Date('11/14/2013 00:00')));
-// console.log(compare_dates(new Date('11/14/2013 00:01'), new Date('11/14/2013 00:00')));
-// console.log(compare_dates(new Date('11/14/2013 00:00'), new Date('11/14/2013 00:01')));
+// console.log(date.getMilliseconds());     // same as UTC
+// console.log(date.getUTCMilliseconds()); 
 
 //-----------------------------------------------------------------------------------------------------
 
