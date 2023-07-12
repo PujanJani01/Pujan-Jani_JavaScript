@@ -54,3 +54,31 @@
 
 //-----------------------------------------------------------------------------------------------
 
+// console.log(isNaN(15));           // false
+// console.log(isNaN('15'));         // false
+// console.log(isNaN(15.211));       // false
+// console.log(isNaN(0.454));        // false
+// console.log(isNaN(null));         // false
+// console.log(isNaN(undefined));    // true
+// console.log(isNaN(''));           // false
+// console.log(isNaN());             // true
+// console.log(isNaN('abc'));        // true
+// console.log(isNaN('34abc'));      // true
+// console.log(isNaN('abc56'));      // true
+// console.log(isNaN(true));         // false
+// console.log(isNaN(false));        // false
+
+
+// console.log(Number.isNaN(15));           // false
+// console.log(Number.isNaN('15'));         // false
+// console.log(Number.isNaN(15.211));       // false
+// console.log(Number.isNaN(0.454));        // false
+// console.log(Number.isNaN(null));         // false
+// console.log(Number.isNaN(undefined));    // false
+// console.log(Number.isNaN(''));           // false
+// console.log(Number.isNaN());             // false
+// console.log(Number.isNaN('abc'));        // false
+// console.log(Number.isNaN('34abc'));      // false
+// console.log(Number.isNaN('abc56'));      // false
+// console.log(Number.isNaN(true));         // false
+// console.log(Number.isNaN(false));        // false

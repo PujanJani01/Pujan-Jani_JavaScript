@@ -8,6 +8,7 @@
 // console.log(Number(true));       // 1
 // console.log(Number(false));      // 0
 // console.log(Number());           // 0
+// console.log(Number('5a'));           // 0
 
 //-----------------------------------------------------------------------------------------------
 
@@ -23,6 +24,8 @@
 // console.log(parseInt(true));       // NaN
 // console.log(parseInt(false));      // NaN
 // console.log(parseInt());           // NaN
+// console.log(parseInt('3a'));           // 3
+// console.log(parseInt('a3'));           // NaN
 
 //-----------------------------------------------------------------------------------------------
 
@@ -37,6 +40,8 @@
 // console.log(parseFloat(true));       // NaN
 // console.log(parseFloat(false));      // NaN
 // console.log(parseFloat());           // NaN
+// console.log(parseFloat('3a'));           // 3
+// console.log(parseFloat('a3'));           // NaN
 
 //-----------------------------------------------------------------------------------------------
 
@@ -71,3 +76,37 @@
 // console.log(Number('3.453565').toPrecision(3));   // 3.45
 // console.log(Number(0).toPrecision(2));   // 0.0
 // console.log(Number('085').toPrecision(3));     // 85.0
+
+//-----------------------------------------------------------------------------------------------
+
+// console.log(Number.isFinite(0/0));          // false
+// console.log(Number.isFinite(1/0));          // false
+// console.log(Number.isFinite(0/1));          // true
+// console.log(Number.isFinite(0));            // true
+// console.log(Number.isFinite(10));           // true
+// console.log(Number.isFinite('10'));         // false
+// console.log(Number.isFinite('p'));          // false
+// console.log(Number.isFinite(''));           // false
+// console.log(Number.isFinite(null));         // false
+// console.log(Number.isFinite(undefined));    // false
+// console.log(Number.isFinite());             // false
+// console.log(Number.isFinite(true));         // false
+// console.log(Number.isFinite(false));        // false
+
+//-----------------------------------------------------------------------------------------------
+
+// console.log(Number.isInteger(0/0));          // false
+// console.log(Number.isInteger(1/0));          // false
+// console.log(Number.isInteger(0/1));          // true
+// console.log(Number.isInteger(0));            // true
+// console.log(Number.isInteger(10));           // true
+// console.log(Number.isInteger(10));           // true
+// console.log(Number.isInteger('10'));         // false
+// console.log(Number.isInteger('p'));          // false
+// console.log(Number.isInteger(''));           // false
+// console.log(Number.isInteger(null));         // false
+// console.log(Number.isInteger(undefined));    // false
+// console.log(Number.isInteger());             // false
+// console.log(Number.isInteger(true));         // false
+// console.log(Number.isInteger(false));        // false
+

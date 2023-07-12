@@ -138,12 +138,96 @@
 // function ageCalculator(date){
 //    let now = new Date();
 //    let dob = new Date(date);
-//    let age = Math.floor((now.getTime() - dob.getTime())/31556952000);
+//    let age = Math.floor((now.getTime() - dob.getTime())/(1000*3600*24*365));
 
 //    return 'You are ' + age + ' years old.'
 // }
 // console.log(ageCalculator('30 Jan 2005'));
 // console.log(ageCalculator('25 Oct 2005'));
+// console.log(ageCalculator('25 Oct 2500'));
+// console.log(ageCalculator('25 Oct 1000'));
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// function demiseAge(birthdate,demiseDate){
+//     let birth = new Date(birthdate);
+//     let demise = new Date(demiseDate);
+//     let age = Math.floor((demise.getTime() - birth.getTime())/(1000*3600*24*365));
+    
+//        return 'Died at age of ' + age + ' years.'
+// }
+// console.log(demiseAge('4 July 1967','1 May 2021'));
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// function countSunday(year){
+//   let fdate = new Date(year,0,1);
+//   let ldate = new Date(year,11,31);
+//   let count = 0;
+//   for(let i = fdate.getTime(); i<=ldate.getTime(); fdate.setTime(i+=86400000)){
+//      if(fdate.getDay() == 0){
+//         count ++;
+//      }
+//   }
+//   return count;
+// }
+// console.log(countSunday(2023));
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// function countWorkdays(year){
+//   let fdate = new Date(year,0,1);
+//   let ldate = new Date(year,11,31);
+//   let count = 0;
+//   for(let i = fdate.getTime(); i<=ldate.getTime(); fdate.setTime(i+=(1000*3600*24))){
+//      switch(fdate.getDay()){
+//          case 1:case 2:case 3:case 4:case 5:  count ++; break;
+//      }
+//   }
+//   return 'Total working days in ' + year + ' is ' + count;
+// }
+// console.log(countWorkdays(2023));
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// function countWeekends(year){
+//   let fdate = new Date(year,0,1);
+//   let ldate = new Date(year,11,31);
+//   let count = 0;
+//   for(let i = fdate.getTime(); i<=ldate.getTime(); fdate.setTime(i+=86400000)){
+//         if(fdate.getDay() == 0 || fdate.getDay() == 6){
+//             count++;
+//         }
+//   }
+//   return 'Total weekends in ' + year + ' is ' + count;
+// }
+// console.log(countWeekends(2023));
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// function countOfficeDays(duration='month', month=1, year = new Date().getFullYear()){
+//     let count = 0;
+//     switch(duration){
+//         case 'year':
+//             let yfdate = new Date(year,0,1);
+//             let yldate = new Date(year,11,31);
+//             for(let i = yfdate.getTime(); i<=yldate.getTime(); yfdate.setTime(i+=(1000*3600*24))){
+//                 switch(yfdate.getDay()){
+//                     case 1:case 2:case 3:case 4:case 5:  count ++; break;
+//                 }
+//              } break;
+//         case 'month':
+//             let mfdate = new Date(year,month,1);
+//             let mldate = new Date(year,month,31);
+//             for(let i = mfdate.getTime(); i<=mldate.getTime(); mfdate.setTime(i+=(1000*3600*24))){
+//                 switch(mfdate.getDay()){
+//                     case 1:case 2:case 3:case 4:case 5:  count ++; break;
+//                 }
+//              }  
+//     }
+//     return 'Total working days in ' + year + ' is ' + count;
+//   }
+//   console.log(countOfficeDays('month',2));
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 
