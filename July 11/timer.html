@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+        .clockBody{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            font-weight: bold;
+            background-color: blue;
+            border: 4px solid black;
+            border-radius: 1rem;
+            padding: 1rem 2rem;
+            color: white;
+            gap: 1rem;
+        }
+        p{
+            font-size: 3rem;
+            color: black;
+        }
+        h1{
+            font-size: 3rem;
+        }
+        h2{
+            font-size: 2.5rem;
+        }
+        .title{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1> My Birthday Counter</h2>
+        <h2> 30 January 2024</h2>
+    </div>
+    <div class="clockBody">
+            <div id ='day'>0</div>
+            <p>d</p>
+     
+
+            <div id ='hour'>0</div>
+            <p>h</p>
+
+ 
+            <div id ='minute'>0</div>
+            <p>m</p>
+
+
+            <div id ='second'>0</div>
+            <p>s</p>
+
+        
+    </div>
+    
+    <script>
+        let endDate = '30 January 2024';
+        setInterval(timer,1000)
+        function timer(){
+            const end = new Date(endDate);
+            const now = new Date();
+            const diff = (end - now) / 1000;
+            document.getElementById('day').innerHTML =  Math.floor(diff/3600/24);
+            document.getElementById('hour').innerHTML = ' : ' + Math.floor((diff/3600)%24);
+            document.getElementById('minute').innerHTML = ' : ' + Math.floor((diff/60)%60);
+            document.getElementById('second').innerHTML = ' : ' + Math.floor(diff%60);
+        }
+        timer();
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .clockBody{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            font-weight: bold;
+            background-color: blue;
+            border: 4px solid black;
+            border-radius: 1rem;
+            color: white;
+            flex-direction: column;
+        }
+        .time{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 4px solid black;
+        }
+        .date{
+            text-align: center;
+            font-size: 3rem;
+            padding: 1rem 0;
+        }
+        #minute{
+            border-left: 4px solid black;
+            border-right: 4px solid black;
+            padding: 2rem;
+        }
+        #second{
+            border-right: 4px solid black;
+            padding: 2rem;
+        }
+        #hour{
+            padding: 2rem;
+        }
+        #msecond{
+            padding: 2rem 1rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="clockBody" >
+        <div class="time">
+            <div id ='hour'></div>
+            <div id ='minute'></div>
+            <div id ='second'></div>
+            <div id ='msecond'></div>
+        </div>
+        <div class="date">
+            <div id="date"></div>
+        </div>
+    </div>
+    
+    
+    <script>
+        setInterval(currentTime,1);
+        function currentTime(){
+          let time  = new Date();
+          if(time.getSeconds() <= 9 ){
+            document.getElementById('second').innerHTML = '0'+ time.getSeconds();
+          }
+          else{
+            document.getElementById('second').innerHTML = time.getSeconds();
+          }
+          if(time.getSeconds() <= 9 ){
+            document.getElementById('hour').innerHTML = time.getHours();
+          }
+          else{
+            document.getElementById('hour').innerHTML = time.getHours();
+          }
+          
+          document.getElementById('minute').innerHTML = time.getMinutes();
+          if(time.getMilliseconds() <= 9 ){
+            document.getElementById('msecond').innerHTML = '00'+ time.getMilliseconds();
+          }
+          else if(time.getMilliseconds() < 100 ){
+            document.getElementById('msecond').innerHTML = '0' + time.getMilliseconds();
+          }
+          else{
+            document.getElementById('msecond').innerHTML = time.getMilliseconds();
+          }
+        }
+        currentTime();
+        document.getElementById('date').innerHTML = new Date().toDateString();
+        
+    </script>
+</body>
+</html>
