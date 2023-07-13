@@ -30,3 +30,46 @@
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 
+// function transform(format){
+//     let now = new Date();
+//     const formates = {
+//         YYYY : now.getFullYear(),
+//         MM : now.getMonth(),
+//         DD : now.getDate()
+//     }
+//     let a = format.replace('YYYY',formates['YYYY']);
+//     let b = a.replace('MM',formates['MM']);
+//     let c = b.replace('DD',formates['DD']);
+//     return c;
+// }
+// console.log(transform("YYYY-MM-DD"));
+// console.log(transform("YYYY-DD-MM"));
+// console.log(transform("DD-MM-YYYY"));
+// console.log(transform("MM-DD-YYYY"));
+// console.log(transform("YYYY/MM/DD"));
+// console.log(transform("YYYY/DD/MM"));
+// console.log(transform("DD/MM/YYYY"));
+// console.log(transform("MM/DD/YYYY"));
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// function transform(format){
+//     let now = new Date();
+//     let year = now.getFullYear();
+//     let month = now.getMonth();
+//     let date = now.getDate();
+//     let a = format.toUpperCase().replace('YYYY',year);
+//     let b = a.replace('MM',month);
+//     let c = b.replace('DD',date);
+//     return c;
+// }
+// console.log(transform("YYYY-MM-DD"));
+// console.log(transform("YYYY-DD-MM"));
+// console.log(transform("DD-MM-YYYY"));
+// console.log(transform("MM-DD-YYYY"));
+// console.log(transform("YYYY/MM/DD"));
+// console.log(transform("YYYY/DD/MM"));
+// console.log(transform("DD/MM/YYYY"));
+// console.log(transform("MM/DD/YYYY"));
+// console.log(transform("mm/dd/yyyy"));
+// console.log(transform("MM/DD/YY"));
