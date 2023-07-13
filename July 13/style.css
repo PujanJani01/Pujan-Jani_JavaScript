@@ -1,0 +1,10 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    max-width: 500px;
+}
+div,p{
+    padding: 1rem;
+    margin: 1rem;
+    border: 2px solid black;
+}
