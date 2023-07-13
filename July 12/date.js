@@ -231,3 +231,53 @@
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 
+// function format(date,region){
+//     let dt = new Date(date)
+//      return dt.toLocaleDateString(region,{year:'numeric', month:'long', day:'numeric'})
+// }
+// console.log(format('2005/01/30', 'en-IN'));   // January 30, 2005
+// console.log(format('2005/01/30', 'en-US'));   // 30 January, 2005
+// console.log(format('1/30/2005'));             // January 30, 2005
+// console.log(format('30/01/2005'));             // Invalid Date
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// let now = new Date();
+// console.log(now.toString());   // Thu Jul 13 2023 09:37:52 GMT+0530 (India Standard Time)
+// now.setDate(30);
+// console.log(now.toString());   // Sun Jul 30 2023 09:37:52 GMT+0530 (India Standard Time)
+
+// let now = new Date();
+// console.log(now.toString());
+// let newdt = new Date(now.setDate(now.getDate() + 5));
+// console.log(now.toString());
+// console.log(newdt.toString());
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// let now = new Date();
+// let newdt = new Date(now);
+// console.log(now.toString());   // Thu Jul 13 2023 09:46:06 GMT+0530 (India Standard Time)
+// newdt.setFullYear(2033);
+// console.log(now.toString());   // Thu Jul 13 2023 09:46:06 GMT+0530 (India Standard Time)
+// console.log(newdt.toString()); // Wed Jul 13 2033 09:46:06 GMT+0530 (India Standard Time)
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// function strToDate(date){
+//    let arr = date.split(',');
+//    let dt = new Date(...arr);
+//    return dt.toString();
+// }
+// console.log(strToDate("2005,0,30"));
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+// function strToDate(year,month,date){
+//    let dt = new Date(year,month,date);
+//    return dt.toString();
+// }
+// console.log(strToDate(2005,0,30));
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+

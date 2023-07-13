@@ -82,3 +82,82 @@
 // console.log(Number.isNaN('abc56'));      // false
 // console.log(Number.isNaN(true));         // false
 // console.log(Number.isNaN(false));        // false
+
+
+//-----------------------------------------------------------------------------------------------
+
+// Number vs parseInt vs parseFloat
+
+// let a = '5.8 feet'
+
+// console.log(Number(a));     // NaN
+// console.log(parseInt(a));   // 5  
+// console.log(parseFloat(a));   // 5.8
+
+
+// let a = 'html5'
+
+// console.log(Number(a));     // NaN
+// console.log(parseInt(a));   // NaN  
+// console.log(parseFloat(a));   // NaN
+
+
+// console.log(typeof Number(5.8));     // number
+// console.log(typeof parseInt(5.8));   // number 
+// console.log(typeof parseInt('5.8'));   // number 
+// console.log(typeof parseFloat(5.8));   // number
+// console.log(typeof parseFloat('5.8'));   // number
+
+//---------------------------------------------------------------------------------------------
+
+// console.log(parseInt(101,2));    // convert binary number to decimal - 5
+// console.log(parseInt(1019,2));    // 5
+// console.log(parseInt(4101,2));    // NaN
+
+//-----------------------------------------------------------------------------------------------
+
+// let arr = [1,2,3,4];
+
+// console.log(Number(arr));      // NaN
+// console.log(Number(...arr));   // 1
+// console.log(Number(arr[3]));   // 4
+
+// console.log(parseInt(arr));      // 1
+// console.log(parseInt(...arr));   // 1
+// console.log(parseInt(arr[3]));   // 4
+
+// console.log(parseFloat(arr));      // 1
+// console.log(parseFloat(...arr));   // 1
+// console.log(parseFloat(arr[3]));   // 4
+
+
+// let obj = {a:10,b:30,c:56};
+
+// console.log(Number(obj));      // NaN
+// console.log(Number(...obj));   // TypeError: Found non-callable @@iterator
+// console.log(Number(obj.b));    // 30
+
+// console.log(parseInt(obj));      // NaN
+// console.log(parseInt(obj.b));    // 30
+
+// console.log(parseFloat(obj));      // NaN
+// console.log(parseFloat(obj.b));    // 30
+
+//-----------------------------------------------------------------------------------------------
+
+// console.log(Number(30,10,45));      // 30
+// console.log(parseInt(30,10,45));    // 30
+// console.log(parseFloat(30,10,45));  // 30
+
+// console.log(Number(3+'5'));         // 35
+// console.log(parseInt(3+'5'));       // 35
+// console.log(parseFloat(3 +'5'));    // 35
+
+// console.log(Number(3+'a'));         // NaN
+// console.log(parseInt(3+'a'));       // 3
+// console.log(parseFloat(3 +'a'));    // 3
+
+// console.log(Number(3+'3a'));         // NaN
+// console.log(parseInt(3+'3a'));       // 33
+// console.log(parseFloat(3 +'3a'));    // 33
+
