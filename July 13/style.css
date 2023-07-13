@@ -7,4 +7,10 @@ div,p{
     padding: 1rem;
     margin: 1rem;
     border: 2px solid black;
+    text-align: center;
+}
+button{
+    cursor: pointer;
+    padding: 1rem 3rem;
+    margin: 10px;
 }
