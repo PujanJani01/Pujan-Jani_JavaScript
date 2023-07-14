@@ -23,6 +23,51 @@ document.getElementById('div1').appendChild(comment);
 
 // console.log(document.querySelectorAll('#para'));
 
-console.log(document.querySelectorAll('.para'));
+//----------------------------------------------------------------------------------------------
 
-document.getElementsByClassName('para')[0].innerHTML = 'pujan'
+// getElementByClassName vs querySelectorAll
+
+// console.log(document.getElementsByClassName('para'));   // return static NodeList 
+// console.log(document.querySelectorAll('.para'));        // return live HTMLCollection
+
+// let para = document.createElement('p');
+// para.className = 'para';
+// let paraText = document.createTextNode('Hello World!');
+// para.appendChild(paraText);
+// let target = document.getElementById('div1');
+// target.insertBefore(para,target.childNodes[0]);
+
+//----------------------------------------------------------------------------------------------
+
+// let a = document.getElementById('div1').getElementsByTagName('p');
+// let b = a[a.length-1].className = 'hello';
+// console.log(b);   // hello
+
+
+// let a = document.createElement('span');
+// a.className = 'pujan';
+
+// console.log(a);
+// console.log(a.classList.contains('pujan'));
+// console.log(a.classList.contains('jani'));
+// a.classList.add('jani');
+
+// console.log(a);
+
+// a.classList.remove('pujan');
+
+// console.log(a);
+
+// console.log(a.classList.contains('pujan'));
+// console.log(a.classList.contains('jani'));
+
+//----------------------------------------------------------------------------------------------
+
+// let a = document.getElementById('div1').getElementsByTagName('p');
+// console.log(a);
+
+// console.log(a[0].innerHTML);
+
+// a[0].innerHTML = 'hello guys!';
+
+// console.log(a[0].innerHTML);
