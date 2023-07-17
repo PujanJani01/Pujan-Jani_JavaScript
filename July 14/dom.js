@@ -185,9 +185,9 @@ document.getElementById('input').addEventListener("cut", () =>{
 
 })
 
-document.getElementById('keydown').addEventListener("keydown", function(){
-    document.getElementById('keyevent').style.background = this.value;
-})  
+// document.getElementById('keydown').addEventListener("keydown", function(){
+//     document.getElementById('keyevent').style.background = this.value;
+// })  
 
 var myWindow;
 function windowOpen(){
@@ -197,3 +197,30 @@ function windowOpen(){
 function windowClose(){
     myWindow.close();
 }
+
+function scrollbyUp(){
+    window.scrollBy(0,-50);
+}
+function scrollbyDown(){
+    window.scrollBy(0,50);
+}
+
+function scrolltoTop(){
+    window.scrollTo(0,0)
+}
+
+
+// window.addEventListener('wheel', (event) =>{
+//     if(event.deltaY < 0){
+//         console.log("Scroll Up");
+//     }
+//     else if(event.deltaY > 0){
+//         console.log("Scroll Down");
+//     }
+// })
+
+// window.addEventListener('scroll', function(){
+//     if(window.scrollY > 100){
+//         alert("Your system has virus!!")
+//     }
+// })
