@@ -1,0 +1,12 @@
+#keyevent{
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    max-width: 15%;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+#keyevent > input{
+    margin: 10px 0;
+    padding: 5px;
+}

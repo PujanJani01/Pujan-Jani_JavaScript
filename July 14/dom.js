@@ -1,21 +1,4 @@
-function txt(){
-    let para = document.createElement('h2');
-    let paraText = document.createTextNode('Hello World!');
-    para.appendChild(paraText);
-    // document.getElementById('div1').appendChild(para);
 
-    let target = document.getElementById('div1');
-    target.insertBefore(para,target.childNodes[0]);
-    
-    // let comment = document.createComment('This is comment!');
-    // document.getElementById('div1').appendChild(comment);
-}
-
-let comment = document.createComment('This is comment!');
-document.getElementById('div1').appendChild(comment);
-
-
-//-----------------------------------------------------------------------------------------------
 
 // console.log(document.getElementById('div1').getElementsByClassName('para'));
 
@@ -129,10 +112,88 @@ document.getElementById('div1').appendChild(comment);
 
 //-----------------------------------------------------------------------------------------------
 
-// console.log(document.getElementById('para').getAttributeNames());
+// console.log(document.getElementById('para').getAttributeNames());   // return Array
 
 // let t = document.getElementById('para');
 // console.log(t.getAttributeNode('id'));   // id = 'para'
 // console.log(t.getAttributeNode('class'));   // class = 'para'
 
+//-----------------------------------------------------------------------------------------------
+function txt(){
+    let para = document.createElement('h2');
+    let paraText = document.createTextNode('Hello World!');
+    para.appendChild(paraText);
+    // document.getElementById('div1').appendChild(para);
 
+    let target = document.getElementById('div1');
+    target.insertBefore(para,target.childNodes[0]);
+    
+    // let comment = document.createComment('This is comment!');
+    // document.getElementById('div1').appendChild(comment);
+}
+
+let comment = document.createComment('This is comment!');
+document.getElementById('div1').appendChild(comment);
+
+function txt2(){
+    alert('context menu event');
+}
+
+document.getElementById('dbl').ondblclick = txt3;
+function txt3(){
+    document.getElementById('dbl').style.color = "red";
+}
+
+document.getElementById('mouse').addEventListener("mouseenter", mouseenter)
+
+function mouseenter(){
+    this.innerHTML = "Entered";
+}   
+
+document.getElementById('mouse').addEventListener("mouseleave", () => {
+    document.getElementById('mouse').innerHTML = "Mouse leave";
+})
+
+document.getElementById('mouse').addEventListener("click" , () =>{
+    document.getElementById('mouse').removeEventListener("mouseenter", mouseenter);
+})
+
+document.getElementById('copy').addEventListener("copy", () => {
+    document.getElementById('copy').style.backgroundColor = 'blue';
+    document.getElementById('copy').style.color = 'white';
+    document.getElementById('copy').style.width = 'min-content';
+})
+
+document.getElementById('input').addEventListener("focus", () =>{
+    document.getElementById('input').style.borderRadius = "10px";
+})
+
+document.getElementById('input').addEventListener("focusin", () =>{
+    document.getElementById('input').style.borderColor = "blue";
+})
+
+document.getElementById('input').addEventListener("focusout", () =>{
+    document.getElementById('input').style.background = "pink";
+})
+
+document.getElementById('input').addEventListener("paste", () =>{
+    document.getElementById('input').style.backgroundColor = "#f0f0f0";
+})
+
+document.getElementById('input').addEventListener("cut", () =>{
+    document.getElementById('input').style.backgroundColor = "red";
+
+})
+
+document.getElementById('keydown').addEventListener("keydown", function(){
+    document.getElementById('keyevent').style.background = this.value;
+})  
+
+var myWindow;
+function windowOpen(){
+   myWindow = window.open("https://saeculumsolutions.com/","","width=600px, height=500px, top=200px, left=500px");
+}
+
+function windowClose(){
+    myWindow.close();
+}

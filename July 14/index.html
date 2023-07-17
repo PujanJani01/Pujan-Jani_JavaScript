@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button onclick="txt()">Click</button>
     <div id="div1" class="divClass">
         <p id="para" class="para">How are you?</p>
         <!-- <p id="para" class="para">How are you?</p> -->
@@ -16,6 +16,29 @@
         <p>JS in amazing!</p>
         <a href="https://google.com" class="link"  target="_blank">click to go to google</a>
     </div>
+    <hr>
+    <br>
+    <button onclick="txt()">Click</button>
+    <p oncontextmenu="txt2()">Context menu</p>
+    <p id="dbl">Double Click</p>
+    <p id="mouse">Mouse enter</p>
+    <p id="copy">Copy</p>
+    
+    <input type="text" id="input">
     <script src="dom.js"></script>
+
+    <div id="keyevent">
+        <label for="keydown">keydown</label>
+        <input type="text" id="keydown" onkeydown="document.getElementById('keyevent').style.background = this.value" placeholder="enter color">
+
+        <label for="keyup">keyup</label>
+        <input type="text" id="keyup" onkeyup="document.getElementById('keyevent').style.background = this.value" placeholder="enter color">
+
+        <label for="keypress">keypress</label>
+        <input type="text" id="keypress" onkeypress="document.getElementById('keyevent').style.background = this.value" placeholder="enter color">
+    </div>
+
+    <button onclick="windowOpen()">Window Open</button>
+    <button onclick="windowClose()">Window Close</button>
 </body>
 </html>
