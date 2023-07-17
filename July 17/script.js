@@ -13,16 +13,20 @@ for(let i = 0; i<nav.length; i++){
     }
 }
 
-// let btn = document.getElementById('primary');
+
 let ul = document.getElementById('nav-list');
+let bar = document.getElementsByClassName('bar')[0];
 
-const mediaQuery = window.matchMedia('(max-width: 576px)');
+bar.addEventListener('click', () => {
+    document.getElementsByClassName("menubar")[0].style.display = "block";
+     document.getElementsByClassName("menubar")[0].style.left = "0%";
+    ul.style.display = "flex"; 
+    document.getElementsByClassName("menubar")[0].appendChild(ul);
+    
+})
 
-function menubar(){
-    if(mediaQuery.matches){
-        ul.append(btn);
-        btn.remove();
-    }
-}
+let closebtn = document.getElementsByClassName('closebtn')[0];
 
-mediaQuery.addEventListener("change",menubar);
+closebtn.addEventListener("click", () =>{
+    document.getElementsByClassName("menubar")[0].style.display = "none";
+})

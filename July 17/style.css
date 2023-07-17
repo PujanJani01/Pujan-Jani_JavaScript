@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    position: relative;
+}
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -10,7 +13,7 @@
     padding: 10px;
     background-color: whitesmoke;
 }
-ul{
+#nav-list{
     display: flex;
     list-style: none;
 }
@@ -31,10 +34,40 @@ a{
     cursor: pointer;
     font-size: 18px;
 }
-
-@media screen and (max-width: 576px){
-    ul{
+.bar{
+    display: none;
+    padding: 0.5rem;
+    border: solid;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+.btndiv{
+    display: flex;
+}
+.menubar{
+    display: none;
+    background-color: rgb(193, 192, 192);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: -100%;
+}
+.closebtn{
+    position: absolute;
+    right: 1%;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+}
+@media only screen and (max-width: 576px){
+    #nav-list{
         flex-direction: column;
+        align-items: center;
         display: none;
+    }
+    .bar{
+        display: block;
     }
 }
