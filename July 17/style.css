@@ -5,6 +5,7 @@
 }
 body{
     position: relative;
+    background-color: ;
 }
 .navbar{
     display: flex;
@@ -42,24 +43,30 @@ a{
     margin-left: 10px;
     font-size: 18px;
 }
+
 .btndiv{
     display: flex;
 }
 .menubar{
-    display: none;
     background-color: rgb(193, 192, 192);
-    height: 100vh;
-    width: 100%;
+    min-height: 100vh;
+    min-width: 100%;
     position: absolute;
     top:0;
-    left: -100%;
+    right: 100%;
+    transition: all 2s;
 }
+
 .closebtn{
     position: absolute;
     right: 1%;
     background-color: transparent;
     border: none;
     font-size: 25px;
+}
+
+.active{
+    border-bottom: solid;
 }
 @media only screen and (max-width: 576px){
     #nav-list{
@@ -71,3 +78,4 @@ a{
         display: block;
     }
 }
+
