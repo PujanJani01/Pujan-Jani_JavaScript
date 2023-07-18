@@ -489,11 +489,87 @@ console.log(insert('We are doing some exercises.','JavaScript ',18)); */
 // text.slice(-12, -6);
 // console.log(text);  // "Apple, Banana, Kiwi"
 
+
+/* function abbrev_name(fullname){
+    let strArr = fullname.split(" ");
+    return strArr[0] +" " + strArr[1].charAt(0) + '.';
+    // return fullname.slice(0,fullname.indexOf(" ")+1) + fullname.charAt(fullname.indexOf(" ")+1) + '.' 
+}
+console.log(abbrev_name("Robin Singh")); */
+
+
+/* function swapcase(str){
+    let strArr = str.split('');
+    let res = strArr.map(el =>{
+        if(el.charCodeAt(0) >= 65 && el.charCodeAt(0) <= 90)
+           return el.toLowerCase();
+        else if(el.charCodeAt(0) >= 97 && el.charCodeAt(0) <= 122)
+        return el.toUpperCase();
+    })
+    return res.join('');
+}
+console.log(swapcase('AaBbc')); */
+
+// function swapcase(str){
+//    let strArr = str.split('');
+//    let res = strArr.map(el =>{
+//     if(el == el.toUpperCase())
+//         return el.toLowerCase();
+//     else return el.toUpperCase();
+//    })
+//    return res.join('');
+// }
+// console.log(swapcase('AaBbc'));
+
+/* function camelize(str){
+   let strArr = str.split(' ');
+   let res = strArr.map(el => el[0].toUpperCase() + el.slice(1)).join('');
+   return res[0].toLowerCase() + res.slice(1);
+}
+console.log(camelize("JavaScript Exercises"));
+console.log(camelize("JavaScript exercises"));
+console.log(camelize("JavaScriptExercises")); */
+
+
+/* function uncamelize(str, separator = " "){
+let strArr = str.split('');
+let capital = strArr.map(letter =>{
+    if(letter == letter.toUpperCase()){
+        return separator + letter.toLowerCase();
+    }
+    return letter;
+})
+return capital.join('');
+}
+console.log(uncamelize('helloWorld'));
+console.log(uncamelize('helloWorld','-'));
+console.log(uncamelize('helloWorld','_')); */
+
+/* function string_chop(str,length=str.length){
+  let strArr = str.split('');
+  let arr = [];
+for(let i=0; i< strArr.length; i+=length)
+{
+    arr.push(strArr.slice(i,i+length).join(''));
+}
+  return arr;
+}
+console.log(string_chop('w3resource'));
+console.log(string_chop('w3resource',2));
+console.log(string_chop('w3resource',3)); */
+
+// function count(str,countStr){
+//     return str.toLowerCase().split(' ').filter(word => word == countStr).length;
+// }
+// console.log(count("The quick brown fox jumps over the lazy dog", 'the'));
+// console.log(count("The quick brown fox jumps over the lazy dog", 'dog'));
+
 //-------------------------------------------------------------------------------------------------
 
 // Function Questions
 
 /* function sayHello(){
+
     console.log("Hello!");
 }
 sayHello();  // 25 */
@@ -761,3 +837,7 @@ console.log(exponent(6));  // 216 */
 
 //-------------------------------------------------------------------------------------------------
 
+// console.log(Math.abs(11).toString());       // 11
+// console.log(Math.abs(11).toString(2));      // 1011
+
+//-------------------------------------------------------------------------------------------------
