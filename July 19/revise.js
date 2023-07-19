@@ -209,12 +209,284 @@ console.log(arr1); // [{ a: 23, b: 45, c: 5 }]
 console.log(arr2); // [{ a: 23, b: 45, c: 5 }]
 console.log(obj1); // { a: 23, b: 45, c: { f: 30 } } */
 
-let obj1 = { a: 23, b: 45, c: { f: 990 } };
+/* let obj1 = { a: 23, b: 45, c: { f: 990 } };
 let arr1 = [{ ...obj1 }];
 let arr2 = arr1;
 obj1.c.f = 30;
-console.log(arr1);
+console.log(arr1); // [{ a: 23, b: 45, c: { f: 30 } }]
+console.log(arr2); // [{ a: 23, b: 45, c: { f: 30 } }]
+console.log(obj1); // { a: 23, b: 45, c: { f: 30 } } */
+
+/* let obj1 = { a: 23, b: 45 };
+let arr1 = Object.assign([], [{ ...obj1 }]);
+let arr2 = arr1;
+arr2[0].c = 5;
+console.log(arr1); // [{a: 23, b: 45, c: 5}]
+console.log(arr2); // [{a: 23, b: 45, c: 5}]
+console.log(obj1); // {a: 23, b: 45} */
+
+/* let obj1 = { a: 23, b: 45 };
+let arr1 = Object.assign({}, [{ ...obj1 }]);
+let arr2 = arr1;
+arr2[0].c = 5;
+console.log(arr1); // { '0': {a: 23, b: 45, c: 5}}
+console.log(arr2); // { '0': {a: 23, b: 45, c: 5}}
+console.log(obj1); // {a: 23, b: 45, c: 5} */
+
+/* let obj1 = { a: 23, b: 45 };
+let arr1 = [{ ...obj1 }];
+let arr2 = Object.assign([], arr1);
+arr2[0].c = 5;
+console.log(arr1);  //  [{a: 23, b: 45, c: 5 }]
+console.log(arr2);  //  [{a: 23, b: 45, c: 5 }]
+console.log(obj1);  //  {a: 23, b: 45 } */
+
+/* let obj1 = { a: 23, b: 45 };
+let arr1 = [{ ...obj1 }];
+let arr2 = Object.assign([], [{...arr1[0]}]);
+arr2[0].c = 5;
+console.log(arr1);  // [{ a: 23, b: 45}]
+console.log(arr2);  // [{ a: 23, b: 45, c: 5}]
+console.log(obj1);  //  {a: 23, b: 45 } */ 
+
+/* let obj1 = { a: 34, b: 56, c: { h: 77, j: 90 } };
+let obj2 = Object.assign({}, obj1);
+let obj3 = Object.assign({ ...obj2 }, { c: { k: 44 } });
+obj2.c.h = 67;
+console.log(obj1, obj2, obj3); 
+// { a: 34, b: 56, c: { h: 67, j: 90 } }
+// { a: 34, b: 56, c: { h: 67, j: 90 } }
+// { a: 34, b: 56, c: { k: 44} } */
 
 
-  
+//------------------------------------------------------------------------------------------------------
+
+/* function addFullName(arr){
+    arr.forEach(person => person.full_name = person.first_name + " " + person.last_name);
+    return arr;
+}
+const names  = [
+    {first_name: "Handnm", last_name: "L demo"},
+    {first_name: "Q Wei", last_name: "Alxezx"},
+    {first_name: "Pqwern", last_name: "Ruse"},
+    {first_name: "Wiruyn", last_name: "Ruby"},
+    {first_name: "Erpso", last_name: "Loal"},
+    {first_name: "Demors", last_name: "Poet"},
+    {first_name: "Aleos", last_name: "Lkeu"},
+]
+console.log(addFullName(names)); */
+
+
+/* function add_isMature(arr){
+    arr.forEach(person =>{
+        if(person.age >= 18)
+            person.isMature = "Yes"
+        else
+           person.isMature = "No";
+    });
+    return arr;
+}
+const users  = [
+    {first_name: "Handnm", last_name: "L demo", age: 17},
+    {first_name: "Q Wei", last_name: "Alxezx", age: 30},
+    {first_name: "Pdeq Twern", last_name: "Ruse", age: 22},
+    {first_name: "Widfruyn", last_name: "Ruby", age: 11},
+    {first_name: "Erdfg Pso", last_name: "Loal", age: 34},
+    {first_name: "Dedfgmors", last_name: "Poet", age: 60},
+    {first_name: "Ale4tos", last_name: "Lkeu", age: 16},
+]
+console.log(add_isMature(users)); */
+
+
+/* let arr = [1,2,3,5]
+console.log(arr[-1]);       // undefined
+console.log(arr.at(-1));    // 5 */
+
+
+/* function printArrayItems(arr){
+    const flatArr = nestedArray.flat(Infinity);
+    for(let value of flatArr){
+        console.log(value);
+    }
+}
+const nestedArray = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    {a:10, b:11, c: 12}
+];
+printArrayItems(nestedArray); */
+
+
+/* function printObjItems(obj){
+    for(let key in obj){
+        if(typeof obj[key] == "object")
+            printObjItems(obj[key])
+        else 
+            console.log(obj[key]);
+    }
+}
+const nestedObject = {
+    name: "Vishal Kukreja",
+    age: 32,
+    address: {
+      street: "123 Mumbai fashion St",
+      city: "Midtown",
+      state: "MH",
+    },
+    hobbies: ["reading", "drawing", "gardening"],
+  };
+ printObjItems(nestedObject); */
+
+
+/*  function isContainsNumber(arr){
+    return arr.some(el => typeof el === "number");
+ }
+ console.log(isContainsNumber([1,2,3]));
+ console.log(isContainsNumber(["1", "a", "h"]));
+ console.log(isContainsNumber(["a", 3 , "gh"]));
+ console.log(isContainsNumber(["a", "3df", "gh"]));  */
+
+
+/* function numToString(arr){
+   return arr.map(el => String(el));
+}
+ const numbers = [1, 2, 3, 4];
+ console.log(numToString(numbers)); */
+
+
+/* const numbers = [1, 2, 3, 4];
+const doubled = numbers.map((num, index, array) => {
+  array.push(num * 2);
+  return num * 2;
+});
+console.log(numbers, doubled);  // [1,2,3,4,2,4,6,8] [2,4,6,8] */
+
+
+/* var donuts = [
+	{
+		"id": "0001",
+		"type": "donut",
+		"name": "Cake",
+		"ppu": 0.55,
+		"batters":
+		{
+			"batter":
+				[
+					{ "id": "1001", "type": "Regular" },
+					{ "id": "1002", "type": "Chocolate" },
+					{ "id": "1003", "type": "Blueberry" },
+					{ "id": "1004", "type": "Devil's Food" }
+				]
+		},
+		"topping":
+			[
+				{ "id": "5001", "type": "None" },
+				{ "id": "5002", "type": "Glazed" },
+				{ "id": "5005", "type": "Sugar" },
+				{ "id": "5007", "type": "Powdered Sugar" },
+				{ "id": "5006", "type": "Chocolate with Sprinkles" },
+				{ "id": "5003", "type": "Chocolate" },
+				{ "id": "5004", "type": "Maple" }
+			]
+	},
+	{
+		"id": "0002",
+		"type": "donut2",
+		"name": "Raised",
+		"ppu": 0.45,
+		"batters":
+		{
+			"batter":
+				[
+					{ "id": "1001", "type": "Regular" }
+				]
+		},
+		"topping":
+			[
+				{ "id": "5001", "type": "None" },
+				{ "id": "5002", "type": "Glazed" },
+				{ "id": "5005", "type": "Sugar" },
+				{ "id": "5003", "type": "Chocolate" },
+				{ "id": "5004", "type": "Maple" }
+			]
+	},
+	{
+		"id": "0003",
+		"type": "donut3",
+		"name": "Old Fashioned",
+		"ppu": 0.55,
+		"batters":
+		{
+			"batter":
+				[
+					{ "id": "1001", "type": "Regular" },
+					{ "id": "1002", "type": "Chocolate" }
+				]
+		},
+		"topping":
+			[
+				{ "id": "5001", "type": "None" },
+				{ "id": "5002", "type": "Glazed" },
+				{ "id": "5003", "type": "Chocolate" },
+				{ "id": "5004", "type": "Maple" }
+			]
+	},
+	{
+		"id": "0004",
+		"type": "donut1",
+		"name": "Old Fashioned",
+		"ppu": 0.5,
+		"batters":
+		{
+			"batter":
+				[
+					{ "id": "1001", "type": "Regular" }
+				]
+		},
+		"topping":
+			[
+				{ "id": "5001", "type": "None" },
+				{ "id": "5002", "type": "Glazed" },
+				{ "id": "5003", "type": "Maple" }
+			]
+	}
+] */
+
+/* function chocolateTopping(arr){
+    return arr.filter(donut => donut.topping.find(topping => topping.type === "Chocolate"));
+}
+console.log(chocolateTopping(donuts)); */
+
+/* function chocolateTopping_regularBatter(arr){
+    return arr.filter(donut => donut.topping.find(topping => topping.type === "Chocolate") && donut.batters.batter.find(batter => batter.type === "Regular"));
+}
+console.log(chocolateTopping_regularBatter(donuts)); */
+
+/* function chocolateSugarTopping(arr){
+    return arr.filter(donut => donut.topping.find(topping => topping.type === "Chocolate") && donut.topping.find(topping => topping.type === "Sugar"));
+}
+console.log(chocolateSugarTopping(donuts)); */
+
+/* function greterThanPpu(arr,num){
+    return arr.filter(donut => donut.ppu > num);
+}
+console.log(greterThanPpu(donuts,0.5)); */
+
+/* function allBatters(arr){
+    return arr.map(donut => donut.batters);
+}
+console.log(allBatters(donuts)); */
+
+/* function twoOrGreaterBatter(arr){
+    return arr.filter(donut => donut.batters.batter.length >= 2);
+}
+console.log(twoOrGreaterBatter(donuts)); */
+
+
+/* function shortForm(str){
+    return str.split(" ").map(word => word[0].toUpperCase()).join("");
+}
+console.log(shortForm("George Raymond Richard Martin"));
+console.log(shortForm("george raymond Richard Martin")); */
 
