@@ -170,7 +170,7 @@ console.log(source);  // { a: { b: { d: 3 } } } */
 let a = {  x: 34,  y: 56 }
 operationObj(a);
 console.log(a);  // {  x: 34,  y: 56 } */
-  
+
 /* function operationObj(obj) {
     obj = {...obj, c: 12};
     return obj;
@@ -190,7 +190,7 @@ let a = {
 }
 operationObj(a);
 console.log(a);  // {x:34, y: 56, z: {x:34, y:56, c: 12}} */
-  
+
 
 /* let obj1 = { a: 23, b: 45 };
 let arr1 = [{ ...obj1 }];
@@ -247,7 +247,7 @@ let arr2 = Object.assign([], [{...arr1[0]}]);
 arr2[0].c = 5;
 console.log(arr1);  // [{ a: 23, b: 45}]
 console.log(arr2);  // [{ a: 23, b: 45, c: 5}]
-console.log(obj1);  //  {a: 23, b: 45 } */ 
+console.log(obj1);  //  {a: 23, b: 45 } */
 
 /* let obj1 = { a: 34, b: 56, c: { h: 77, j: 90 } };
 let obj2 = Object.assign({}, obj1);
@@ -364,93 +364,93 @@ console.log(numbers, doubled);  // [1,2,3,4,2,4,6,8] [2,4,6,8] */
 
 
 /* var donuts = [
-	{
-		"id": "0001",
-		"type": "donut",
-		"name": "Cake",
-		"ppu": 0.55,
-		"batters":
-		{
-			"batter":
-				[
-					{ "id": "1001", "type": "Regular" },
-					{ "id": "1002", "type": "Chocolate" },
-					{ "id": "1003", "type": "Blueberry" },
-					{ "id": "1004", "type": "Devil's Food" }
-				]
-		},
-		"topping":
-			[
-				{ "id": "5001", "type": "None" },
-				{ "id": "5002", "type": "Glazed" },
-				{ "id": "5005", "type": "Sugar" },
-				{ "id": "5007", "type": "Powdered Sugar" },
-				{ "id": "5006", "type": "Chocolate with Sprinkles" },
-				{ "id": "5003", "type": "Chocolate" },
-				{ "id": "5004", "type": "Maple" }
-			]
-	},
-	{
-		"id": "0002",
-		"type": "donut2",
-		"name": "Raised",
-		"ppu": 0.45,
-		"batters":
-		{
-			"batter":
-				[
-					{ "id": "1001", "type": "Regular" }
-				]
-		},
-		"topping":
-			[
-				{ "id": "5001", "type": "None" },
-				{ "id": "5002", "type": "Glazed" },
-				{ "id": "5005", "type": "Sugar" },
-				{ "id": "5003", "type": "Chocolate" },
-				{ "id": "5004", "type": "Maple" }
-			]
-	},
-	{
-		"id": "0003",
-		"type": "donut3",
-		"name": "Old Fashioned",
-		"ppu": 0.55,
-		"batters":
-		{
-			"batter":
-				[
-					{ "id": "1001", "type": "Regular" },
-					{ "id": "1002", "type": "Chocolate" }
-				]
-		},
-		"topping":
-			[
-				{ "id": "5001", "type": "None" },
-				{ "id": "5002", "type": "Glazed" },
-				{ "id": "5003", "type": "Chocolate" },
-				{ "id": "5004", "type": "Maple" }
-			]
-	},
-	{
-		"id": "0004",
-		"type": "donut1",
-		"name": "Old Fashioned",
-		"ppu": 0.5,
-		"batters":
-		{
-			"batter":
-				[
-					{ "id": "1001", "type": "Regular" }
-				]
-		},
-		"topping":
-			[
-				{ "id": "5001", "type": "None" },
-				{ "id": "5002", "type": "Glazed" },
-				{ "id": "5003", "type": "Maple" }
-			]
-	}
+    {
+        "id": "0001",
+        "type": "donut",
+        "name": "Cake",
+        "ppu": 0.55,
+        "batters":
+        {
+            "batter":
+                [
+                    { "id": "1001", "type": "Regular" },
+                    { "id": "1002", "type": "Chocolate" },
+                    { "id": "1003", "type": "Blueberry" },
+                    { "id": "1004", "type": "Devil's Food" }
+                ]
+        },
+        "topping":
+            [
+                { "id": "5001", "type": "None" },
+                { "id": "5002", "type": "Glazed" },
+                { "id": "5005", "type": "Sugar" },
+                { "id": "5007", "type": "Powdered Sugar" },
+                { "id": "5006", "type": "Chocolate with Sprinkles" },
+                { "id": "5003", "type": "Chocolate" },
+                { "id": "5004", "type": "Maple" }
+            ]
+    },
+    {
+        "id": "0002",
+        "type": "donut2",
+        "name": "Raised",
+        "ppu": 0.45,
+        "batters":
+        {
+            "batter":
+                [
+                    { "id": "1001", "type": "Regular" }
+                ]
+        },
+        "topping":
+            [
+                { "id": "5001", "type": "None" },
+                { "id": "5002", "type": "Glazed" },
+                { "id": "5005", "type": "Sugar" },
+                { "id": "5003", "type": "Chocolate" },
+                { "id": "5004", "type": "Maple" }
+            ]
+    },
+    {
+        "id": "0003",
+        "type": "donut3",
+        "name": "Old Fashioned",
+        "ppu": 0.55,
+        "batters":
+        {
+            "batter":
+                [
+                    { "id": "1001", "type": "Regular" },
+                    { "id": "1002", "type": "Chocolate" }
+                ]
+        },
+        "topping":
+            [
+                { "id": "5001", "type": "None" },
+                { "id": "5002", "type": "Glazed" },
+                { "id": "5003", "type": "Chocolate" },
+                { "id": "5004", "type": "Maple" }
+            ]
+    },
+    {
+        "id": "0004",
+        "type": "donut1",
+        "name": "Old Fashioned",
+        "ppu": 0.5,
+        "batters":
+        {
+            "batter":
+                [
+                    { "id": "1001", "type": "Regular" }
+                ]
+        },
+        "topping":
+            [
+                { "id": "5001", "type": "None" },
+                { "id": "5002", "type": "Glazed" },
+                { "id": "5003", "type": "Maple" }
+            ]
+    }
 ] */
 
 /* function chocolateTopping(arr){
@@ -489,4 +489,413 @@ console.log(twoOrGreaterBatter(donuts)); */
 }
 console.log(shortForm("George Raymond Richard Martin"));
 console.log(shortForm("george raymond Richard Martin")); */
+
+
+/* function abc(str){
+    let words = str.split(" ");
+    return  words.map(word =>{
+        if(word.length >3){
+            return word[0] + word.slice(1,-1).length + word.at(-1)
+        }
+        return word;
+    }).join(" ");
+}
+console.log(abc("Every developer likes to mix kubernetes and javascript")); */
+
+
+/* const products = [
+    { name: "Product 1", price: 20, category: "Electronics" },
+    { name: "Product 2", price: 30, category: "Clothes" },
+    { name: "Product 3", price: 40, category: "Electronics" },
+    { name: "Product 4", price: 50, category: "Clothes" },
+    { name: "Product 5", price: 60, category: "Clothes" },
+    { name: "Product 6", price: 70, category: "Electronics" },
+    { name: "Product 6", price: 70, category: "Furniture" },
+    { name: "Product 7", price: 80, category: "Clothes" },
+    { name: "Product 8", price: 90, category: "Electronics" },
+]; */
+
+/* function countCategory(arr){
+  let res = {};
+  let categories = arr.map(product => product.category);
+  categories.forEach(category => {
+       let singleCategory = arr.filter(el => el.category == category)
+       res[category] = singleCategory.length;
+  })
+  return res;
+}
+console.log(countCategory(products)); */
+
+/* function priceAverage(arr){
+  let res = {};
+  let categories = arr.map(product => product.category);
+  categories.forEach(category => {
+       let singleCategory = arr.filter(el => el.category == category)
+       let sum = 0;
+       singleCategory.forEach(value => sum+= value.price);
+       res[category + " price average"] = sum/singleCategory.length;
+  })
+  return res;
+}
+console.log(priceAverage(products)); */
+
+
+/* const employees = [
+    { name: "John", salary: 50000, department: "IT" },
+    { name: "Jane", salary: 60000, department: "HR" },
+    { name: "Bob", salary: 55000, department: "IT" },
+    { name: "Sophie", salary: 75000, department: "HR" },
+    { name: "Mike", salary: 65000, department: "IT" },
+    { name: "Emily", salary: 80000, department: "HR" },
+    { name: "David", salary: 70000, department: "IT" },
+    { name: "David", salary: 50000, department: "QA" },
+]; */
+
+/* function averageSalary(arr){
+    let res = {};
+    let departments = arr.map(employee => employee.department);
+    departments.forEach(department =>{
+       let singleDepartment = arr.filter(el => el.department == department);
+       let sum = 0;
+       singleDepartment.forEach(value => sum+=value.salary)
+       res[department + ' Salary Average'] = sum/ singleDepartment.length;
+   })
+   return res;
+}
+console.log(averageSalary(employees)); */
+
+/* function groupSalaryByDepartment(arr){
+    let res = {};
+    let departments = arr.map(employee => employee.department);
+    departments.forEach(department =>{
+       let singleDepartment = arr.filter(el => el.department == department);
+       res[department + ' Salary Average'] = singleDepartment.map(el => el.salary );
+   })
+   return res;
+}
+console.log(groupSalaryByDepartment(employees)); */
+
+
+/* function groupByFirstChar(arr){
+  let res = {};
+  let firstChar = arr.map(word =>  word[0].toUpperCase());
+  firstChar.forEach(char => {
+     let words = arr.filter(el => el[0].toUpperCase() == char)
+     res[char] = words;
+  })
+  return res;
+}
+let names = ["Jeel" , "Prakhar" , "Bhakti", "Vansh", "Meghna", "Bhaumik", "Pujan", "Rudra", "Sachin" , "Dhruval"]
+console.log(groupByFirstChar(names)); */
+
+
+/* const input = [
+    { name: "John", salary: 50000, department: "IT" },
+    { name: "Jane", salary: 60000, department: "HR" },
+    { name: "Bob", salary: 55000, department: "IT" },
+    { name: "Sophie", salary: 75000, department: "HR" },
+    { name: "Mike", salary: 65000, department: "IT" },
+    { name: "Emily", salary: 80000, department: "HR" },
+    { name: "David", salary: 70000, department: "IT" },
+]; */
+
+/* function groupByFirstChar(arr){
+  let res = {};
+  let firstChar = arr.map(person =>  person.name[0].toUpperCase());
+  firstChar.forEach(char => {
+     let words = arr.filter(el => el.name[0].toUpperCase() == char)
+     res[char] = words;
+  })    
+  return res;
+}
+console.log(groupByFirstChar(input)); */
+
+/* function groupByDepartMent(arr){
+  let res = {};
+  let firstChar = arr.map(person =>  person.department);
+  firstChar.forEach(department => {
+     let departmentName = arr.filter(el => el.department == department)
+     res[department] = departmentName;
+  })
+  return res;
+}
+console.log(groupByDepartMent(input)); */
+
+
+/* let arr1 = [{a: 34}, {a: 45}, {a:12}, {a:5}, {a:78}];
+let arr2 = arr1.map(item => item);
+arr2[2].b = 45;
+console.log(arr1);  //  [{a: 34}, {a: 45}, {a:12, b: 45}, {a:5}, {a:78}]
+console.log(arr2);  //  [{a: 34}, {a: 45}, {a:12, b: 45}, {a:5}, {a:78}] */
+
+
+/* let arr1 = [{ a: 34 }, { a: 45 }, { a: 12 }, { a: 5 }, { a: 78 }];
+let arr2 = arr1.map(item => item.a * 2);
+console.log(arr1);  // [{ a: 34 }, { a: 45 }, { a: 12 }, { a: 5 }, { a: 78 }]
+console.log(arr2);  // [68, 90, 24, 10, 156] */
+
+
+/* let arr = [1,2,3,4,5];
+let arr2 = arr.reduce((a, c) => a + c).map(item => item);
+console.log(arr2); // TypeError: .map is not a function */
+
+
+/* const example = ({ a, b, c }) => {
+    console.log(a, b, c);
+};
+example(0, 1, 2); // undefined undefined undefined */
+
+
+/* function sumOfSquares(arr){
+  return arr.map(value => value**2).reduce((a,c) => a+c);
+}
+let arr = [1,2,3,4,5];
+console.log(sumOfSquares(arr)); */
+
+
+/* const students = [
+    { name: 'Alice', age: 20, grade: 'A' },
+    { name: 'Bob', age: 18, grade: 'B' },
+    { name: 'Charlie', age: 19, grade: 'A' },
+    { name: 'David', age: 20, grade: 'C' },
+]; */
+
+/* function sortByAge(arr){
+    arr.sort((a,b) => a.age - b.age);
+    return arr;
+}
+console.log(sortByAge(students)); */
+
+/* function sortByGrade(arr){
+    arr.sort((a,b) =>{
+        if(a.grade < b.grade)
+            return -1;
+        else if(a.grade > b.grade)
+            return 1;
+        return 0;
+    });
+    return arr;
+}
+console.log(sortByGrade(students)); */
+
+/* function sortByName(arr){
+    arr.sort((a,b) =>{
+        if(a.name[0].toUpperCase() < b.name[0].toUpperCase())
+            return -1;
+        else if(a.name[0].toUpperCase() > b.name[0].toUpperCase())
+            return 1;
+        return 0;
+    });
+    return arr;
+}
+console.log(sortByName(students)); */
+
+/* function sortByName(arr){
+    return arr.map(el => el.age).reduce((a,c) => a+c)/arr.length;
+}
+console.log(sortByName(students)); */
+
+/* function sortByName(arr){
+    return arr.map(el => el.age).reduce((a,c) => a+c);
+}
+console.log(sortByName(students)); */
+
+
+/* function flatArr(arr){
+   return arr.reduce((a,c) => a.concat(c));
+}
+const nestedArray = [[1, 2], [3, 4], [5, 6]]
+console.log(flatArr(nestedArray)); */
+
+
+/* function squareOfEven(arr){
+    return arr.filter(value => value%2 ==0 ).map(value => value**2);
+}
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(squareOfEven(numbers)); */
+
+
+/* function duplicates(arr){
+    return arr.filter((value,i,arr) => arr.indexOf(value) == i).sort((a,b) => a-b);
+}
+const numbers = [1, 2, 2, 3, 4, 4, 5];
+console.log(duplicates(numbers)); */
+
+
+/* function contains(arr){
+    return arr.find(el => el.includes('a'));
+}
+const words = ['apple', 'banana', 'orange'];
+console.log(contains(words)); */
+
+
+/* function firstOddIndex(arr){
+    return arr.indexOf(arr.find(value => value%2 != 0));
+}
+const numbers = [2, 4, 6, 8, 9, 10];
+console.log(firstOddIndex(numbers)); */
+
+
+/* const people = [
+    { name: 'Alice', age: 18 },
+    { name: 'Bob', age: 20 },
+    { name: 'Charlie', age: 19 },
+    { name: 'David', age: 21 }
+];
+
+function indexOfFirstPerson(arr){
+   return arr.find(el => el.name[0] == 'A' && el.age < 20);
+}
+console.log(indexOfFirstPerson(people)); */
+
+
+/* function fun_name(arrayOfArray, array){
+    return arrayOfArray.some(el => el.sort().every((value,index) => value == array.sort()[index]));
+}
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [1, 2]));  // true
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [2, 1]));  // true
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [22, 15]));  // false
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [22, 90, 15], [88, 90]], [22, 15, 90]));  // true */
+
+/* function fun_name(arrayOfArray, array){
+    return arrayOfArray.some(el => el.every((value) => array.includes(value)));
+}
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [1, 2]));  // true
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [2, 1]));  // true
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [22, 15]));  // false
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [22, 90, 15], [88, 90]], [22, 15, 90]));  // true */
+
+
+/* function fun_name(arrayOfArray, array){
+    return arrayOfArray.some(el => el.every((value,index) => value == array[index]));
+}
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [1, 2]));  // true
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [2, 1]));  // true
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [88, 90]], [22, 15]));  // false
+console.log(fun_name([[1, 2], [34, 67], [67, 77], [22, 90, 15], [88, 90]], [22, 15, 90]));  // true */
+
+
+/* function union(arr1,arr2){
+    return arr1.concat(arr2).filter((el,i,arr) => arr.indexOf(el) == i).sort((a,b) => a-b);
+}
+console.log(union([1, 2, 3], [100, 2, 1, 10])); */
+
+
+/* function difference(arr1,arr2){
+    let flatArr1 = arr1.flat(Infinity);
+    let flatArr2 = arr2.flat(Infinity);
+    let res = [];
+
+    flatArr1.forEach(value =>{
+        if(!flatArr2.includes(value))
+            res.push(String(value));
+    })
+    flatArr2.forEach(value =>{
+        if(!flatArr1.includes(value))
+            res.push(String(value));
+    })
+    return res.sort((a,b) => a-b);
+}
+console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]]));
+console.log(difference([1, 2, 3], [100, 2, 1, 10])); */
+
+
+/* function findNumber(arr){
+    return arr.filter(value => Number(value))
+}
+console.log(findNumber([NaN, 0, 15, false, -22, '',undefined, 47, null])); */
+
+
+/* function num_string_range(start,end,step){
+    let res = [];
+    if(typeof start == 'string' && typeof end == 'string'){
+        if(start.charCodeAt(0) < end.charCodeAt(0)){
+            for(let i = start.charCodeAt(0); i<=end.charCodeAt(0); i+=step){
+                res.push(String.fromCharCode(i));
+            }
+        }
+        if(start.charCodeAt(0) > end.charCodeAt(0)){
+            for(let i = start.charCodeAt(0); i>=end.charCodeAt(0); i-=step){
+                res.push(String.fromCharCode(i));
+            }
+        }
+    }
+    else if(typeof start == 'number' && typeof end == 'number'){
+        if(start < end){
+            for(let i = start; i<=end; i+=step){
+                res.push(i);
+            }
+        }
+        if(start > end){
+            for(let i = start; i>=end; i-=step){
+                res.push(i);
+            }
+        }
+    }
+    return res;
+}
+console.log(num_string_range('a', "z", 2));
+console.log(num_string_range("Z", "A", 2));
+console.log(num_string_range(0, -5, 1));
+console.log(num_string_range(0, 25, 5));
+console.log(num_string_range(20, 5, 5)); */
+
+
+/* function remove_array_element(arr,num){
+    return arr.filter(value => value != num);
+}
+console.log(remove_array_element([2, 5, 9, 6], 5)); */
+
+
+/* function contains(arr,num){
+   return arr.includes(num);
+}
+console.log(contains([2, 5, 9, 6],5));
+console.log(contains([2, 5, 9, 6],10)); */
+
+
+/* function countNestedArr(arr){
+  let count = 0;
+  arr.forEach(el =>{
+    if(Array.isArray(el))
+        count ++ ;
+  })
+  return count;
+}
+console.log(countNestedArr([2,8,[6],3,3,5,3,4,[5,4]]));
+console.log(countNestedArr([2,8,[6,3,3],[4],5,[3,4,[5,4]]]));
+console.log(countNestedArr([1,5,2,6,4,23,89])); */
+
+
+/* function maxArrLength(arr) {
+    let max = 0;
+    arr.forEach(el => {
+        if (Array.isArray(el) && max < el.length)
+            max = el.length;
+    })
+    return max;
+}
+console.log(maxArrLength([2, 8, [6], 3, 3, 5, 3, 4, [5, 4]]));
+console.log(maxArrLength([2, 8, [6, 3, 3], [4], 5, [3, 4, [5, 4]]]));
+console.log(maxArrLength([2, 8, [6, 3, 3], [4], 5, [3, 4, [5, 4]], [23, 56]]));
+console.log(maxArrLength([1, 5, 2, 6, 4, 23, 89])); */
+
+
+/* function isFactorChain(arr){
+    let res = [];
+    for(let i=0;i<arr.length-1;i++){
+        if(arr[i+1]%arr[i] == 0){
+            res.push(true);
+        }
+        else{
+            res.push(false);
+        }
+    }
+    return res.every(el => el==true)
+}
+console.log(isFactorChain([2, 4, 8, 16, 32]));
+console.log(isFactorChain([2, 4, 16, 32, 68]));
+console.log(isFactorChain([2, 4, 16, 32, 64])); */
+
 
