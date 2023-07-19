@@ -899,3 +899,68 @@ console.log(isFactorChain([2, 4, 16, 32, 68]));
 console.log(isFactorChain([2, 4, 16, 32, 64])); */
 
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+/* function sum(...params){
+   return params.reduce((a,c) => a+c);
+}
+console.log(sum(1,2,3,4,5)); */
+
+
+/* let [a,b, ...rest] = [1,2,3,4,5];
+console.log(a);
+console.log(b);
+console.log(rest); */
+
+
+/* let arr = [1,2,3,4,5]
+let arr2 = [...arr];
+console.log(arr2); */
+
+// console.log(...[1,2,3,4,5]);
+// console.log([...rest] = [1,2,3,4,5]);
+// console.log(...[...rest] = [1,2,3,4,5]);
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+/* function difference(date1,date2,type){
+   let dt1 = new Date(date1);
+   let dt2 = new Date(date2);
+   let difference = dt1.getTime() - dt2.getTime();
+   let obj = {
+      day: Math.abs(difference/(1000*3600*24)) + ' days',
+      month : Math.floor(Math.abs(difference/(1000*3600*24*30))) + ' months',
+      year : Math.floor(Math.abs(difference/(1000*3600*24*30*12))) + ' years',
+   }
+   return obj[type];
+}
+console.log(difference('30 Jan 2005', '19 July 2023','day'));
+console.log(difference('30 Jan 2005', '19 July 2023','month'));
+console.log(difference('30 Jan 2005', '19 July 2023','year')); */
+
+
+
+/* let arr = [
+    {id:1 , fname: 'a'},
+    {id:2 , fname: 'b'},
+    {id:2 , fname: 'b'},
+    {id:3 , fname: 'c'},
+    {id:4 , fname: 'd'},
+    {id:4 , fname: 'd'},
+    {id:5 , fname: 'e'},
+]
+function duplicates(arr){
+    let a = arr.filter(el => el.id)
+}
+console.log(duplicates(arr)); */
+
+
+/* let arr = ['pujan','Sachin', 'Om','Pujan'];
+function duplicates(arr){
+    let arr1 = arr.map(str => str[0].toUpperCase() + str.slice(1))
+   return arr1.filter((el,i,arr) => arr.indexOf(el) == i);
+}
+console.log(duplicates(arr)); */
+
+
+
