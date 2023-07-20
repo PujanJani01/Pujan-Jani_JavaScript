@@ -155,6 +155,7 @@ dropboxes.forEach(box =>{
 let checkbox = document.querySelector('#check');
 checkbox.addEventListener('click', (e) =>{
     e.preventDefault();
+    console.log(e);
 })
 
 let checkbtn = document.querySelector('#checkbtn');
@@ -182,8 +183,26 @@ txtbtn.addEventListener('click', () => {
     }
 })
 
+// let parent = document.querySelector('#parent');
+// parent.addEventListener('click', (e) =>{
+//     console.log(e.target.id);
+// })
+
+let allChild = document.querySelector('body').children;
+for(let i = 0; i< allChild.length; i++){
+    allChild[i].addEventListener('click', (e) =>{
+        if(e.target.id == ''){
+            document.querySelector('#idValue').innerText =  'No id';
+        }
+        else {
+            document.querySelector('#idValue').innerText =  e.target.id;
+        }
+        
+    })
+}
 
 
-
-
+document.addEventListener('keydown' ,(e) => {
+    document.querySelector('#txt').innerText += e.key;
+})
 

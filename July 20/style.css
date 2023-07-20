@@ -1,7 +1,47 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
 /* #para{
     visibility: hidden;
 } */
 
 ul{
     border: solid;
+}
+.dropMain{
+    display: flex;
+}
+.dropDiv{
+    background-color: black;
+    padding: 1rem;
+    margin: 0 1rem;
+    display: flex;
+}
+.dragItem{
+    background-color: white;
+    border: solid;
+    padding: 1rem;
+    cursor: move;
+}
+.dragItem.dragging {
+    opacity: 50%;
+}
+.m-1{
+    margin: 1rem 0 0 0;
+}
+
+#parent{
+    height: 300px;
+    width: 300px;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#child{
+        height: 250px;
+        width: 250px;
+        background-color: pink;
 }
