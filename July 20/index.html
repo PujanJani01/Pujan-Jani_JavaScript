@@ -10,11 +10,44 @@
 
 <body>
     <p id="para"><b>Hello World!</b>It's me <strong>Pujan</strong></p>
-    <ul><li>One</li>
+
+    <ul class="m-1">
+        <li>One</li>
         <li>Two</li>
         <li>Three</li>
     </ul>
-    <input type="text">
+
+    <div class="m-1">
+        <label for="user">username</label>
+        <input type="text" id="user">
+        <label for="pass">password</label>
+        <input type="password" id="pass">
+    </div>
+
+    <div class="dropMain m-1">
+        <div class="dropDiv">
+            <p class="dragItem" draggable="true">1</p>
+            <p class="dragItem" draggable="true">2</p>
+        </div>
+        <div class="dropDiv">
+            <p class="dragItem" draggable="true">3</p>
+            <p class="dragItem" draggable="true">4</p>
+        </div>
+    </div>
+
+    <div class="m-1">
+        <label for="preventDefault">preventDefault</label>
+        <input type="checkbox" id="check">
+        <button id="checkbtn">check</button> <br>
+    </div>
+
+    <div class="m-1">
+        <label for="preventDefault">preventDefault</label>
+        <input type="text" id="input" disabled>
+        <button id="txtbtn">write</button>
+    </div>
+
+     
     <script src="script.js"></script>
     <!-- <script>
         let script = document.querySelector('script');
