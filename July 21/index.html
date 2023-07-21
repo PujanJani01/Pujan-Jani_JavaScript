@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="generateRandomPassword">
+        <h2>Random Password Generator</h2>
+        <div class="my-1">
+            <input type="text" id="randompass"> <br>
+            <span class="error">Please Select atleast one option from below</span>
+        </div>
+        <label for="charcount">How many chars?</label>
+        <input type="number" id="charcount" min="8" value="8" max="25"> <br>
+
+        <input type="checkbox" id="lowercase">
+        <label for="lowercase">Lower Case</label><br>
+
+        <input type="checkbox" id="uppercase">
+        <label for="uppercase">Upper Case</label><br>
+
+        <input type="checkbox" id="number">
+        <label for="number">Number</label><br>
+
+        <input type="checkbox" id="specialchars">
+        <label for="specialchars">Special Characters</label><br>
+
+        <div class="my-1">
+            <button id="generatebtn" >Generate</button>
+            <button id="clear" class="mx-1">Clear</button>
+            <button id="copy">Copy</button>
+            <button id="cut" class="mx-1">Cut</button>
+        </div>
+
+    </div>
+
+    <div id="textutils">
+        <h2>TextUtils</h2>
+        <textarea rows = '5'cols = '38' id="txtbox"></textarea>
+        <div class="textareainfo">
+            <p><span class="textlength">0</span> letters</p>
+            <p><span class="wordlength">0</span> words</p>
+        </div>
+        <div></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

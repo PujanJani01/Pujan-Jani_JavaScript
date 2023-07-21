@@ -1,0 +1,40 @@
+body{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    height: 100vh;
+    gap:2rem
+}
+.my-1 {
+    margin: 1rem 0;
+}
+
+.mx-1 {
+    margin: 0 1rem;
+}
+.error{
+    font-size: 14px;
+    color: red;
+    display: none;
+}
+#generateRandomPassword , #textutils{
+    border: solid;
+    padding: 2rem;
+}
+#randompass{
+    width: 100%;
+    height: 4vh;
+    font-size: 18px;
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+.textareainfo{
+    display: flex;
+    gap: 1rem;
+}
