@@ -7,7 +7,8 @@ body{
     align-items: center;
     /* flex-direction: column; */
     height: 100vh;
-    gap:2rem
+    gap:2rem;
+    /* background-color: black; */
 }
 .my-1 {
     margin: 1rem 0;
@@ -26,7 +27,7 @@ body{
     padding: 2rem;
 }
 #randompass{
-    width: 100%;
+    width: 85%;
     height: 4vh;
     font-size: 18px;
     text-align: center;
@@ -37,4 +38,31 @@ h2{
 .textareainfo{
     display: flex;
     gap: 1rem;
+}
+.inputdiv{
+    display: flex;
+    gap:10px;
+}
+.textutilsbtns{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.textcasebtn, .clearcopycutbtn, .generatebtns{
+    display: flex;
+    gap: 1rem;
+}
+#txtbox{
+    width: 100%;
+    resize: vertical;
+}
+.notworking{
+    height: 15px;
+    position: absolute;
+    top:-45%;
+    right: -10%;
+    transform: rotate(10deg);
+}
+#paste, #paste2{
+    position: relative;
 }

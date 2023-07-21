@@ -9,10 +9,15 @@
 </head>
 
 <body>
+    <!-- <button class="mode">Dark Mode</button> -->
     <div id="generateRandomPassword">
         <h2>Random Password Generator</h2>
         <div class="my-1">
-            <input type="text" id="randompass"> <br>
+            <div class="inputdiv">
+                <input type="password" id="randompass">
+                <button class="hide">show</button>
+            </div>
+            <br>
             <span class="error">Please Select atleast one option from below</span>
         </div>
         <label for="charcount">How many chars?</label>
@@ -30,23 +35,38 @@
         <input type="checkbox" id="specialchars">
         <label for="specialchars">Special Characters</label><br>
 
-        <div class="my-1">
-            <button id="generatebtn" >Generate</button>
-            <button id="clear" class="mx-1">Clear</button>
+        <div class="my-1 generatebtns">
+            <button id="generatebtn">Generate</button>
+            <button id="clear">Clear</button>
             <button id="copy">Copy</button>
-            <button id="cut" class="mx-1">Cut</button>
+            <button id="paste">Paste <img src="https://www.freeiconspng.com/thumbs/error-icon/error-icon-32.png" class="notworking"></button>
+            <button id="cut">Cut</button>
         </div>
 
     </div>
 
     <div id="textutils">
         <h2>TextUtils</h2>
-        <textarea rows = '5'cols = '38' id="txtbox"></textarea>
+        <textarea rows='5' cols='38' id="txtbox"></textarea>
         <div class="textareainfo">
             <p><span class="textlength">0</span> letters</p>
             <p><span class="wordlength">0</span> words</p>
         </div>
-        <div></div>
+        <div class="textutilsbtns">
+            <div class="textcasebtn">
+                <button id="touppercase">Convert to UPPERCASE</button>
+                <button id="tolowercase">Convert to lowercase</button>
+                <button id="tocamelcase">Convert to camelCase</button>
+            </div>
+
+            <div class="clearcopycutbtn">
+                <button id="clear2">Clear</button>
+                <button id="copy2">Copy</button>
+                <button id="paste2">Paste <img src="https://www.freeiconspng.com/thumbs/error-icon/error-icon-32.png" class="notworking"></button>
+                <button id="cut2">Cut</button>
+            </div>
+
+        </div>
     </div>
 
     <script src="script.js"></script>
