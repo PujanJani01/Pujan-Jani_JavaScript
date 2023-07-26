@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        .contextmenu{
+            height: 200px;
+            width: 200px;
+            background-color: black;
+            display: none;
+            position: absolute;
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
-    <input type="text">
-    <button type="submit">Add task</button>
-    <div class="todolist"></div>
-    <script src="script.js"></script>
+    <!-- <h2>clientX: <span id="x-coord"></span></h2>
+    <h2>clientY: <span id="y-coord"></span></h2> -->
+
+    <div class="contextmenu">
+        <a>Open new tab</a>
+        <a>Close Tab</a>
+    </div>
+     <script>
+        let menu = document.querySelector('.contextmenu')
+        document.addEventListener('contextmenu', (e) =>{
+            e.preventDefault();
+            var x = e.clientX;
+            var y = e.clientY;
+            // document.querySelector('#x-coord').innerText = x;
+            // document.querySelector('#y-coord').innerText = y;
+              menu.style.display = 'block';
+              menu.style.top = y+'px';
+              menu.style.left = x+'px';
+        })
+        document.addEventListener('click',() =>{
+            menu.style.display = 'none';
+        })
+     </script>
 </body>
 </html>
