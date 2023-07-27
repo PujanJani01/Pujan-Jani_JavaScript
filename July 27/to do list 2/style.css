@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+form{
+    align-self: flex-start;
+    padding: 1rem;
+}
+ul{
+    list-style: none;
+    margin-top: 1rem;
+}
+ul li{
+    margin: 5px 0 ;
+    padding: 5px;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#input{
+    width: 1000px;
+    padding: 0.5rem;
+}
+#submitbtn{
+    padding: 0.5rem;
+}
+/* #closebtn{
+   background-color: transparent;
+   border: none;
+} */

@@ -1,0 +1,72 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.todolist{
+    padding-top: 20px ;
+}
+.wrapper{
+    padding-top: 2rem;
+    align-self: flex-start;
+}
+#input{
+    border-radius: 10px;
+    padding: 1rem;
+    width: 1000px;
+    font-size: 20px;
+}
+#submitbtn{
+    border: rgba(51, 221, 255, 0.783) ;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgba(51, 221, 255, 0.783);
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    background-color: rgb(234, 230, 230);
+    margin: 10px 0;
+    padding: 1rem;
+    border-radius: 10px;
+}
+li input{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+li button{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    right: 0px;
+}
+.pending, .completed{
+    font-size: 20px;
+}
+
+#editinput{
+    font-family:unset;
+    /* border: none; */
+    /* outline: none; */
+    background-color: transparent;
+    width: 90%;
+    padding: 5px;
+    font-size: 22px;
+
+}
+.div1, .div2{
+    display: flex;
+}
+#delbtn{
+    font-size: 30px;
+}
