@@ -14,6 +14,19 @@
             position: absolute;
             color: white;
         }
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        li{
+            border-bottom: solid rgb(223, 222, 222);
+            padding: 10px 0 10px 10px;
+            
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 
@@ -22,8 +35,12 @@
     <h2>clientY: <span id="y-coord"></span></h2> -->
 
     <div class="contextmenu">
-        <a>Open new tab</a>
-        <a>Close Tab</a>
+        <ul>
+            <li><a href="#">Reload</a></li>
+            <li><a href="#">Open new tab</a></li>
+            <li><a href="#">Close Tab</a></li>
+        </ul>
+        
     </div>
      <script>
         let menu = document.querySelector('.contextmenu')
