@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+.board{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    position: relative;
+    flex-direction: row;
+}
+.box{
+    height: 8vh;
+    width: 10%;
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.dice1{
+    height: 8vh;
+    width: 8vh;
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10%;
+    left: 1%;
+}
+.dice2{
+    height: 8vh;
+    width: 8vh;
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10%;
+    right: 1%;
+}
+
+.coin1{
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
+    background-color: blue;
+}
+.coin2{
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.box27,.box40,.box43,.box54,.box66,.box76,.box89,.box99{
+    background-color: red;
+}
+
+#box4ladder{
+    height: 25%;
+    width: 10%;
+    position: absolute;
+    bottom: 2%;
+    left: 35%;
+    transform: rotate(30deg)
+}
+#box13ladder{
+    height: 48%;
+    width: 10%;
+    position: absolute;
+    bottom: 5%;
+    left: 60%;
+    transform: rotate(-48deg)
+}
+#box33ladder{
+    height: 18%;
+    width: 10%;
+    position: absolute;
+    bottom: 30%;
+    left: 75%;
+    transform: rotate(45deg)
+}
+#box42ladder{
+    height: 30%;
+    width: 10%;
+    position: absolute;
+    bottom: 40%;
+    left: 15%;
+    transform: rotate(35deg)
+}
+#box50ladder{
+    height: 30%;
+    width: 10%;
+    position: absolute;
+    bottom: 40%;
+    right: 5%;
+    transform: rotate(-35deg)
+}
+#box62ladder{
+    height: 30%;
+    width: 10%;
+    position: absolute;
+    bottom: 60%;
+    left: 5%;
+    transform: rotate(-35deg)
+}
+#box74ladder{
+    height: 43%;
+    width: 10%;
+    position: absolute;
+    bottom: 63%;
+    right: 20%;
+    transform: rotate(55deg)
+}
