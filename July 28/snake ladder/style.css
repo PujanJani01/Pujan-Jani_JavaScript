@@ -9,6 +9,7 @@ body{
     align-items: center;
     height: 100vh;
     position: relative;
+    flex-direction: column;
 }
 .board{
     display: flex;
@@ -16,6 +17,7 @@ body{
     width: 80%;
     position: relative;
     flex-direction: row;
+    border: solid;
 }
 .box{
     height: 8vh;
@@ -35,9 +37,17 @@ body{
     align-items: center;
     font-size: 30px;
     font-weight: bold;
+    
+}
+.dice1wrapper{
     position: absolute;
     bottom: 10%;
     left: 1%;
+}
+.dice2wrapper{
+    position: absolute;
+    bottom: 10%;
+    right: 1%;
 }
 .dice2{
     height: 8vh;
@@ -48,26 +58,22 @@ body{
     align-items: center;
     font-size: 30px;
     font-weight: bold;
-    position: absolute;
-    bottom: 10%;
-    right: 1%;
 }
 
 .coin1{
     height: 5vh;
     width: 5vh;
     border-radius: 50%;
-    background-color: blue;
+
 }
 .coin2{
     height: 5vh;
     width: 5vh;
     border-radius: 50%;
-    background-color: green;
 }
-
-.box27,.box40,.box43,.box54,.box66,.box76,.box89,.box99{
-    background-color: red;
+.coinimg{
+    height: 5vh;
+    width: 4vh;
 }
 
 #box4ladder{
@@ -124,5 +130,72 @@ body{
     position: absolute;
     bottom: 63%;
     right: 20%;
-    transform: rotate(55deg)
+    transform: rotate(55deg);
+}
+#box27snake{
+    height: 35%;
+    width: 10%;
+    position: absolute;
+    top: 70%;
+    right: 40%;
+    transform: rotate(80deg);
+}
+#box40snake{
+    height: 42%;
+    width: 10%;
+    position: absolute;
+    top: 58%;
+    left: 9%;
+    transform: rotate(-30deg);
+}
+#box43snake{
+    height: 30%;
+    width: 10%;
+    position: absolute;
+    top: 55%;
+    left: 22%;
+    transform: rotate(20deg);
+}
+#box54snake{
+    height: 60%;
+    width: 10%;
+    position: absolute;
+    top: 26%;
+    left: 73%;
+    transform: rotate(-55deg);
+}
+#box66snake{
+    height: 30%;
+    width: 10%;
+    position: absolute;
+    top: 32%;
+    left: 45%;
+    transform: rotate(80deg);
+}
+#box76snake{
+    height: 40%;
+    width: 10%;
+    position: absolute;
+    top: 15%;
+    left: 32%;
+    transform: rotate(85deg);
+}
+#box89snake{
+    height: 40%;
+    width: 10%;
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    transform: rotate(60deg);
+}
+#box99snake{
+    height: 55%;
+    width: 10%;
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    transform: rotate(40deg);
+}
+h1{
+    padding: 1rem;
 }

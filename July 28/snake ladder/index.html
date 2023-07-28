@@ -9,12 +9,17 @@
 </head>
 
 <body>
-    <div class="coin1"></div>
-    <div class="coin2"></div>
-    <div class="dice1"></div>
+    <h1>Snake and Ladder</h1>
+    <div class="coin1"><img src="images/pngwing(2).com.png" class="coinimg"></div>
+    <div class="coin2"><img src="images/pngwing.com (1).png" class="coinimg"></div>
+    <div class="dice1wrapper">
+        <div class="dice1"></div>
+        <p>Player 1</p>
+    </div>
     <div class="board">
         <div class="box100 box">100</div>
         <div class="box99 box">99</div>
+        <img src="images/Daco_2368118.png" alt="snake" id="box99snake">
         <div class="box98 box">98</div>
         <div class="box97 box">97</div>
         <div class="box96 box">96</div>
@@ -32,25 +37,28 @@
         <div class="box87 box">87</div>
         <div class="box88 box">88</div>
         <div class="box89 box">89</div>
+        <img src="images/Daco_2368118.png" alt="snake" id="box89snake">
         <div class="box90 box">90</div>
         <div class="box80 box">80</div>
         <div class="box79 box">79</div>
         <div class="box78 box">78</div>
         <div class="box77 box">77</div>
         <div class="box76 box">76</div>
+        <img src="images/Daco_2368118.png" alt="snake" id="box76snake">
         <div class="box75 box">75</div>
         <div class="box74 box">74</div>
-        <img src="pngwing.com.png" alt="ladder" id="box74ladder">
+        <img src="images/pngwing.com.png" alt="ladder" id="box74ladder">
         <div class="box73 box">73</div>
         <div class="box72 box">72</div>
         <div class="box71 box">71</div>
         <div class="box61 box">61</div>
         <div class="box62 box">62</div>
-        <img src="pngwing.com.png" alt="ladder" id="box62ladder">
+        <img src="images/pngwing.com.png" alt="ladder" id="box62ladder">
         <div class="box63 box">63</div>
         <div class="box64 box">64</div>
         <div class="box65 box">65</div>
         <div class="box66 box">66</div>
+        <img src="images/Daco_2368118.png" alt="ladder" id="box66snake">
         <div class="box67 box">67</div>
         <div class="box68 box">68</div>
         <div class="box69 box">69</div>
@@ -62,13 +70,15 @@
         <div class="box56 box">56</div>
         <div class="box55 box">55</div>
         <div class="box54 box">54</div>
+        <img src="images/Daco_2368118.png" alt="snake" id="box54snake">
         <div class="box53 box">53</div>
         <div class="box52 box">52</div>
         <div class="box51 box">51</div>
         <div class="box41 box">41</div>
         <div class="box42 box">42</div>
-        <img src="pngwing.com.png" alt="ladder" id="box42ladder">
+        <img src="images/pngwing.com.png" alt="ladder" id="box42ladder">
         <div class="box43 box">43</div>
+        <img src="images/Daco_2368118.png" alt="snake" id="box43snake">
         <div class="box44 box">44</div>
         <div class="box45 box">45</div>
         <div class="box46 box">46</div>
@@ -76,8 +86,9 @@
         <div class="box48 box">48</div>
         <div class="box49 box">49</div>
         <div class="box50 box">50</div>
-        <img src="pngwing.com.png" alt="ladder" id="box50ladder">
+        <img src="images/pngwing.com.png" alt="ladder" id="box50ladder">
         <div class="box40 box">40</div>
+        <img src="images/Daco_2368118.png" alt="snake" id="box40snake">
         <div class="box39 box">39</div>
         <div class="box38 box">38</div>
         <div class="box37 box">37</div>
@@ -85,7 +96,7 @@
         <div class="box35 box">35</div>
         <div class="box34 box">34</div>
         <div class="box33 box">33</div>
-        <img src="pngwing.com.png" alt="ladder" id="box33ladder">
+        <img src="images/pngwing.com.png" alt="ladder" id="box33ladder">
         <div class="box32 box">32</div>
         <div class="box31 box">31</div>
         <div class="box21 box">21</div>
@@ -95,6 +106,7 @@
         <div class="box25 box">25</div>
         <div class="box26 box">26</div>
         <div class="box27 box">27</div>
+        <img src="images/Daco_2368118.png" alt="snake" id="box27snake">
         <div class="box28 box">28</div>
         <div class="box29 box">29</div>
         <div class="box30 box">30</div>
@@ -106,14 +118,14 @@
         <div class="box15 box">15</div>
         <div class="box14 box">14</div>
         <div class="box13 box">13</div>
-        <img src="pngwing.com.png" alt="ladder" id="box13ladder">
+        <img src="images/pngwing.com.png" alt="ladder" id="box13ladder">
         <div class="box12 box">12</div>
         <div class="box11 box">11</div>
         <div class="box1 box">1</div>
         <div class="box2 box">2</div>
         <div class="box3 box">3</div>
         <div class="box4 box">4</div>
-        <img src="pngwing.com.png" alt="ladder" id="box4ladder">
+        <img src="images/pngwing.com.png" alt="ladder" id="box4ladder">
         <div class="box5 box">5</div>
         <div class="box6 box">6</div>
         <div class="box7 box">7</div>
@@ -123,7 +135,10 @@
         
     </div>
      
-    <div class="dice2"></div>
+    <div class="dice2wrapper">
+        <div class="dice2"></div>
+        <p>Player 2</p>
+    </div>
     <script src="script.js"></script>
 </body>
 
