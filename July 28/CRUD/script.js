@@ -39,31 +39,38 @@ let form = document.querySelector('.formwrapper');
 let table = document.querySelector('table');
 let users = [];
 let updatebtn = document.getElementById('updatebtn');
-var regularExpression  = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[.#?!@$%^&*-]).{8,16}$/;
-// const regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$");
+var regularExpression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[.#?!@$%^&*-]).{8,16}$/;
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-        if(regularExpression.test(form.elements[3].value)){
-            if (form.elements[3].value == form.elements[4].value) {
-                let user = {};
-                user.fname = form.elements[0].value;
-                user.lname = form.elements[1].value;
-                user.email = form.elements[2].value;
-                user.password = form.elements[3].value;
-                users.push(user);
+    if (regularExpression.test(form.elements[4].value)) {
+        if (form.elements[4].value == form.elements[5].value) {
+            let user = {};
+            user.fname = form.elements[1].value;
+            user.lname = form.elements[2].value;
+            user.email = form.elements[3].value;
+            user.password = form.elements[4].value;
+            users.push(user);
+            if (users.every(el => el.uname != form.elements[0].value)) {
+                user.uname = form.elements[0].value;
                 addRow();
                 clearInput();
-                // editRow();
+                document.getElementById('unamemessege').innerText = '';
+                // document.getElementById('passmessege').innerText = '';   
             }
             else {
-                alert('password and confirm password is not matching')
+                document.getElementById('unamemessege').innerText = 'username already exits!'
             }
         }
-        else{
-            alert('Invalid password format');
+        else {
+            document.getElementById('passmessege').innerText = 'password and confirm password is not matching'
         }
+    }
+    else {
+        document.getElementById('passmessege').innerText = 'Invalid format'
+    }
 })
+
 
 function clearInput() {
     for (let i = 0; i < form.length - 2; i++) {
@@ -74,7 +81,8 @@ function clearInput() {
 function addRow() {
     let tr = document.createElement('tr');
     users.forEach(el => {
-        tr.innerHTML = `<td>${el.fname}</td>
+        tr.innerHTML = `<td>${el.uname}</td>
+                         <td>${el.fname}</td>
                          <td>${el.lname}</td>
                          <td>${el.email}</td>
                          <td>${el.password}</td>
@@ -89,13 +97,14 @@ function editRow(tdbtn) {
     for (let i = 0; i < edittr.length - 2; i++) {
         form.elements[i].value = edittr[i].innerText;
     }
+    form.elements[5].value = edittr[4].innerText;
     updateRow(edittr);
 }
 
 function updateRow(tr) {
     updatebtn.removeAttribute('disabled');
-    updatebtn.addEventListener('click', update);
-    // if (form.elements[3].value == form.elements[4].value) {
+    if (form.elements[4].value == form.elements[5].value) {
+        updatebtn.addEventListener('click', update);
         function update() {
             for (let i = 0; i < tr.length - 2; i++) {
                 tr[i].innerText = form.elements[i].value;
@@ -103,7 +112,7 @@ function updateRow(tr) {
             updatebtn.removeEventListener('click', update);
             clearInput();
         }
-    // }<
+    }
 }
 
 function delRow(tdbtn) {

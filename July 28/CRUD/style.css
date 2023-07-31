@@ -5,6 +5,8 @@
 }
 body{
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
     height: 100vh;
 }
 .formwrapper,.tablewrapper{
@@ -12,9 +14,9 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 100%;
 }
-.fnameinput,.lnameinput,.emailinput,.passwordinput,.confirmpasswordinput{
+.fnameinput,.lnameinput,.emailinput,.passwordinput,.confirmpasswordinput,.unameinput{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -25,9 +27,21 @@ input{
     padding: 5px;
 }
 .btns{
+    margin-top: 1rem;
     display: flex;
     gap:10px;
 }
 #updatebtn{
     padding: 5px;
+}
+
+th,td{
+    padding: 10px 10px;
+    text-align: center;
+}
+table{
+    width: 100%;
+}
+#unamemessege, #passmessege{
+    color: red;
 }

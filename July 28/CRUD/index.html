@@ -8,6 +8,11 @@
 </head>
 <body>
     <form class="formwrapper">
+        <div class="unameinput">
+            <label for="uname">username</label>
+            <input type="text" id="uname" required>
+            <p id="unamemessege"></p>
+        </div>
         <div class="fnameinput">
             <label for="fname">First name</label>
             <input type="text" id="fname" required>
@@ -23,6 +28,8 @@
         <div class="passwordinput">
             <label for="password">Password</label>
             <input type="password" id="password" required">
+            <p id="passmessege"></p>
+            <p>Note: password must contain minimum one uppercase, lowercase, number and special character and minimum length is 8 and maximum length is 16.</p>
         </div>
         <div class="confirmpasswordinput">
             <label for="confirmpassword">Confirm password</label>
@@ -33,13 +40,15 @@
             <button id="updatebtn" disabled>Update</button>
         </div>
     </form>
+
     <div class="tablewrapper">
         <table border="1">
             <thead>
+                <th>Username</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
-                <th>password</th>
+                <th>Password</th>
             </thead>
         </table>
     </div>
