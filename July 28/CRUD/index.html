@@ -7,27 +7,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
+    <form class="formwrapper">
         <div class="fnameinput">
             <label for="fname">First name</label>
-            <input type="text" id="fname">
+            <input type="text" id="fname" required>
         </div>
         <div class="lnameinput">
             <label for="lname">Last name</label>
-            <input type="text" id="lname">
+            <input type="text" id="lname" required>
         </div>
-        <div class="eamilinput">
+        <div class="emailinput">
             <label for="email">Email</label>
-            <input type="email" id="email">
+            <input type="email" id="email" required>
         </div>
         <div class="passwordinput">
             <label for="password">Password</label>
-            <input type="password" id="password">
+            <input type="password" id="password" required">
         </div>
-        <div class="passwordinput">
-            <label for="password">Password</label>
-            <input type="password" id="password">
+        <div class="confirmpasswordinput">
+            <label for="confirmpassword">Confirm password</label>
+            <input type="password" id="confirmpassword" required>
         </div>
+        <div class="btns">
+            <input type="submit">
+            <button id="updatebtn" disabled>Update</button>
+        </div>
+    </form>
+    <div class="tablewrapper">
+        <table border="1">
+            <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>password</th>
+            </thead>
+        </table>
     </div>
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    height: 100vh;
+}
+.formwrapper,.tablewrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+.fnameinput,.lnameinput,.emailinput,.passwordinput,.confirmpasswordinput{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+input{
+    width: 100%;
+    padding: 5px;
+}
+.btns{
+    display: flex;
+    gap:10px;
+}
+#updatebtn{
+    padding: 5px;
+}
