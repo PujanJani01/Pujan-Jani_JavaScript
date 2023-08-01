@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assesment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="summary">
+        <h2>Summary</h2>
+        <h3>Booking Details</h3>
+        <div class="bookingdetails">
+            <img src="https://www.w3schools.com/w3css/img_avatar3.png" alt="img">
+            <div>
+                <p>Manage PCOS Holistic program</p>
+                <button>PCOS</button>
+            </div>
+        </div>
+
+        <h3>Schedule On</h3>
+        <div class="scheduledetails">
+            <div>
+                <span>Date</span>
+                <strong>10-07-2023</strong>
+            </div>
+            <div>
+                <span>Time</span>
+                <strong>04:30pm</strong>
+            </div>
+            <div>
+                <span>Duration</span>
+                <strong>30min</strong>
+            </div>
+        </div>
+    </section>
+    <div class="vr"></div>
+
+    <section class="bill">
+       <div class="amount">
+         <h3><label for="amount">Your amount</label></h3>
+         <input type="number" id="amount" placeholder="Enter your amount">
+       </div>
+
+       <div class="promocode">
+          <h3>Promo code</h3>
+          <div>
+            <input type="text" class="promoinput" placeholder="Enter promo code">
+            <button disabled class="checkpromo">Check</button>
+          </div>
+          <p class="promomessage"></p>
+       </div>
+
+       <div class="paymentdetails">
+         <h3>Payment details</h3>
+         <div class="calculations">
+            <div>
+                <p>Plan</p>
+                <p>consulation</p>
+            </div>
+            <div>
+                <p>GST</p>
+                <p>18%</p>
+            </div>
+            <div>
+                <p>Summary</p>
+                <p id="summaryamount">Rs.00</p>
+            </div>
+            <div class="discount" style="display: none;">
+                <p>Discount</p>
+                <p id="discountprice">Rs.00</p>
+            </div>
+            <div>
+                <p>Total</p>
+                <h4 id="totalamount">Rs.00</h4>
+            </div>
+         </div>
+         <p class="note">Pay securaly by credit/ debit card, internet banking, and UPI through Razorpay.</p>
+       </div>
+
+       <div class="pay">
+         <div>
+            <p>Total</p>
+            <P id="totalpay">Rs.00</P>
+         </div>
+         <div>
+            <button class="paybtn">Pay Now</button>
+         </div>
+       </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

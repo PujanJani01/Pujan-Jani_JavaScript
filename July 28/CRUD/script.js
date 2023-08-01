@@ -41,7 +41,9 @@ let users = [];
 let updatebtn = document.getElementById('updatebtn');
 var regularExpression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[.#?!@$%^&*-]).{8,16}$/;
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', readData);
+
+function readData(e){
     e.preventDefault();
     if (regularExpression.test(form.elements[4].value)) {
         if (form.elements[4].value == form.elements[5].value) {
@@ -69,11 +71,11 @@ form.addEventListener('submit', (e) => {
     else {
         document.getElementById('passmessege').innerText = 'Invalid format'
     }
-})
+}
 
 
 function clearInput() {
-    for (let i = 0; i < form.length - 2; i++) {
+    for (let i = 0; i < form.length - 1; i++) {
         form.elements[i].value = '';
     }
 }
@@ -102,17 +104,16 @@ function editRow(tdbtn) {
 }
 
 function updateRow(tr) {
-    updatebtn.removeAttribute('disabled');
-    if (form.elements[4].value == form.elements[5].value) {
-        updatebtn.addEventListener('click', update);
-        function update() {
+    form.removeEventListener('submit',readData);
+    form.addEventListener('submit',update);
+        function update(e) {
+            e.preventDefault();
             for (let i = 0; i < tr.length - 2; i++) {
                 tr[i].innerText = form.elements[i].value;
             }
-            updatebtn.removeEventListener('click', update);
             clearInput();
         }
-    }
+
 }
 
 function delRow(tdbtn) {
