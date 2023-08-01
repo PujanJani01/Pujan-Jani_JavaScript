@@ -13,13 +13,13 @@ myamount.addEventListener('input', () => {
     if(myamount.value.trim() == ''){
         clearAmount();
     }
-    else if (Number(myamount.value) > 0 ) {
-        var amountAfterGst = Number(myamount.value) + (Number(myamount.value) * 18 / 100);
-        setValue(amountAfterGst);
+    else if (Number(myamount.value)) {
+        setValue();
     }
 })
 
-function setValue(amountAfterGst){
+function setValue(){
+    var amountAfterGst = Number(myamount.value) + (Number(myamount.value) * 18 / 100);
     summaryAmount.innerText = 'Rs.' + amountAfterGst.toFixed(3);
     totalAmount.innerText = 'Rs.' + amountAfterGst.toFixed(3);
     totalPay.innerText = 'Rs.' + amountAfterGst.toFixed(3);
@@ -36,11 +36,11 @@ promoinput.addEventListener('input', () => {
 
 
 checkbtn.addEventListener('click', () => {
-    let promocode = promoinput.value.toUpperCase();
+    var promocode = promoinput.value.toUpperCase();
         if (promos.includes(promocode)) {
             if (Number(myamount.value) > 500 && Number(myamount.value) < 1000) {
                 if (promocode == 'OFF25') {
-                    promomessage.innerHTML = promocode + ' Applied'+ ' <button>X<button>';
+                    promomessage.innerHTML = promocode + ' Applied' + '<button onClick="removePromoCode()" id="removebtn">X<button>';
                     promomessage.style.color = 'green';
                     off25();
                 }
@@ -53,7 +53,7 @@ checkbtn.addEventListener('click', () => {
             }
             else if (Number(myamount.value) > 1000 && Number(myamount.value) < 2000) {
                 if (promocode == 'OFF25' || promocode == 'OFF50') {
-                    promomessage.innerText = promocode + ' Applied';
+                    promomessage.innerHTML = promocode + ' Applied' + '<button onClick="removePromoCode()" id="removebtn">X<button>';
                     promomessage.style.color = 'green';
                     if (promocode == 'OFF25') {
                         off25();
@@ -71,7 +71,7 @@ checkbtn.addEventListener('click', () => {
             }
             else if (Number(myamount.value) > 2000) {
                 if (promocode == 'OFF25' || promocode == 'OFF50' || promocode == 'OFF75') {
-                    promomessage.innerText = promocode + ' Applied';
+                    promomessage.innerHTML = promocode + ' Applied' + '<button onClick="removePromoCode()" id="removebtn">X<button>';
                     promomessage.style.color = 'green';
                     if (promocode == 'OFF25') {
                         off25();
@@ -142,4 +142,11 @@ function clearAmount(){
     discountedprice.innerText = 'Rs.00';
     totalAmount.innerText = 'Rs.00';
     totalPay.innerText = 'Rs.00';
+}
+
+function removePromoCode(){
+    promomessage.innerText = '';
+    promoinput.value = '';
+    discountdiv.style.display = 'none';
+    setValue();
 }

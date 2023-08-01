@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 34px;
+}
+div{
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 10px 1px;
+    padding: 3rem;
+    text-align: center;
+}
+.colorname{
+    margin-bottom: 1rem;
+}
+#colorbtn{
+    padding: 0.5rem 1rem;
+    font-size: 20px;
+}

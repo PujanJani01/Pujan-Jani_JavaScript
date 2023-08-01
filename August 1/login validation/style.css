@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100vh;
+}
+.welcomepage{
+    text-align: center;
+}
+.formwrapper,.signupwrapper{
+    display: none;
+}
+.formwrapper,.tablewrapper,.signupwrapper{
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.fnameinput,.lnameinput,.emailinput,.passwordinput,.confirmpasswordinput,.unameinput,.signupwrapper > div input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+input{
+    width: 100%;
+    padding: 5px;
+}
+.btns{
+    margin-top: 1rem;
+    display: flex;
+    gap:10px;
+}
+#updatebtn{
+    padding: 5px;
+}
+
+th,td{
+    padding: 10px 10px;
+    text-align: center;
+}
+table{
+    width: 100%;
+}
+#unamemessege, #passmessege{
+    color: red;
+}

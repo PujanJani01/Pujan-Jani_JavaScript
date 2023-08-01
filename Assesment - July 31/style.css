@@ -124,3 +124,15 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+#removebtn{
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+p{
+    display: flex;
+    align-items: center;
+}

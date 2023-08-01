@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="welcomepage">
+        <h1>welcome</h1>
+        <div>
+           <button id="loginpagebtn"  onclick="loginpageload()">Login</button>
+           <button id="signuppagebtn" onclick="signuppageload()">Sign Up</button>
+        </div>
+    </div>
+
+    <form class="formwrapper">
+        <div class="unameinput">
+            <label for="uname">username</label>
+            <input type="text" id="uname" required>
+            <p id="unamemessege"></p>
+        </div>
+        <div class="fnameinput">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" required>
+        </div>
+        <div class="lnameinput">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" required>
+        </div>
+        <div class="emailinput">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="passwordinput">
+            <label for="password">Password</label>
+            <input type="password" id="password" required">
+            <p id="passmessege"></p>
+            <p>Note: password must contain minimum one uppercase, lowercase, number and special character and minimum length is 8 and maximum length is 16.</p>
+        </div>
+        <div class="confirmpasswordinput">
+            <label for="confirmpassword">Confirm password</label>
+            <input type="password" id="confirmpassword" required>
+        </div>
+        <div class="btns">
+            <input type="submit" value="Sign up">
+        </div>
+    </form>
+  
+    <form class="signupwrapper">
+        <div class="username">
+            <label for="username">username</label>
+            <input type="text" id="username" required>
+            <!-- <p id="usernamemessege"></p> -->
+        </div>
+        <div class="pass">
+            <label for="pass">password</label>
+            <input type="password" id="pass" required>
+        </div>
+        <div>
+            <input type="submit" id="loginbtn" value="Login">
+        </div>
+    </form>
+
+    <div class="tablewrapper">
+        <table border="1">
+            <thead>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Actions</th>
+            </thead>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
