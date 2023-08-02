@@ -1,3 +1,6 @@
+*{
+    scroll-behavior: smooth;
+}
 #keyevent{
     border: solid;
     display: flex;
