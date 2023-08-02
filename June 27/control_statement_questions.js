@@ -1,4 +1,4 @@
-// let time = new Date();
+                            // let time = new Date();
 // if(time.getHours() >= 6 && time.getHours() < 12){
 //    console.log('Good Morning');
 // } 
@@ -242,6 +242,19 @@
 // isStringContainsNum('ag1sdf'); 
 // isStringContainsNum('111'); 
 
+// function isStringContainsNum(str) {
+//     for (i=0; i<str.length;i++) {
+//         if (str[i] >= 0 && str[i] <= 9) {
+//             return true
+//         }
+//     }
+//     return false;
+// }
+// console.log(isStringContainsNum('assad'));
+// console.log(isStringContainsNum('agfh1'));
+// console.log(isStringContainsNum('ag1sdf'));
+// console.log(isStringContainsNum('111'));
+
 //----------------------------------------------------------------------------------------------------------
 
 // function isDigitMessege(str) {
@@ -256,6 +269,26 @@
 //   isDigitMessege("1212");     // String is number
 //   isDigitMessege("sadfsd");   // String deos not contain a number
 //   isDigitMessege("sad2q");    // String contains number
+
+// function isStringContainsNumMessege(str){
+//      if(Number(str)){
+//           console.log('String is number');
+//      }
+//      else if(check){
+//           console.log(check(str));
+//      }
+// }
+// function check(str){
+//     for (i=0; i<str.length;i++) {
+//         if (str[i] >= 0 && str[i] <= 9) {
+//                     return 'String contains number';
+//                 }
+//         }
+//        return 'String deos not contain a number';
+// }
+// isStringContainsNumMessege("1212");     // String is number
+// isStringContainsNumMessege("sadfsd");   // String deos not contain a number
+// isStringContainsNumMessege("sad2q");    // String contains number
 
 //----------------------------------------------------------------------------------------------------------
 

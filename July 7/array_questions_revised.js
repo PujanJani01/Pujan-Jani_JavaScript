@@ -828,8 +828,6 @@
 // }
 // console.log(remove_array_element([2, 5, 9, 6], 5));
 
-//------------------------------------------------------------------------------------------------------
-
 //------------------------------------------------------------------------------------------------------------------------
 
 // function contains(arr,num){
@@ -843,17 +841,25 @@
 //------------------------------------------------------------------------------------------------------------------------
 
 // function countArray(arr){
-//     let count = arr.filter(element => Array.isArray(element)).length;
+//     let count = 0;
+//     arr.forEach(el => {
+//         if(Array.isArray(el))
+//               count ++;
+//     })
 //     return count;
 // }
-// console.log(countArray([2,8,[6],3,3,5,3,4,[5,4]]));
-// console.log(countArray([2,8,[6,3,3],[4],5,[3,4,[5,4]]]));
+// console.log(countArray([2,8,[6],3,3,5,3,4,[5,4]]));         // 2
+// console.log(countArray([2,8,[6,3,3],[4],5,[3,4,[5,4]]]));   // 3
 
 //------------------------------------------------------------------------------------------------------------------------
 
 // function countArray(arr){
-//     let count = arr.filter(element => Array.isArray(element)).reduce((a,c) => a.length >= c.length ? a.length : c.length,0);
-//     return count;
+//     let max = 0;
+//       arr.forEach(el => {
+//          if(Array.isArray(el) && max < el.length)
+//                    max = el.length;
+//       })
+//     return max;
 // }
 // console.log(countArray([2,8,[6],3,3,5,3,4,[5,4]]));  // 2
 // console.log(countArray([2,8,[6,3,3],[4],5,[3,4,[5,4]]]));   // 3

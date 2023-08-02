@@ -44,31 +44,31 @@
 // console.log(month_name(new Date("10/11/2009")));
 // console.log(month_name(new Date("11/13/2014")));
 
-// function month_name(dt){
-//     var moment = require('moment');
-//     return moment(dt).format('MMMM');
-//  };
-//  console.log(month_name(new Date("10/11/2009")));
-//  console.log(month_name(new Date("11/13/2014")));
+// // function month_name(dt){
+// //     var moment = require('moment');
+// //     return moment(dt).format('MMMM');
+// //  };
+// //  console.log(month_name(new Date("10/11/2009")));
+// //  console.log(month_name(new Date("11/13/2014")));
 
-//-----------------------------------------------------------------------------------------------------
+// //-----------------------------------------------------------------------------------------------------
 
-// function compare_dates(date1,date2){
-//     if(date1 > date2){
-//         return "Date1 > Date2";
-//      } 
-//      else if(date1 < date2){
-//         return "Date1 < Date2";
-//      }
-//      return 'Date1 = Date2';
-// };
-// console.log(compare_dates(new Date('11/14/2013 00:00'), new Date('11/14/2013 00:00')));
-// console.log(compare_dates(new Date('11/14/2013 00:01'), new Date('11/14/2013 00:00')));
-// console.log(compare_dates(new Date('11/14/2013 00:00'), new Date('11/14/2013 00:01')));
+// // function compare_dates(date1,date2){
+// //     if(date1 > date2){
+// //         return "Date1 > Date2";
+// //      } 
+// //      else if(date1 < date2){
+// //         return "Date1 < Date2";
+// //      }
+// //      return 'Date1 = Date2';
+// // };
+// // console.log(compare_dates(new Date('11/14/2013 00:00'), new Date('11/14/2013 00:00')));
+// // console.log(compare_dates(new Date('11/14/2013 00:01'), new Date('11/14/2013 00:00')));
+// // console.log(compare_dates(new Date('11/14/2013 00:00'), new Date('11/14/2013 00:01')));
 
-//-----------------------------------------------------------------------------------------------------
+// //-----------------------------------------------------------------------------------------------------
 
-// function addDate(count=0,type='date',operation='+'){
+// function addSubtractDate(count=0,type='date',operation='+'){
 //     let now = new Date();
 //     switch(operation){
 //         case '+':
@@ -99,12 +99,12 @@
     
 //     return now.toString();
 // }
-// console.log(addDate(5,'date','+'));
-// console.log(addDate(5,'week','-'));
-// console.log(addDate(5,'month'));
-// console.log(addDate(5,'year','+'));
-// console.log(addDate());
-// console.log(addDate(5));
+// console.log(addSubtractDate(25,'date','+'));
+// console.log(addSubtractDate(5,'week','-'));
+// console.log(addSubtractDate(5,'month'));
+// console.log(addSubtractDate(5,'year','+'));
+// console.log(addSubtractDate());
+// console.log(addSubtractDate(5));
 
 //-----------------------------------------------------------------------------------------------------
 
@@ -190,8 +190,8 @@
 
 // function days_passed(date){
 //   let dt = new Date(date);
-//   let start = new Date(dt.getFullYear(), 0 ,0);
-//   return (dt.getTime() - start.getTime())/(1000*3600*24);
+//   let start = new Date(dt.getFullYear(), 0 ,1);
+//   return (dt.getTime() - start.getTime())/(1000*3600*24) + 1;
 // }
 //  console.log(days_passed(new Date(2015, 0, 15)));
 //  console.log(days_passed(new Date(2015, 11, 14)));

@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+button{
+        color: #fff;
+        border: none;
+        background-color: purple;
+        font-size: 2rem;
+        padding: 1.5rem 3rem;
+        position: relative;
+        overflow: hidden;
+}
+span {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    animation: scale 0.5s linear infinite;
+}
+@keyframes scale {
+     0%{
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+
+     }
+     100%{
+        width: 500px;
+        height: 500px;
+        opacity: 0.5;
+     }
+}

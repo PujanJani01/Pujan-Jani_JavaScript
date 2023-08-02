@@ -7,7 +7,7 @@ let clear = document.getElementsByClassName('clear')[0];
 
 btns.forEach(btn =>{
     btn.addEventListener('click', () =>{
-       display.value += btn.innerText;
+       display.value += btn.value;
 })
 })
 

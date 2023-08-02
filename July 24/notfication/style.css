@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+button{
+        color: #fff;
+        border: none;
+        background-color: rgb(87, 58, 235);
+        font-size: 2rem;
+        padding: 1.5rem 3rem;
+        position: relative;
+        overflow: hidden;
+}
+.notifications{
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    
+}
+.notifications > div{
+    background-color: rgb(87, 58, 235);
+    color: white;
+    height: 50px;
+    width: 200px;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 10px;
+}

@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    text-align: center;
+    padding: 1rem 0;
+    color: brown;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* padding: 2rem; */
+    margin: auto;
+    max-width: 90%;
+}
+
+.cardwrapper{
+    width: 50%;
+    padding: 1rem;
+}
+.card{
+    border-radius: 15px;
+    background-color: whitesmoke;
+    padding: 1rem;
+    width: 100%;
+}
+.cardhead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.cardhead h3{
+    font-size: 20px;
+}
+.cardhead p{
+    opacity: 60%;
+}
+.cardfooter, .price, .booktest{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.booktest{
+    gap: 1rem;
+}
+.booktest p {
+    font-size: 18px;
+    font-weight: bold;
+}
+.cardfooter{
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.cardcontent{
+    margin: 1rem 0 1.5rem;
+}
+h3, h2{
+    color: brown;
+}
+.bookbtn{
+    background-color: none;
+    border-color: brown;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+}
+.price small{
+   align-self: end;
+   padding: 0 5px 2px ;
+}
+@media  screen and (max-width: 778px) {
+    .cardwrapper{
+        width: 100%;
+    }
+}

@@ -1,26 +1,37 @@
 let left = document.querySelector('#left');
 let right = document.querySelector('#right');
 let pics = document.querySelector('.pics');
-// let slides = document.querySelectorAll('image');
+let direction;
 
-let liEls = document.querySelectorAll('img');
-let index = 0;
-window.show = function(increase) {
-  index = index + increase;
-  index = Math.min(Math.max(index,0), liEls.length-1);
-  liEls[index].scrollIntoView({behavior: 'smooth'});
+right.addEventListener('click', () => {
+  pics.style.transform = `translateX(-25%)`;
+  goRight();
+})
+left.addEventListener('click', () => {
+  pics.style.transform = `translateX(25%)`;
+  goLeft();
+})
+
+function goRight(){
+  pics.addEventListener('transitionend', () => {
+    pics.appendChild(pics.firstElementChild);
+    pics.style.transition = 'none';
+    pics.style.transform = 'translateX(0)';
+    setTimeout(() => {
+      pics.style.transition = 'all 1s';
+    })
+  })
 }
 
+// function goLeft(){
+//   pics.addEventListener('transitionstart', () => {
+//     pics.prepend(pics.lastElementChild);
+//     pics.style.transform = 'translateX(0)';
+//     setTimeout(() => {
+//       pics.style.transition = 'all 1s';
+//     })
+//     pics.style.transition = 'none';
+//   })
+// }
 
-// let curSlide = 0;
-// let maxSlide = slides.length - 1;
-// right.addEventListener("click", function () {
-//   if (curSlide === maxSlide) {
-//     curSlide = 0;
-//   } else {
-//     curSlide++;
-//   }
-//   slides.forEach((slide, indx) => {
-//     slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
-//   });
-// });
+

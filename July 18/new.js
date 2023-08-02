@@ -85,3 +85,18 @@ a(); */
 
 //--------------------------------------------------------------------------------------------
 
+// function isPowerFactor(num1,num2){
+//    if(num2%num1 == 0){
+//       for(let i=1; Math.pow(num1,i) <= num2; i++){
+//          if(Math.pow(num1,i) == num2){
+//             return true;
+//          }
+//       }
+//       return false;
+//    }
+//    return false;
+// }
+// console.log(isPowerFactor(3,9));
+// console.log(isPowerFactor(3,27));
+// console.log(isPowerFactor(3,6));
+// console.log(isPowerFactor(3,5));

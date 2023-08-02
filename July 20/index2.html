@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    background-color: ;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+#nav-list{
+    display: flex;
+    list-style: none;
+}
+li{
+    padding: 1rem;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+.primary{
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    background-color: #3df;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+.bar{
+    display: none;
+    padding: 0.5rem;
+    border: solid;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.btndiv{
+    display: flex;
+}
+.menubar{
+    background-color: rgb(193, 192, 192);
+    min-height: 100vh;
+    min-width: 100%;
+    position: absolute;
+    top:0;
+    right: 100%;
+    transition: all 2s;
+}
+
+.closebtn{
+    position: absolute;
+    right: 1%;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+}
+
+.active{
+    border-bottom: solid;
+}
+@media only screen and (max-width: 576px){
+    #nav-list{
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+    .bar{
+        display: block;
+    }
+}
+
+
+    </style>
+    <script src="https://kit.fontawesome.com/26eb4a501d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="navbar">
+        <h1>LOGO</h1>
+            <ul id="nav-list">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Help2</a></li>
+            </ul>
+            <div class="btndiv">
+                <button class="primary">Login</button>
+                <div class="bar"><i class="fa-solid fa-bars"></i></div>
+            </div>
+            
+            
+    </div>
+    <div class="menubar">
+        <button class="closebtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <script src="script2.js"></script>
+</body>
+</html>

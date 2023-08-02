@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class RailwayForm {
+        sumbit(){
+            alert(this.name + ": Your form is Sumbitted for train no: " + this.trainno);
+        }
+        cancel(){
+            alert(this.name + ": Your form is form Cancelled for train no: " + this.trainno);
+        }
+        
+        fill(fname, trainno){
+            this.name = fname;
+            this.trainno = trainno;
+        }
+    }
+    
+    // Create a from for Pujan
+    let pujanForm = new RailwayForm();
+    // Fill the from with the Pujan's details
+    pujanForm.fill("Pujan", 215443);
+    
+    pujanForm.sumbit();
+    pujanForm.cancel();
+    
+    </script> 
+</body>
+</html>
+

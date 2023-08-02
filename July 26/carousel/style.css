@@ -13,7 +13,7 @@ body{
     display: flex;
     width: 800px;
     height: 500px;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
 }
 .pics{
@@ -21,7 +21,7 @@ body{
     display: flex;
     /* width: 800px;
     height: 500px; */
-    transition: all 2s;
+    transition: all 1s;
 }
 img{
     object-fit: cover;

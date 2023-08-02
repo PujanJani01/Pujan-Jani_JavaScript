@@ -55,7 +55,8 @@ li button{
 }
 
 #editinput{
-    border: none;
+    font-family:unset;
+    /* border: none; */
     /* outline: none; */
     background-color: transparent;
     width: 90%;
@@ -65,4 +66,7 @@ li button{
 }
 .div1, .div2{
     display: flex;
+}
+#delbtn{
+    font-size: 30px;
 }

@@ -778,20 +778,20 @@
 
 //------------------------------------------------------------------------------------------------------------------------
 
-// function findPair(numbers, target) {
-//     let result = [];
-//     for (let i = 0; i < numbers.length; i++) {
-//       for (let j = 0; j < numbers.length; j++) {
-//         if (numbers[i] + numbers[j] === target) {
-//           result.push(numbers[i], numbers[j]);
-//           break;
-//         }
-//       }
-//       if (result.length > 0) break;
-//     }
-//     return result;
-//   }
-//   console.log(findPair([10,20,10,40,50,60,70], 50));
+function findPair(numbers, target) {
+    let result = [];
+    for (let i = 0; i < numbers.length; i++) {
+      for (let j = 0; j < numbers.length; j++) {
+        if (numbers[i] + numbers[j] === target) {
+          result.push(numbers[i], numbers[j]);
+          break;
+        }
+      }
+      if (result.length > 0) break;
+    }
+    return result;
+  }
+  console.log(findPair([10,20,10,40,50,60,70], 50));
 
 //------------------------------------------------------------------------------------------------------------------------
 
@@ -856,4 +856,40 @@
 // console.log(contains([2,5,9,6],10));
 
 //------------------------------------------------------------------------------------------------------------------------
+
+// function countArray(arr){
+//     let count = arr.filter(element => Array.isArray(element)).length;
+//     return count;
+// }
+// console.log(countArray([2,8,[6],3,3,5,3,4,[5,4]]));
+// console.log(countArray([2,8,[6,3,3],[4],5,[3,4,[5,4]]]));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// function countArray(arr){
+//     let count = arr.filter(element => Array.isArray(element)).reduce((a,c) => a.length > c.length ? a.length : c.length,0);
+//     return count;
+// }
+// console.log(countArray([2,8,[6],3,3,5,3,4,[5,4]]));
+// console.log(countArray([2,8,[6,3,3],[4],5,[3,4,[5,4]]]));
+// console.log(countArray([2,8,[6,3,3],[4],5,[3,4,[5,4]], [23,56]]));
+// console.log(countArray([1,5,2,6,4,23,89]));
+
+//------------------------------------------------------------------------------------------------------------------------
+
+// function isFactorChain(arr){
+//     let ans = [];
+//    for(let i=0;i<arr.length-1;i++){
+//         if(arr[i+1]%arr[i] == 0){
+//             ans.push(true);
+//         }
+//         else{
+//             ans.push(false);
+//         }
+//    }
+//    return ans.every(boolean => boolean === true);
+// }
+// console.log(isFactorChain([2, 4, 8, 16, 32]));
+// console.log(isFactorChain([2, 4, 16, 32, 64]));
+// console.log(isFactorChain([2, 4, 16, 32, 68]));
 

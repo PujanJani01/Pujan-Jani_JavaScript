@@ -25,6 +25,18 @@
 // let arr= [1,2,3,4,5];
 // console.log(arr.at(7));   // undefined
 
+// let a = 'abc'
+// console.log(a.at(2));  // c
+
+// let a = '123'
+// console.log(a.at(2));  // 3
+
+// let a = 123
+// console.log(a.at(2));  // Error
+
+// let a = {a:1,b:2,c:3};
+// console.log(a.at(1));   // Error
+
 //-------------------------------------------------------------------------------------------------------------
 
 // let arr1 = [1,3,5,7,9];
@@ -117,6 +129,18 @@
 // let arr3 = arr1.concat(arr2);
 // console.log(arr3);              // [ 1, 2, { a: { b: [Object] } }, 5, 6 ]
 
+// let a = 123;
+// let b = 456;
+// console.log(a.concat(b));  // error
+
+// let a = [123];
+// let b = '456';
+// console.log(a.concat(b)); 
+
+// let a = [1];
+// let b = {b:2};
+// console.log(a.concat(b));
+
 //-------------------------------------------------------------------------------------------------------
 
 // function isGreater(values){
@@ -153,6 +177,11 @@
 // let nums = [1,,3];
 // console.log(nums.every(isGreater));  // false
 
+// function isGreater(values){
+//    return values < 5;
+// }
+// let nums = [1,,3];
+// console.log(nums.every(isGreater));  // true
 
 // function isGreater(values){
 //     return values > 5;
@@ -160,7 +189,7 @@
 // let nums = [22,51,73,11,25];
 // console.log(nums.every(isGreater));
 
-
+// Doubt
 // function isSubset(arr1,arr2){
 //    arr2.every(isInclude);
 //    function isInclude(element){
@@ -183,10 +212,12 @@
 // let nums = [22,51,73,11,25,[12,43]];
 // console.log(nums[5].every(isGreater)); // true
 
+
 //----------------------------------------------------------------------------------------------------------
 
 // let arr = [1,2,3,4];
 // console.log(arr.fill(0));    // [ 0, 0, 0, 0 ]
+// console.log(arr);
 
 // let arr = [1,2,3,4];
 // console.log(arr.fill(0,2));    // [ 1, 2, 0, 0 ]
@@ -251,6 +282,9 @@
 // const tempGirls = Array(5).fill("girl", 0);
 // console.log(tempGirls);               // [ 'girl', 'girl', 'girl', 'girl', 'girl' ]
 
+// let arr = undefined;
+// console.log(arr.fill(0,2));
+
 //----------------------------------------------------------------------------------------------------------
 
 // let names = ['pujan', 'vansh', 'sachin', 'bhaumik'];
@@ -283,7 +317,7 @@
 
 // let names = ['pujan', , 'sachin', 'bhaumik'];
 // function length(words){
-//      return words == undefined;
+//      return words > 8 ;
 // }
 // console.log(names.filter(length));       // []
 
@@ -832,3 +866,35 @@
 
    //   arr.splice(1,3,'def');
    // console.log(arr);   // [ 'abc', 'def']
+
+//---------------------------------------------------------------------------------------------------------
+
+// let arr = [1,2,3,4,5];
+// let arr2= arr.reduce((val1,val2) => val1+val2);
+// console.log(arr);    // arr
+// console.log(arr2);  // 15
+
+// let arr = ['a','b','c','d'];
+// let arr2= arr.reduce((val1,val2) => val1+val2);
+// console.log(arr);
+// console.log(arr2);   // abcd
+
+// let arr = ['0','1','2','3'];
+// let arr2= arr.reduce((val1,val2) => val1+val2);
+// console.log(arr);
+// console.log(arr2);   // 0123
+
+// let arr = [undefined,undefined,null];
+// let arr2= arr.reduce((val1,val2) => val1+val2);
+// console.log(arr);
+// console.log(arr2);  // NaN
+
+// let arr = [true,false,true];
+// let arr2= arr.reduce((val1,val2) => val1+val2);
+// console.log(arr);
+// console.log(arr2);  // 2 
+
+// let arr = null;
+// let arr2= arr.reduce((val1,val2) => val1+val2);
+// console.log(arr);
+// console.log(arr2);

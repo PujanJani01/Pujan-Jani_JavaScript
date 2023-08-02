@@ -77,25 +77,35 @@
 // let now = new Date();
 
 // // in 12 hour format
-// console.log(now.toLocaleTimeString('en-US'));   
+// console.log(now.toLocaleTimeString('en-US')); 
+
 // // UTC in 12 hour format
-// console.log(now.toLocaleTimeString('en-US',{timeZone: 'UTC'}));    
+// console.log(now.toLocaleTimeString('en-US',{timeZone: 'UTC'})); 
+
 // // IST in 12 hour format
-// console.log(now.toLocaleTimeString('en-US',{timeZone: 'IST'}));    
+// console.log(now.toLocaleTimeString('en-US',{timeZone: 'IST'})); 
+
 // // only hour with leading zero in 12 hour format
-// console.log(now.toLocaleTimeString('en-US',{hour:'2-digit'}));    
+// console.log(now.toLocaleTimeString('en-US',{hour:'2-digit'}));   
+
 // // only minute without leading zero
-// console.log(now.toLocaleTimeString('en-US',{minute:'2-digit'}));    
+// console.log(now.toLocaleTimeString('en-US',{minute:'2-digit'})); 
+
 // // only seconds without leading zero
-// console.log(now.toLocaleTimeString('en-US',{second:'2-digit'}));    
+// console.log(now.toLocaleTimeString('en-US',{second:'2-digit'})); 
+
 // // hour and minute with leading zero
-// console.log(now.toLocaleTimeString('en-US',{hour:'2-digit', minute:'2-digit'}));    
+// console.log(now.toLocaleTimeString('en-US',{hour:'2-digit', minute:'2-digit'})); 
+
 // // hour, minute and second with leading zero
 // console.log(now.toLocaleTimeString('en-US',{hour:'2-digit', minute:'2-digit', second:'2-digit'}));    
+
 // // minute and second with leading zero
 // console.log(now.toLocaleTimeString('en-US',{minute:'2-digit', second:'2-digit'}));    
+
 // // hour with leading zero and second in bracket without leading zero
 // console.log(now.toLocaleTimeString('en-US',{hour:'2-digit', second:'2-digit'})); 
+
 // // time in 12 hour fromat   
 // console.log(now.toLocaleTimeString('en-US',{hour12:'true'}));  
 
@@ -113,23 +123,32 @@
 // let now = new Date(); 
 
 // // Wed Jul 12 2023 15:59:39 GMT+0530 (India Standard Time)
-// console.log(now.toString());                   
+// console.log(now.toString());          
+
 // // 12/7/2023, 3:59:39 pm
 // console.log(now.toLocaleString());
+
 // // Wed Jul 12 2023
-// console.log(now.toDateString());                
+// console.log(now.toDateString());     
+
 // // 16:00:17 GMT+0530 (India Standard Time)
-// console.log(now.toTimeString());                
+// console.log(now.toTimeString());    
+
 // // Wed, 12 Jul 2023 10:30:41 GMT
-// console.log(now.toUTCString());                 
+// console.log(now.toUTCString());  
+
 // // 2023-07-12T10:30:58.114Z
-// console.log(now.toISOString());                 
+// console.log(now.toISOString()); 
+
 // // 12/7/2023
-// console.log(now.toLocaleDateString());          
+// console.log(now.toLocaleDateString());   
+
 // // 3:59:39 pm
-// console.log(now.toLocaleTimeString());          
+// console.log(now.toLocaleTimeString());  
+
 // // 2023-07-12T10:30:58.114Z
-// console.log(now.toJSON());                      
+// console.log(now.toJSON());   
+
 // // milliseconds for this date since midnight at the beginning of January 1, 1970, UTC
 // console.log(now.valueOf());                     
 
@@ -205,29 +224,29 @@
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 
-// function countOfficeDays(duration='month', month=1, year = new Date().getFullYear()){
-//     let count = 0;
-//     switch(duration){
-//         case 'year':
-//             let yfdate = new Date(year,0,1);
-//             let yldate = new Date(year,11,31);
-//             for(let i = yfdate.getTime(); i<=yldate.getTime(); yfdate.setTime(i+=(1000*3600*24))){
-//                 switch(yfdate.getDay()){
-//                     case 1:case 2:case 3:case 4:case 5:  count ++; break;
-//                 }
-//              } break;
-//         case 'month':
-//             let mfdate = new Date(year,month,1);
-//             let mldate = new Date(year,month,31);
-//             for(let i = mfdate.getTime(); i<=mldate.getTime(); mfdate.setTime(i+=(1000*3600*24))){
-//                 switch(mfdate.getDay()){
-//                     case 1:case 2:case 3:case 4:case 5:  count ++; break;
-//                 }
-//              }  
-//     }
-//     return 'Total working days in ' + year + ' is ' + count;
-//   }
-//   console.log(countOfficeDays('month',2));
+function countOfficeDays(duration='month', month=1, year = new Date().getFullYear()){
+    let count = 0;
+    switch(duration){
+        case 'year':
+            let yfdate = new Date(year,0,1);
+            let yldate = new Date(year,11,31);
+            for(let i = yfdate.getTime(); i<=yldate.getTime(); yfdate.setTime(i+=(1000*3600*24))){
+                switch(yfdate.getDay()){
+                    case 1:case 2:case 3:case 4:case 5:  count ++; break;
+                }
+             } break;
+        case 'month':
+            let mfdate = new Date(year,month,1);
+            let mldate = new Date(year,month,31);
+            for(let i = mfdate.getTime(); i<=mldate.getTime(); mfdate.setTime(i+=(1000*3600*24))){
+                switch(mfdate.getDay()){
+                    case 1:case 2:case 3:case 4:case 5:  count ++; break;
+                }
+             }  
+    }
+    return 'Total working days in ' + year + ' is ' + count;
+  }
+  console.log(countOfficeDays('month',2));
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 

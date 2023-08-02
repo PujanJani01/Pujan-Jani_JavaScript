@@ -99,7 +99,6 @@ function editRow(tdbtn) {
     for (let i = 0; i < edittr.length - 2; i++) {
         form.elements[i].value = edittr[i].innerText;
     }
-    form.elements[5].value = edittr[4].innerText;
     updateRow(edittr);
 }
 

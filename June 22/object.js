@@ -182,7 +182,7 @@
 
 // const obj = { 0: 'a', 1: 'b', 2: 'c'}
 // console.log(Object.entries(obj));           // [ [ '0', 'a' ], [ '1', 'b' ], [ '2', 'c' ] ]
-
+// console.log(obj);
 // here when we take numbers as keys, it takes them as a string 
 
 // const obj = {100: 'a', 2: 'b', 6:'c'}
@@ -228,11 +228,12 @@
 // const obj = {100: 'a', 2: 'b', 6:'c'}
 // console.log(Object.keys(obj));         // ['2','6','100']
 // returns ordered array of keys
-
+// console.log(obj[100]);
 
 // console.log(Object.keys('pujan'));   // [ '0', '1', '2', '3', '4' ]  
 // returns array of keys starts from 0 for sepcific value
 
+// console.log(Object.keys(100));  // []
 // console.log(Object.keys(100));  // []
 
 // const obj = {100: 'a', 2: 'b', 6:'c'};

@@ -286,3 +286,6 @@
 // let ans = arr.reduce((a,c) => a < c ? a : c); 
 // console.log(ans);   // 0
 
+const a = ["Js","css"];
+const b = a.reduce((a,c) => a.toString() + ',' + c.toString());
+console.log(b);
