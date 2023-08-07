@@ -5,7 +5,6 @@ setTimeout(()=>{
     console.log('After timeout a = ' + a);
 },200)
 
-
 a = 15;
 console.log(a);
 console.log(b); */
@@ -27,7 +26,7 @@ console.log(a); */
 
 //------------------------------------------------------------------------------------------------------
 
-let startbtn = document.getElementById('start');
+/* let startbtn = document.getElementById('start');
 let stopbtn = document.getElementById('stop');
 
 
@@ -49,4 +48,4 @@ startbtn.addEventListener('click',()=>{
 stopbtn.addEventListener('click',()=>{
     clearInterval(changeBg);
     changeBg = null;
-})
+}) */
