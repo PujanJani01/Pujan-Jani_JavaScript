@@ -1,0 +1,12 @@
+*{
+    scroll-behavior: smooth;
+}
+body{
+    height: 200vh; 
+}
+
+button{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}
