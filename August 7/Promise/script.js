@@ -45,7 +45,20 @@ promise.then(function(){
 
 //-----------------------------------------------------------------------------------------------
 
-let promise = new Promise(function (resolve, reject) {
+/* async function abc(){
+    console.log(1);
+    await console.log(2);
+    console.log(3);
+    await console.log(6);
+     console.log(7);
+}
+abc();
+console.log(4);
+console.log(5); */
+
+//-----------------------------------------------------------------------------------------------
+
+/* let promise = new Promise(function (resolve, reject) {
     setTimeout(() => {
         let error = true;
         if (!error) {
@@ -85,4 +98,64 @@ async function getData(){
     } 
 }
 
-getData();
+getData(); */
+
+
+//-----------------------------------------------------------------------------------------------
+
+/* let a = 10;
+var promise = new Promise(function(resolve,reject){
+    if(a){
+        resolve(a)
+    }
+    else{
+        reject('ERROR');
+    }
+})
+.then((a)=>{
+ console.log(a);
+ return a;
+})
+.catch((error)=>{
+    console.log(error);
+})
+
+async function abc(){
+    let res = await promise;
+    console.log(res);
+}
+abc();
+console.log(abc());
+console.log(promise); */
+
+//-----------------------------------------------------------------------------------------------
+
+/* async function abc(){
+    let a = 5;
+    await console.log("Sum : ");
+    console.log(a+b);
+}
+abc();
+let b = 10; */
+
+//-----------------------------------------------------------------------------------------------
+
+/* let promise1 = new Promise((resolve,reject) =>{
+    let error = false;
+    if(!error){
+        resolve(1);
+    }
+    else{
+        reject(0);
+    }
+})
+.then((value)=>{
+    return  new Promise((resolve) =>{
+          resolve(value);
+    }).then((value)=>{
+          console.log(value);
+    })
+})
+.catch((value) =>{
+    console.log("Error");
+}) */
