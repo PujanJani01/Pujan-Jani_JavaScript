@@ -245,6 +245,7 @@ function getBiodata(indexData){
     })
 } */
 
+// get prom
 //----------------------------------------------------------------------------------------------
 
 // doubt abour browser console behaviour
