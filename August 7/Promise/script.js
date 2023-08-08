@@ -1,4 +1,4 @@
-/* const promise = new Promise(function(resolve,reject){
+const promise = new Promise(function(resolve,reject){
     setTimeout(()=>{
         let error = false;
         if(!error){
@@ -16,7 +16,7 @@ promise.then(function(){
 })
 .catch(function(){
     console.log('promise rejected');
-}) */
+})
 
 //-----------------------------------------------------------------------------------------------
 
