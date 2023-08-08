@@ -1,4 +1,4 @@
-const promise = new Promise(function(resolve,reject){
+/* const promise = new Promise(function(resolve,reject){
     setTimeout(()=>{
         let error = false;
         if(!error){
@@ -16,7 +16,7 @@ promise.then(function(){
 })
 .catch(function(){
     console.log('promise rejected');
-})
+}) */
 
 //-----------------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ promise.then(function(){
         }
          console.log("promise completed");
     },1000)
-}).then(function(user){
+}).then(function(user){ 
     console.log(user);
     return user.username;
 })
@@ -159,3 +159,7 @@ let b = 10; */
 .catch((value) =>{
     console.log("Error");
 }) */
+
+
+
+

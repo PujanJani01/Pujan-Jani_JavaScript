@@ -209,7 +209,7 @@ fun1(); */
         },2000, rollno[1])
     },2000)
 }
-getRollNo(); */ 
+getRollNo(); */
 
 
 //  above code using promise
@@ -245,7 +245,7 @@ function getBiodata(indexData){
     })
 } */
 
-// get prom
+// get promise data using 
 //----------------------------------------------------------------------------------------------
 
 // doubt abour browser console behaviour
@@ -259,6 +259,69 @@ function getBiodata(indexData){
 }
 // first().then((value) => console.log(value))
 console.log(first()); */
-  
+
 //----------------------------------------------------------------------------------------------
 
+/* async function func(a){
+        setTimeout(() =>{
+            console.log(a);
+        },4000)
+}
+async function abc(){
+        await func(10);
+        return "bye";
+}
+abc().then((text) => console.log(text)); */
+
+
+/* let a = 10;
+function func(a) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(a);
+            reject("ERROR");
+        }, 4000)
+    })
+}
+async function abc() {
+    try {
+        const b = await func(a);
+        console.log("hello");
+        console.log(b);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+abc(); */
+
+//----------------------------------------------------------------------------------------------
+
+/* function abc(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() =>{
+            resolve("hey")
+        },2)
+        setTimeout(() =>{
+            reject("ERROR")
+        },0)
+
+    })
+}
+
+abc().then(txt => console.log(txt)).catch(error => console.log(error)); */
+
+//----------------------------------------------------------------------------------------------
+
+
+// const API = "https://api.github.com/users/akshaymarch7";
+// let user = fetch(API);
+
+/* async function getData(){
+    const data = await fetch(API);
+    const datajson = data.json();
+    return datajson;
+}
+getData().then(obj => console.log(obj)); */
+
+// fetch(API).then((obj) => console.log(obj))
