@@ -246,13 +246,17 @@ console.log("waiting..."); */
 .then(data => console.log(data))
 .catch(error => console.log(error)); */
 
+
 /* async function getData(){
     try {
         const response = await fetch("https://www.boredapi.com/api/activity/");
         let data = response.json();
-        console.log(data);
+        return data;
     } catch (error) {
         console.log(error);
     }
 }
-getData(); */
+getData().then(res => console.log(res)); */
+
+//-----------------------------------------------------------------------------------------------------
+
