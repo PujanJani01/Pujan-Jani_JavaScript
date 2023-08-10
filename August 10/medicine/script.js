@@ -9,6 +9,9 @@ let expbydays = document.getElementById('expbydays');
 let pack = document.getElementById('pack');
 let batch = document.getElementById('batch');
 let table = document.querySelector('table');
+let dateinputdiv = document.getElementsByClassName('dateinputdiv')[0];
+let closebtn = document.getElementById('closebtn');
+let selected;
 
 body.removeChild(formwrapper);
 
@@ -20,26 +23,16 @@ addbtn.addEventListener('click',() =>{
 expbydate.addEventListener('click',addExpbydate);
 
 function addExpbydate(){
-    if(expirywrapper.contains(document.querySelector('.dayinput'))){
-        expirywrapper.removeChild(document.querySelector('.dayinput'));
-    }
-    let dateinput = document.createElement('div');
-    dateinput.classList.add('dateinput');
-    dateinput.innerHTML = `<input type='date' id='dateinput'>`;
-    expirywrapper.appendChild(dateinput);
-    expbydate.removeEventListener('click',addExpbydate);
+    dateinputdiv.innerHTML = '';
+    dateinputdiv.innerHTML = `<input type='date' id='dateinput'>`;
+    selected = 'date';
 }
 
 expbydays.addEventListener('click',addExpbydays);
 function addExpbydays(){
-    if(expirywrapper.contains(document.querySelector('.dateinput'))){
-        expirywrapper.removeChild(document.querySelector('.dateinput'));
-    }
-    let dayinput = document.createElement('div');
-    dayinput.classList.add('dayinput');
-    dayinput.innerHTML = `<input type='date' id='dayinpu'> <input type='number'>`;
-    expirywrapper.appendChild(dayinput);
-    expbydays.removeEventListener('click',addExpbydays);
+    dateinputdiv.innerHTML = '';
+    dateinputdiv.innerHTML = `<input type='date' id='dayinput'> <input type='number' id='daysnumber'>`;
+    selected = 'day';
 }
 
 const packs = [
@@ -74,20 +67,95 @@ batches.forEach(el =>{
 
 pack.addEventListener('change',() =>{
     batch.removeAttribute('disabled');
+    pack.children[0].removeAttribute('selected');
     let batchnum = batches.find(el => pack.value == el.packid)
-    document.querySelector(`option[value="${batchnum.batch}"]`).setAttribute('selected','');
+    if(!document.querySelector(`option[value="${batchnum.batch}"]`).hasAttribute('selected')){
+        document.querySelector(`option[value="${batchnum.batch}"]`).setAttribute('selected','');
+    }
 })
 
 form.addEventListener('submit' ,(e) =>{
     e.preventDefault();
-    let tr = document.createElement('tr');
-    tr.innerHTML = `<td>${form.elements[0].value}</td>
-                    <td>${form.elements[3].value}</td>
-                    <td>${document.getElementById('dateinput').value}</td>
-                    <td>${form.elements[1].value}</td>
-                    <td>${form.elements[2].value}</td>
-                    `
-    table.appendChild(tr);
-    body.removeChild(formwrapper);
+    const medicinenames = [];
+    let trs = document.querySelectorAll('tr');
+    trs.forEach(tr =>{
+        medicinenames.push(tr.children[0].innerText.toLowerCase()); 
+    })
+    // let regex = new RegExp(`(${form.elements[0].value})`,'i')
+
+    if(!medicinenames.includes(form.elements[0].value.toLowerCase()) && validateDate()){
+        let tr = document.createElement('tr');
+        let expdate = new Date(validateDate());
+        tr.innerHTML = `<td>${form.elements[0].value}</td>
+                        <td>${form.elements[3].value}</td>
+                        <td>${expdate.toDateString()}</td>
+                        <td>${form.elements[1].value}</td>
+                        <td>${form.elements[2].value}</td>
+                        <td><button id='editbtn' onClick='editMed(this)'>Edit</button>
+                            <button id='delbtn' onClick='delMed(this)'>Delete</button></td>`
+        table.appendChild(tr);
+        notification(`${form.elements[0].value} added!`);
+        clearInputs();
+        body.removeChild(formwrapper);
+        wrapper.style.opacity = '1';
+    }
+    if(medicinenames.includes(form.elements[0].value.toLowerCase())){
+        notification('Medicine already exists!');
+    }
+    if(validateDate() == false){
+        notification('Expiry date must be greater than today\'s date.')
+    }
+})
+
+
+function clearInputs(){
+    form.reset();
+    dateinputdiv.innerHTML = '';
+    document.querySelectorAll('option').forEach(el =>{
+        el.removeAttribute('selected');
+    })
+    pack.children[0].setAttribute('selected','');
+    batch.children[0].setAttribute('selected','');
+    batch.setAttribute('disabled','');
+}
+
+function delMed(med){
+    table.removeChild(med.parentElement.parentElement);
+}
+
+
+function validateDate(){
+    let now = new Date();
+    let selecteddate;
+    if(selected == 'date'){
+        dt1 = new Date(document.getElementById('dateinput').value);
+        selecteddate = dt1.getTime();
+    }
+    else{
+        dt2 = new Date(document.getElementById('dayinput').value);
+        selecteddate = dt2.getTime() + document.getElementById('daysnumber').value*(1000*3600*24);
+    }
+    if(selecteddate > now.getTime()){
+        return selecteddate;
+    }
+    else{
+        return false;
+    }
+}
+
+function notification(message){
+    let notifi = document.createElement('div');
+    notifi.setAttribute('class','notification');
+    notifi.innerText = message;
+    body.appendChild(notifi);
+
+    setTimeout(() =>{
+    body.removeChild(notifi);
+    },3000)
+}
+
+closebtn.addEventListener('click', () =>{
+    clearInputs();
     wrapper.style.opacity = '1';
+    body.removeChild(formwrapper);
 })

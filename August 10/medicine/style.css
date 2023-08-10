@@ -29,7 +29,7 @@ table th, td{
 }
 
 form{
-    border: solid;
+    border: solid black;
     padding: 1rem;
     width: 50%;
     position: absolute;
@@ -37,7 +37,8 @@ form{
     left: 50%;
     transform: translate(-50%,-50%);
     font-size: 20px;
-    background-color: aqua;
+    background-color: rgb(71, 40, 248);
+    color: white;
 }
 form > div{
     display: flex;
@@ -68,4 +69,33 @@ label{
     background-color: mediumslateblue;
     color: white;
     padding: 10px 20px;
+}
+
+#dateinput,#dayinput,#daysnumber{
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 18px;
+}
+.notification{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    border-radius: 5px;
+    background-color: rgb(252, 135, 234);
+    padding: 10px 20px;
+    font-size: 18px;
+}
+#closebtn{
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  right: 1%;
+  top: 1%;
+  font-size: 20px;
+}
+
+#expbydate,#expbydays{
+    height: 16px;
+    width: 16px;
 }
