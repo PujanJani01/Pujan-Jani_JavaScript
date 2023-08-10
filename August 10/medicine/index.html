@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div>
+            <button id="primarybtn">Add medicine</button>
+        </div>
+
+        <section class="tablewrapper">
+            <table border="1">
+                <thead>
+                    <th>Medicine</th>
+                    <th>Qty</th>
+                    <th>Expiry date</th>
+                    <th>Pack</th>
+                    <th>Batch</th>
+                    <th>Action</th>
+                </thead>
+
+            </table>
+        </section>
+    </div>
+
+    <section class="formwrapper">
+        <form>
+            <div class="medicinewrapper">
+                <label for="medicine">Medicine</label>
+                <input type="text" id="medicine" required>
+            </div>
+            <div class="packwrapper">
+                <label for="pack">Pack</label>
+                <select id="pack" required>
+                    <option selected disabled>Select number of packs</option>
+                </select>
+            </div>
+            <div class="batchwrapper">
+                <label for="batch">Batch Number</label>
+                <select id="batch" disabled required>
+                    <option selected disabled>Select batch number</option>
+                </select>
+            </div>
+            <div class="qtywrapper">
+                <label for="qty">Quantity</label>
+                <input type="number" id="qty" required>
+            </div>
+            <div class="expirywrapper">
+                <p>Expiry by</p>
+                <div class="expdaydatewrapper">
+                    <div class="expbydate">
+                        <input type="radio" id="expbydate" name="exp" required>
+                        <label for="expbydate">By date</label>
+                    </div>
+                    <div class="expbydays">
+                        <input type="radio" id="expbydays" name="exp" required>
+                        <label for="expbydays">By days</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="submit" id="submitbtn"value="Add medicine">
+            </div>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
