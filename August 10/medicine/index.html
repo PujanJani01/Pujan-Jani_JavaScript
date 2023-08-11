@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <h1>myMedicine</h1>
     <div class="wrapper">
+        <h1>myMedicine</h1>
         <div>
             <button id="primarybtn">Add medicine</button>
         </div>
@@ -34,24 +34,24 @@
         <form>
             <div class="medicinewrapper">
                 <label for="medicine">Medicine</label>
-                <input type="text" id="medicine" required>
+                <input  type="text" id="medicine" name="medicine" required>
                 <button id="closebtn">x</button>
             </div>
             <div class="rackwrapper">
                 <label for="rack">Rack</label>
-                <select id="rack" required>
+                <select id="rack" name="rack" required>
                     <option selected disabled>Select number of racks</option>
                 </select>
             </div>
             <div class="batchwrapper">
                 <label for="batch">Batch Number</label>
-                <select id="batch" disabled required>
+                <select id="batch" name="batch" disabled required readonly>
                     <option selected disabled>Select batch number</option>
                 </select>
             </div>
             <div class="qtywrapper">
                 <label for="qty">Quantity</label>
-                <input type="number" id="qty" required>
+                <input type="number" id="qty" name="qty" required>
             </div>
             <div class="expirywrapper">
                 <p>Expiry by</p>
@@ -68,7 +68,7 @@
                 <div class="dateinputdiv"></div>
             </div>
             <div>
-                <input type="submit" id="submitbtn"value="Add medicine">
+                <input type="submit" id="submitbtn" value="Add medicine">
             </div>
         </form>
     </section>
