@@ -6,12 +6,13 @@ let form = document.querySelector('form');
 let expirywrapper = document.querySelector('.expirywrapper');
 let expbydate = document.getElementById('expbydate');
 let expbydays = document.getElementById('expbydays');
-let pack = document.getElementById('pack');
+let rack = document.getElementById('rack');
 let batch = document.getElementById('batch');
 let table = document.querySelector('table');
 let dateinputdiv = document.getElementsByClassName('dateinputdiv')[0];
 let closebtn = document.getElementById('closebtn');
 let selected;
+const medicinenames = [];
 
 body.removeChild(formwrapper);
 
@@ -20,7 +21,7 @@ addbtn.addEventListener('click', () => {
     wrapper.style.opacity = '0.5'
 })
 
-expbydate.addEventListener('click', addExpbydate);
+expbydate.addEventListener('change', addExpbydate);
 
 function addExpbydate() {
     dateinputdiv.innerHTML = '';
@@ -28,14 +29,14 @@ function addExpbydate() {
     selected = 'date';
 }
 
-expbydays.addEventListener('click', addExpbydays);
+expbydays.addEventListener('change', addExpbydays);
 function addExpbydays() {
     dateinputdiv.innerHTML = '';
     dateinputdiv.innerHTML = `<input type='date' id='dayinput'> <input type='number' id='daysnumber'>`;
     selected = 'day';
 }
 
-const packs = [
+const racks = [
     { id: 1, num: 1 },
     { id: 2, num: 2 },
     { id: 3, num: 3 },
@@ -44,18 +45,18 @@ const packs = [
 ]
 
 const batches = [
-    { packid: 1, batch: 'A1' },
-    { packid: 2, batch: 'A2' },
-    { packid: 3, batch: 'A3' },
-    { packid: 4, batch: 'A4' },
-    { packid: 5, batch: 'A5' }
+    { rackid: 1, batch: 'A1' },
+    { rackid: 2, batch: 'A2' },
+    { rackid: 3, batch: 'A3' },
+    { rackid: 4, batch: 'A4' },
+    { rackid: 5, batch: 'A5' }
 ]
 
-packs.forEach(el => {
+racks.forEach(el => {
     let option = document.createElement('option');
     option.value = el.num;
     option.innerText = el.num;
-    pack.appendChild(option);
+    rack.appendChild(option);
 })
 
 batches.forEach(el => {
@@ -65,23 +66,18 @@ batches.forEach(el => {
     batch.appendChild(option);
 })
 
-pack.addEventListener('change', () => {
-    batch.removeAttribute('disabled');
-    pack.children[0].removeAttribute('selected');
-    let batchnum = batches.find(el => pack.value == el.packid)
+rack.addEventListener('change', () => {
+    batch.disabled = false;
+    rack.children[0].selected = false;
+    let batchnum = batches.find(el => rack.value == el.rackid)
     if (!document.querySelector(`option[value="${batchnum.batch}"]`).hasAttribute('selected')) {
-        document.querySelector(`option[value="${batchnum.batch}"]`).setAttribute('selected', '');
+        document.querySelector(`option[value="${batchnum.batch}"]`).selected = true;
     }
 })
 
 form.addEventListener('submit', addMed)
 function addMed(e) {
     e.preventDefault();
-    const medicinenames = [];
-    let trs = document.querySelectorAll('tr');
-    trs.forEach(tr => {
-        medicinenames.push(tr.children[0].innerText.toLowerCase());
-    })
     // let regex = new RegExp(`(${form.elements[0].value})`,'i')
     // console.log(form.elements);
     if (!medicinenames.includes(form.elements[0].value.toLowerCase()) && validateDate()) {
@@ -95,6 +91,7 @@ function addMed(e) {
                         <td><button id='editbtn' onClick='editMed(this)'>Edit</button>
                             <button id='delbtn' onClick='delMed(this)'>Delete</button></td>`
         table.appendChild(tr);
+        medicinenames.push(form.elements[0].value.toLowerCase());
         notification(`${form.elements[0].value} added!`);
         clearInputs();
         body.removeChild(formwrapper);
@@ -115,15 +112,16 @@ function clearInputs() {
     form.reset();
     dateinputdiv.innerHTML = '';
     document.querySelectorAll('option').forEach(el => {
-        el.removeAttribute('selected');
+        el.selected = false;
     })
-    pack.children[0].setAttribute('selected', '');
-    batch.children[0].setAttribute('selected', '');
-    batch.setAttribute('disabled', '');
+    rack.children[0].selected = true;
+    batch.children[0].selected = true;
+    batch.disabled = true;
 }
 
 function delMed(med) {
     table.removeChild(med.parentElement.parentElement);
+    medicinenames.splice(medicinenames.indexOf(med.parentElement.parentElement.children[0]),1)
 }
 
 function editMed(med) {
@@ -133,10 +131,10 @@ function editMed(med) {
     form.elements[4].value = tr.children[1].innerText;
     form.elements[2].value = tr.children[3].innerText;
     form.elements[3].value = tr.children[4].innerText;
-    batch.removeAttribute('disabled');
-    expbydate.setAttribute('checked', '');
+    form.elements[0].disabled = true;
+    batch.disabled = false;
+    expbydate.checked = true;
     addExpbydate();
-    
     document.getElementById('dateinput').defaultValue = formatdate(tr);
     document.getElementById('submitbtn').value = 'Update medicine';
     updateMed(tr);
@@ -183,9 +181,12 @@ function updateMed(tr) {
     form.addEventListener('submit', update);
     function update(e) {
         e.preventDefault();
-        let expdate = new Date(validateDate());
+        document.getElementById('submitbtn').value = 'Add medicine';
+        expbydate.checked = false;
+        form.elements[0].disabled = false;
+
         if(validateDate()){
-            tr.children[0].innerText = form.elements[0].value;
+            let expdate = new Date(validateDate());
             tr.children[1].innerText = form.elements[4].value;
             tr.children[2].innerText = expdate.toLocaleDateString();
             tr.children[3].innerText = form.elements[2].value;
@@ -194,11 +195,11 @@ function updateMed(tr) {
             clearInputs();
             body.removeChild(formwrapper);
             wrapper.style.opacity = '1';
+            form.removeEventListener('submit', update);
             form.addEventListener('submit', addMed);
         }
     }
 }
-
 
 function formatdate(tr){
     let exp = new Date(tr.children[2].innerText);

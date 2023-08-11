@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicine</title>
+    <title>myMedicine</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <h1>myMedicine</h1>
     <div class="wrapper">
         <div>
             <button id="primarybtn">Add medicine</button>
@@ -20,7 +21,7 @@
                     <th>Medicine</th>
                     <th>Qty</th>
                     <th>Expiry date</th>
-                    <th>Pack</th>
+                    <th>Rack</th>
                     <th>Batch</th>
                     <th>Action</th>
                 </thead>
@@ -36,10 +37,10 @@
                 <input type="text" id="medicine" required>
                 <button id="closebtn">x</button>
             </div>
-            <div class="packwrapper">
-                <label for="pack">Pack</label>
-                <select id="pack" required>
-                    <option selected disabled>Select number of packs</option>
+            <div class="rackwrapper">
+                <label for="rack">Rack</label>
+                <select id="rack" required>
+                    <option selected disabled>Select number of racks</option>
                 </select>
             </div>
             <div class="batchwrapper">
