@@ -11,6 +11,7 @@ let dateinputdiv = document.getElementsByClassName('dateinputdiv')[0];
 let closebtn = document.getElementById('closebtn');
 let medicinewrapper = document.querySelector('.medicinewrapper');
 let selected;
+let addMedicine;
 const medicines = [];
 
 body.removeChild(formwrapper);
@@ -37,11 +38,11 @@ function addExpbydays() {
 }
 
 const racks = [
-    { id: 1, num: 1 },
-    { id: 2, num: 2 },
-    { id: 3, num: 3 },
-    { id: 4, num: 4 },
-    { id: 5, num: 5 }
+    { id: 1, num: 'Rack-1' },
+    { id: 2, num: 'Rack-2' },
+    { id: 3, num: 'Rack-3' },
+    { id: 4, num: 'Rack-4' },
+    { id: 5, num: 'Rack-5' }
 ]
 
 const batches = [
@@ -68,7 +69,8 @@ batches.forEach(el => {
 
 form.elements["rack"].addEventListener('change', () => {
     form.elements["rack"].children[0].selected = false;
-    let batchnum = batches.find(el => form.elements["rack"].value == el.rackid)
+    let rackId = racks.find(el => el.num == form.elements["rack"].value);
+    let batchnum = batches.find(el => el.rackid == rackId.id)
     if (!document.querySelector(`option[value="${batchnum.batch}"]`).hasAttribute('selected')) {
         document.querySelector(`option[value="${batchnum.batch}"]`).selected = true;
     }
@@ -78,47 +80,65 @@ form.addEventListener('submit', addMed);
 
 function addMed(e) {
     e.preventDefault();
-    if (form.elements["medicine"].value.trim() != '') {
-        if (validateName() && validateDate()) {
-            let tr = document.createElement('tr');
-            let expdate = new Date(validateDate());
+    if (addMedicine) {
+        updateMed(addMedicine);
+        addMedicine = null;
+    }
+    else {
+        if (form.elements["medicine"].value.trim() != '' && validateName()) {
+            if (form.elements['rack'].value != 'Select number of racks') {
+                if (form.elements['qty'].value != '') {
+                    if (validateDate() && ) {
+                        let tr = document.createElement('tr');
+                        let expdate = new Date(validateDate());
 
-            let medicine = {};
-            medicine.medicinename = form.elements["medicine"].value.trim();
-            medicine.qty = form.elements["qty"].value;
-            medicine.expirydate = expdate.toLocaleDateString();
-            medicine.rack = form.elements["rack"].value;
-            medicine.batch = form.elements["batch"].value;
-            medicines.push(medicine);
+                        let medicine = {};
+                        medicine.medicinename = form.elements["medicine"].value.trim();
+                        medicine.qty = form.elements["qty"].value;
+                        medicine.expirydate = expdate.toLocaleDateString();
+                        medicine.rack = form.elements["rack"].value;
+                        medicine.batch = form.elements["batch"].value;
+                        medicines.push(medicine);
 
-            tr.innerHTML = `<td>${form.elements["medicine"].value.trim()}</td>
-                            <td>${form.elements["qty"].value}</td>
-                            <td>${expdate.toLocaleDateString()}</td>
-                            <td>${form.elements["rack"].value}</td>
-                            <td>${form.elements["batch"].value}</td>
-                            <td><button id='editbtn' onClick='editMed(this)'>Edit</button>
-                                <button id='delbtn' onClick='delMed(this)'>Delete</button></td>`
+                        tr.innerHTML = `<td>${form.elements["medicine"].value.trim()}</td>
+                                    <td>${form.elements["qty"].value}</td>
+                                    <td>${expdate.toLocaleDateString()}</td>
+                                    <td>${form.elements["rack"].value}</td>
+                                    <td>${form.elements["batch"].value}</td>
+                                    <td><button id='editbtn' onClick='editMed(this)'>Edit</button>
+                                        <button id='delbtn' onClick='delMed(this)'>Delete</button></td>`
 
-            tr.id = `${form.elements["medicine"].value}-id`;
-            table.appendChild(tr);
-            notification(`${form.elements["medicine"].value} added!`);
-            clearInputs();
-            body.removeChild(formwrapper);
-            wrapper.style.opacity = '1';
+                        tr.id = `${form.elements["medicine"].value}-id`;
+                        table.appendChild(tr);
+                        notification(`${form.elements["medicine"].value} added!`);
+                        clearInputs();
+                        body.removeChild(formwrapper);
+                        wrapper.style.opacity = '1';
+                    }
+                    else {
+                        notification('Expiry date must be greater than today\'s date.')
+                    }
+
+                }
+                else {
+                    notification('Please select medicine quantity.');
+                }
+            }
+            else {
+                notification('Please select number of racks.')
+            }
         }
         else {
+            if (form.elements["medicine"].value.trim() == '') {
+                notification('Medicine name can\'t be empty.');
+            }
             if (validateName() == false) {
                 notification('Medicine already exists!');
             }
-            if (validateDate() == false) {
-                notification('Expiry date must be greater than today\'s date.')
-            }
         }
     }
-    else {
-        notification('Medicine name can\'t be empty.');
-    }
 }
+
 
 
 function clearInputs() {
@@ -147,7 +167,7 @@ function editMed(med) {
     addExpbydate();
     document.getElementById('dateinput').defaultValue = formatdate(tr);
     document.getElementById('submitbtn').value = 'Update medicine';
-    updateMed(medId);
+    addMedicine = medId;
 }
 
 function validateDate() {
@@ -184,51 +204,47 @@ closebtn.addEventListener('click', () => {
     clearInputs();
     wrapper.style.opacity = '1';
     body.removeChild(formwrapper);
+    addMedicine = null;
 })
 
 function updateMed(medId) {
-    form.removeEventListener('submit', addMed);
-    form.addEventListener('submit', update);
-    function update(e) {
-        e.preventDefault();
-        let trId = Array.from(table.children).find(tr => tr.id == `${medId.medicinename}-id`);
-        if (form.elements["medicine"].value.trim() != '') {
-            if (validateUpdate(trId.id) && validateDate()) {
-                let expdate = new Date(validateDate());
+    let trId = Array.from(table.children).find(tr => tr.id == `${medId.medicinename}-id`);
+    if (form.elements["medicine"].value.trim() != '') {
+        if (validateUpdate(trId.id) && validateDate()) {
+            let expdate = new Date(validateDate());
 
-                medId.medicinename = form.elements["medicine"].value;
-                medId.qty = form.elements["qty"].value;
-                medId.expirydate = expdate.toLocaleDateString();
-                medId.rack = form.elements["rack"].value;
-                medId.batch = form.elements["batch"].value;
+            medId.medicinename = form.elements["medicine"].value;
+            medId.qty = form.elements["qty"].value;
+            medId.expirydate = expdate.toLocaleDateString();
+            medId.rack = form.elements["rack"].value;
+            medId.batch = form.elements["batch"].value;
 
-                trId.children[0].innerText = medId.medicinename;
-                trId.children[1].innerText = medId.qty;
-                trId.children[2].innerText = medId.expirydate;
-                trId.children[3].innerText = medId.rack;
-                trId.children[4].innerText = medId.batch;
+            trId.children[0].innerText = medId.medicinename;
+            trId.children[1].innerText = medId.qty;
+            trId.children[2].innerText = medId.expirydate;
+            trId.children[3].innerText = medId.rack;
+            trId.children[4].innerText = medId.batch;
 
-                trId.id = `${medId.medicinename}-id`;
+            trId.id = `${medId.medicinename}-id`;
 
-                notification(`${medId.medicinename} updated!`);
-                clearInputs();
-                body.removeChild(formwrapper);
-                wrapper.style.opacity = '1';
-                form.removeEventListener('submit', update);
-                form.addEventListener('submit', addMed);
+            notification(`${medId.medicinename} updated!`);
+            clearInputs();
+            body.removeChild(formwrapper);
+            wrapper.style.opacity = '1';
+            form.removeEventListener('submit', update);
+            form.addEventListener('submit', addMed);
+        }
+        else {
+            if (validateUpdate() == false) {
+                notification('Medicine already exists!');
             }
-            else {
-                if (validateUpdate() == false) {
-                    notification('Medicine already exists!');
-                }
-                if (validateDate() == false) {
-                    notification('Expiry date must be greater than today\'s date.')
-                }
+            if (validateDate() == false) {
+                notification('Expiry date must be greater than today\'s date.')
             }
         }
-        else{
-            notification('Medicine name can\'t be empty.');
-        }
+    }
+    else {
+        notification('Medicine name can\'t be empty.');
     }
 }
 

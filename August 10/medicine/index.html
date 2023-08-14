@@ -32,10 +32,10 @@
 
     <section class="formwrapper">
         <form>
+            <button id="closebtn">x</button>
             <div class="medicinewrapper">
                 <label for="medicine">Medicine</label>
-                <input  type="text" id="medicine" name="medicine" required>
-                <button id="closebtn">x</button>
+                <input  type="text" id="medicine" name="medicine">
             </div>
             <div class="rackwrapper">
                 <label for="rack">Rack</label>
@@ -45,13 +45,13 @@
             </div>
             <div class="batchwrapper">
                 <label for="batch">Batch Number</label>
-                <select id="batch" name="batch" disabled required readonly>
+                <select id="batch" name="batch" disabled>
                     <option selected disabled>Select batch number</option>
                 </select>
             </div>
             <div class="qtywrapper">
                 <label for="qty">Quantity</label>
-                <input type="number" id="qty" name="qty" required>
+                <input type="number" id="qty" name="qty">
             </div>
             <div class="expirywrapper">
                 <p>Expiry by</p>
