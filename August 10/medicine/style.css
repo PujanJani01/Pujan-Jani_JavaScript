@@ -127,3 +127,7 @@ label{
     background-color: red;
     color: white;
 }
+
+.formwrapper{
+    display: none;
+}

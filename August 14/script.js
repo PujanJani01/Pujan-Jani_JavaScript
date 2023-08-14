@@ -34,6 +34,14 @@ function getData(data){
   let person = {};
   person.pic = data.results[0].picture.large;
   person.fullname = data.results[0].name.first +  data.results[0].name.last;
-  person.DOB = data.results[0].dob;
-  console.log(data);
+  person.DOB = data.results[0].dob.date;
+  person.email = data.results[0].email;
+  person.phone = data.results[0].phone;
+  personalData.push(person);
+  addData(person);
 }
+
+function addData(person){
+   let tr = document.createElement('tr');
+}
+console.log(personalData);
