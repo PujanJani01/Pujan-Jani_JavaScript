@@ -33,7 +33,7 @@ function addExpbydate() {
 expbydays.addEventListener('change', addExpbydays);
 function addExpbydays() {
     dateinputdiv.innerHTML = '';
-    dateinputdiv.innerHTML = `<input type='date' id='dayinput'> <input type='number' id='daysnumber'>`;
+    dateinputdiv.innerHTML = `<input type='date' id='dayinput'> <input type='number' id='daysnumber' placeholder='Enter number of days' required>`;
     selected = 'day';
 }
 
@@ -88,23 +88,23 @@ function addMed(e) {
         if (form.elements["medicine"].value.trim() != '' && validateName()) {
             if (form.elements['rack'].value != 'Select number of racks') {
                 if (form.elements['qty'].value != '') {
-                    if (validateDate() && ) {
+                    if (validateDate()) {
                         let tr = document.createElement('tr');
-                        let expdate = new Date(validateDate());
-
+                        // let expdate = new Date(validateDate());
+                        console.log(validateDate());
                         let medicine = {};
                         medicine.medicinename = form.elements["medicine"].value.trim();
                         medicine.qty = form.elements["qty"].value;
-                        medicine.expirydate = expdate.toLocaleDateString();
+                        medicine.expirydate = validateDate();
                         medicine.rack = form.elements["rack"].value;
                         medicine.batch = form.elements["batch"].value;
                         medicines.push(medicine);
 
-                        tr.innerHTML = `<td>${form.elements["medicine"].value.trim()}</td>
-                                    <td>${form.elements["qty"].value}</td>
-                                    <td>${expdate.toLocaleDateString()}</td>
-                                    <td>${form.elements["rack"].value}</td>
-                                    <td>${form.elements["batch"].value}</td>
+                        tr.innerHTML = `<td>${medicine.medicinename.trim()}</td>
+                                    <td>${medicine.qty}</td>
+                                    <td>${addDays(medicine)}</td>
+                                    <td>${medicine.rack}</td>
+                                    <td>${medicine.batch}</td>
                                     <td><button id='editbtn' onClick='editMed(this)'>Edit</button>
                                         <button id='delbtn' onClick='delMed(this)'>Delete</button></td>`
 
@@ -116,7 +116,12 @@ function addMed(e) {
                         wrapper.style.opacity = '1';
                     }
                     else {
-                        notification('Expiry date must be greater than today\'s date.')
+                        if (validateDate() == false) {
+                            notification('Expiry date must be greater than today\'s date.')
+                        }
+                        if (validateDate() == undefined) {
+                            notification('Please select expiry date')
+                        }
                     }
 
                 }
@@ -163,9 +168,18 @@ function editMed(med) {
     form.elements["qty"].value = medId.qty;
     form.elements["rack"].value = medId.rack;
     form.elements["batch"].value = medId.batch;
-    expbydate.checked = true;
-    addExpbydate();
-    document.getElementById('dateinput').defaultValue = formatdate(tr);
+    if (medId.expirydate.bydate) {
+        expbydate.checked = true;
+        addExpbydate();
+        document.getElementById('dateinput').defaultValue = formatdate(medId);
+    }
+    else{
+        expbydays.checked = true;
+        addExpbydays();
+        document.getElementById('dayinput').defaultValue = formatdate(medId);
+        document.getElementById('daysnumber').defaultValue = medId.expirydate.days;
+    }
+
     document.getElementById('submitbtn').value = 'Update medicine';
     addMedicine = medId;
 }
@@ -173,20 +187,30 @@ function editMed(med) {
 function validateDate() {
     let now = new Date();
     let selecteddate;
-    if (selected == 'date') {
+    if (selected == undefined) {
+        return undefined;
+    }
+    else if (selected == 'date') {
         dt1 = new Date(document.getElementById('dateinput').value);
         selecteddate = dt1.getTime();
+        if (selecteddate >= now.getTime()) {
+            return { date: new Date(selecteddate).toLocaleDateString(), days: 0 , bydate : true};
+        }
+        else {
+            return false;
+        }
     }
     else {
         dt2 = new Date(document.getElementById('dayinput').value);
         selecteddate = dt2.getTime() + document.getElementById('daysnumber').value * (1000 * 3600 * 24);
+        if (selecteddate >= now.getTime()) {
+            return { date: new Date(dt2.getTime()).toLocaleDateString(), days: document.getElementById('daysnumber').value, bydate : false };
+        }
+        else {
+            return false;
+        }
     }
-    if (selecteddate >= now.getTime()) {
-        return selecteddate;
-    }
-    else {
-        return false;
-    }
+
 }
 
 function notification(message) {
@@ -211,17 +235,15 @@ function updateMed(medId) {
     let trId = Array.from(table.children).find(tr => tr.id == `${medId.medicinename}-id`);
     if (form.elements["medicine"].value.trim() != '') {
         if (validateUpdate(trId.id) && validateDate()) {
-            let expdate = new Date(validateDate());
-
             medId.medicinename = form.elements["medicine"].value;
             medId.qty = form.elements["qty"].value;
-            medId.expirydate = expdate.toLocaleDateString();
+            medId.expirydate = validateDate();
             medId.rack = form.elements["rack"].value;
             medId.batch = form.elements["batch"].value;
 
             trId.children[0].innerText = medId.medicinename;
             trId.children[1].innerText = medId.qty;
-            trId.children[2].innerText = medId.expirydate;
+            trId.children[2].innerText = addDays(medId);
             trId.children[3].innerText = medId.rack;
             trId.children[4].innerText = medId.batch;
 
@@ -231,8 +253,6 @@ function updateMed(medId) {
             clearInputs();
             body.removeChild(formwrapper);
             wrapper.style.opacity = '1';
-            form.removeEventListener('submit', update);
-            form.addEventListener('submit', addMed);
         }
         else {
             if (validateUpdate() == false) {
@@ -248,8 +268,8 @@ function updateMed(medId) {
     }
 }
 
-function formatdate(tr) {
-    let exp = new Date(tr.children[2].innerText);
+function formatdate(medId) {
+    let exp = new Date(medId.expirydate.date);
     let formatdt;
     if (exp.getMonth() < 9 && exp.getDate() > 9) {
         formatdt = exp.getFullYear() + '-0' + (exp.getMonth() + 1) + '-' + exp.getDate();
@@ -285,4 +305,9 @@ function validateUpdate(id) {
     else {
         return false;
     }
+}
+
+function addDays(medicine) {
+    let date = new Date(medicine.expirydate.date).getTime() + medicine.expirydate.days * (1000 * 3600 * 24);;
+    return new Date(date).toLocaleDateString();
 }
