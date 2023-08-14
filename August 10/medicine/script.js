@@ -158,6 +158,9 @@ function clearInputs() {
 
 function delMed(med) {
     table.removeChild(med.parentElement.parentElement);
+    let tr = med.parentElement.parentElement;
+    let medId = medicines.find(el => el.medicinename == tr.children[0].innerText);
+    medicines.splice(medicines.indexOf(medId),1);
 }
 
 function editMed(med) {

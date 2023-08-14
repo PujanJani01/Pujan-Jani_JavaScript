@@ -28,7 +28,7 @@ h1{
 
 .tablewrapper{
     padding: 2rem;
-    width: 100%;
+    min-width: 100%;
 }
 table{
     width: 100%;
@@ -42,7 +42,7 @@ table th, td{
 form{
     border: solid black;
     padding: 1rem;
-    width: 50%;
+    min-width: 50%;
     position: absolute;
     top: 50%;
     left: 50%;

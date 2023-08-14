@@ -14,4 +14,26 @@ Promise.all([promise1, promise2, promise3])
 
 //----------------------------------------------------------------------------------------------------
 
+let addbtn = document.getElementById('addbtn');
+let pic = document.getElementById('pic');
 
+let personalData = [];
+
+addbtn.addEventListener('click', () => {
+   fetchAPI("https://randomuser.me/api/");
+})
+
+function fetchAPI(apilink){
+  const api = fetch(apilink);
+  api.then(response => response.json())
+  .then(data =>  getData(data))
+    .catch(error => console.log("ERROR: something went wrong"))
+}
+
+function getData(data){
+  let person = {};
+  person.pic = data.results[0].picture.large;
+  person.fullname = data.results[0].name.first +  data.results[0].name.last;
+  person.DOB = data.results[0].dob;
+  console.log(data);
+}
