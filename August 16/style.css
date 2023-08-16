@@ -98,14 +98,17 @@ label{
     padding: 5px;
     font-size: 18px;
 }
-.notification{
+.notification-div{
     position: absolute;
     top: 1%;
     right: 1%;
+}
+.notification{
     border-radius: 5px;
     background-color: rgb(252, 135, 234);
     padding: 10px 20px;
     font-size: 18px;
+    margin: 10px 0;
 }
 .closebtn{
   position: absolute;
@@ -138,7 +141,9 @@ label{
     color: white;
 }
 
-#medicinemessege, #rackmessege, #batchmessege, #qtymessege, #expdatemessege{
+#medicinemessege, #rackmessege, #batchmessege, #qtymessege,
+ #expdatemessege, #searchmedicine1messege, #selectmessege,
+  #getqtymessege, #searchmedicine2messege, #select2messege, #outqtymessege{
    color: red;
    display: none;
 }
