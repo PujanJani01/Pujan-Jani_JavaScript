@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myMedicine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>myMedicine</h1>
+        <div>
+            <button id="addMedBtn">Add medicine</button>
+            <button id="addRecordBtn">Add medicine</button>
+            <button id="addOutRecoedBtn">Add medicine</button>
+        </div>
+
+        <section class="tablewrapper">
+            <table border="1">
+                <thead>
+                    <th>Medicine</th>
+                    <th>Qty</th>
+                    <th>Expiry date</th>
+                    <th>Rack</th>
+                    <th>Batch</th>
+                    <th>Action</th>
+                </thead>
+
+            </table>
+        </section>
+    </div>
+
+    <section class="formwrapper">
+        <form id="form1">
+            <span class="closebtn">x</span>
+            <div class="medicinewrapper">
+                <label for="medicine">Medicine</label>
+                <input  type="text" id="medicine" name="medicine">
+                <p id="medicinemessege">field required</p>
+            </div>
+            <div class="rackwrapper">
+                <label for="rack">Rack</label>
+                <select id="rack" name="rack" required>
+                    <option selected disabled>Select number of racks</option>
+                </select>
+                <p id="rackmessege">field required</p>
+            </div>
+            <div class="batchwrapper">
+                <label for="batch">Batch Number</label>
+                <select id="batch" name="batch" disabled>
+                    <option selected disabled>Select batch number</option>
+                </select>
+                <p id="batchmessege">field required</p>
+            </div>
+            <div class="qtywrapper">
+                <label for="qty">Quantity</label>
+                <input type="number" id="qty" name="qty">
+                <p id="qtymessege">field required</p>
+            </div>
+            <div class="expirywrapper">
+                <p>Expiry by</p>
+                <div class="expdaydatewrapper">
+                    <div class="expbydate">
+                        <input type="radio" id="expbydate" name="exp">
+                        <label for="expbydate">By date</label>
+                    </div>
+                    <div class="expbydays">
+                        <input type="radio" id="expbydays" name="exp">
+                        <label for="expbydays">By days</label>
+                    </div>
+                </div>
+                <p id="expdatemessege">field required</p>
+                <div class="dateinputdiv"></div>
+            </div>
+            <div>
+                <input type="submit" id="submitbtn" value="Add medicine">
+            </div>
+        </form>
+
+        <form id="form2">
+            <span class="closebtn">x</span>
+            <div class="searchmedicine1wrapper">
+                <label for="searchmedicine1">Medicine</label>
+                <input  type="text" id="searchmedicine1" name="searchmedicine1" autocomplete="off">
+                <!-- <datalist id="suggestions"></datalist> -->
+                <div id="suggestions"></div>
+            </div>
+            <div class="selectwrapper">
+                <label for="select">Rack</label>
+                <select id="select" name="select" required>
+                    <option selected disabled>Select number of racks</option>
+                </select>
+            </div>
+            <div class="getqtywrapper">
+                <label for="getqty">Quantity</label>
+                <input type="number" id="getqty" name="getqty">
+            </div>
+            <div>
+                <input type="submit" id="submitRecordBtn" value="Add record">
+            </div>
+        </form>
+
+        <form id="form3">
+            <span class="closebtn">x</span>
+            <div class="searchmedicine2wrapper">
+                <label for="searchmedicine2">Medicine</label>
+                <input  type="text" id="searchmedicine2" name="searchmedicine2">
+            </div>
+            <div class="select2wrapper">
+                <label for="select2">Rack</label>
+                <select id="select2" name="select2" required>
+                    <option selected disabled>Select number of racks</option>
+                </select>
+            </div>
+            <div class="outqtywrapper">
+                <label for="outqty">Quantity</label>
+                <input type="number" id="outqty" name="outqty">
+            </div>
+            <div>
+                <input type="submit" id="outRecordBtn" value="Add out record">
+            </div>
+        </form>
+    </section>
+
+    
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    position: relative;
+}
+h1{
+    text-align: center;
+    padding: 1rem;
+    font-size: 34px;
+    color: blue;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+}
+#primarybtn{
+    border: none;
+    background-color: mediumslateblue;
+    color: white;
+    padding: 10px 20px;
+}
+
+.tablewrapper{
+    padding: 2rem;
+    min-width: 100%;
+}
+table{
+    width: 100%;
+}
+table th, td{
+   padding: 0.4rem 1.5rem;
+   font-size: 20px;
+   text-align: center;
+}
+
+#form1, #form2, #form3 {
+    display: none;
+    border: solid black;
+    padding: 1rem;
+    min-width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+    background-color: rgb(71, 40, 248);
+    color: white;
+}
+form > div{
+    display: flex;
+    flex-direction: column;
+}
+.expdaydatewrapper{
+    display: flex;
+    gap: 2rem;
+}
+label{
+    padding: 0.5rem 0;
+}
+#medicine,#rack,#batch,#qty, #searchmedicine1,#select, #getqty, #searchmedicine2, #select2, #outqty{
+    font-size: 18px;
+    border: 1px solid;
+    padding: 5px 10px;
+}
+#getqty, #outqty{
+  margin-bottom: 1rem;
+}
+.expirywrapper p{
+    padding: 0.5rem 0;
+}
+.expirywrapper{
+    margin-bottom: 1rem;
+}
+
+#submitbtn, #submitRecordBtn, #outRecordBtn{
+    border: none;
+    background-color: mediumslateblue;
+    color: white;
+    padding: 10px 20px;
+}
+
+#dateinput,#dayinput,#daysnumber{
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 18px;
+}
+.notification{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    border-radius: 5px;
+    background-color: rgb(252, 135, 234);
+    padding: 10px 20px;
+    font-size: 18px;
+}
+.closebtn{
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  right: 1%;
+  top: 1%;
+  font-size: 20px;
+}
+
+#expbydate,#expbydays{
+    height: 16px;
+    width: 16px;
+}
+
+#editbtn,#delbtn{
+    background-color: transparent;
+    border: 1px solid;
+    font-size: 16px;
+    padding: 3px;
+}
+
+#editbtn:hover{
+    background-color: yellowgreen;
+    color: white;
+}
+
+#delbtn:hover{
+    background-color: red;
+    color: white;
+}
+
+/* .formwrapper{
+    display: none;
+} */
+
+#medicinemessege, #rackmessege, #batchmessege, #qtymessege, #expdatemessege{
+   color: red;
+   display: none;
+}
+.suggestion{
+    padding: 5px;
+    color: black;
+    background-color: white;
+    border: 1px solid;
+}

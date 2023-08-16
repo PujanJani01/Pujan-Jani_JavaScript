@@ -9,7 +9,6 @@ searchbar.addEventListener('input', () => {
     if (searchbar.value.trim() == '') {
         productsnames.forEach(productname => {
             products.appendChild(productname.parentElement.parentElement);
-            // products.removeChild(nomatchfoundMessege);
         })
         hideMessage();
     }

@@ -1,24 +1,46 @@
-let addbtn = document.getElementById('primarybtn');
-let formwrapper = document.querySelector('.formwrapper');
+let addMedbtn = document.getElementById('addMedBtn');
+let addRecordBtn = document.getElementById('addRecordBtn');
+let addOutRecoedBtn = document.getElementById('addOutRecoedBtn');
 let body = document.querySelector('body');
 let wrapper = document.querySelector('.wrapper');
-let form = document.querySelector('form');
+let form1 = document.getElementById('form1');
+let form2 = document.getElementById('form2');
+let form3 = document.getElementById('form3');
 let expirywrapper = document.querySelector('.expirywrapper');
 let expbydate = document.getElementById('expbydate');
 let expbydays = document.getElementById('expbydays');
 let table = document.querySelector('table');
 let dateinputdiv = document.getElementsByClassName('dateinputdiv')[0];
-let closebtn = document.getElementById('closebtn');
+let closebtn = document.querySelectorAll('.closebtn');
 let medicinewrapper = document.querySelector('.medicinewrapper');
+let suggestions = document.getElementById('suggestions');
 let selected;
 let addMedicine;
 const medicines = [];
 
-addbtn.addEventListener('click', () => {
-    formwrapper.style.display = 'block';
+addMedbtn.addEventListener('click', () => {
+    form1.style.display = 'block';
+    form2.style.display = 'none';
+    form3.style.display = 'none';
     wrapper.style.opacity = '0.5'
     document.getElementById('submitbtn').value = 'Add medicine';
     expbydate.checked = false;
+})
+
+addRecordBtn.addEventListener('click', () => {
+    form2.style.display = 'block';
+    form1.style.display = 'none';
+    form3.style.display = 'none';
+    wrapper.style.opacity = '0.5'
+    document.getElementById('submitRecordBtn').value = 'Add record';
+})
+
+addOutRecoedBtn.addEventListener('click', () => {
+    form3.style.display = 'block';
+    form1.style.display = 'none';
+    form2.style.display = 'none';
+    wrapper.style.opacity = '0.5'
+    document.getElementById('outRecordBtn').value = 'Add out record';
 })
 
 expbydate.addEventListener('change', addExpbydate);
@@ -56,26 +78,26 @@ racks.forEach(el => {
     let option = document.createElement('option');
     option.value = el.num;
     option.innerText = el.num;
-    form.elements["rack"].appendChild(option);
+    form1.elements["rack"].appendChild(option);
 })
 
 batches.forEach(el => {
     let option = document.createElement('option');
     option.value = el.batch;
     option.innerText = el.batch;
-    form.elements["batch"].appendChild(option);
+    form1.elements["batch"].appendChild(option);
 })
 
-form.elements["rack"].addEventListener('change', () => {
-    form.elements["rack"].children[0].selected = false;
-    let rackId = racks.find(el => el.num == form.elements["rack"].value);
+form1.elements["rack"].addEventListener('change', () => {
+    form1.elements["rack"].children[0].selected = false;
+    let rackId = racks.find(el => el.num == form1.elements["rack"].value);
     let batchnum = batches.find(el => el.rackid == rackId.id)
     if (!document.querySelector(`option[value="${batchnum.batch}"]`).hasAttribute('selected')) {
         document.querySelector(`option[value="${batchnum.batch}"]`).selected = true;
     }
 })
 
-form.addEventListener('submit', addMed);
+form1.addEventListener('submit', addMed);
 
 function addMed(e) {
     e.preventDefault();
@@ -84,17 +106,18 @@ function addMed(e) {
         addMedicine = null;
     }
     else {
-        if (form.elements["medicine"].value.trim() != '' && validateName()) {
-            if (form.elements['rack'].value != 'Select number of racks') {
-                if (form.elements['qty'].value != '') {
+        if (form1.elements["medicine"].value.trim() != '' && validateName()) {
+            if (form1.elements['rack'].value != 'Select number of racks') {
+                if (form1.elements['qty'].value != '') {
                     if (validateDate()) {
+                        document.getElementById("expdatemessege").style.display = 'none';
                         let tr = document.createElement('tr');
                         let medicine = {};
-                        medicine.medicinename = form.elements["medicine"].value.trim();
-                        medicine.qty = form.elements["qty"].value;
+                        medicine.medicinename = form1.elements["medicine"].value.trim();
+                        medicine.qty = form1.elements["qty"].value;
                         medicine.expirydate = validateDate();
-                        medicine.rack = form.elements["rack"].value;
-                        medicine.batch = form.elements["batch"].value;
+                        medicine.rack = form1.elements["rack"].value;
+                        medicine.batch = form1.elements["batch"].value;
                         medicines.push(medicine);
                         // addtr();
                         tr.innerHTML = `<td>${medicine.medicinename.trim()}</td>
@@ -105,11 +128,11 @@ function addMed(e) {
                         <td><button id='editbtn' onClick='editMed(this)'>Edit</button>
                             <button id='delbtn' onClick='delMed(this)'>Delete</button></td>`
 
-                        tr.id = `${form.elements["medicine"].value}-id`;
+                        tr.id = `${form1.elements["medicine"].value}-id`;
                         table.appendChild(tr);
-                        notification(`${form.elements["medicine"].value} added!`);
+                        notification(`${form1.elements["medicine"].value} added!`);
                         clearInputs();
-                        formwrapper.style.display = 'none';
+                        form1.style.display = 'none';
                         wrapper.style.opacity = '1';
                     }
                     else {
@@ -117,22 +140,25 @@ function addMed(e) {
                             notification('Expiry date must be greater than today\'s date.')
                         }
                         if (validateDate() == undefined) {
-                            notification('Please select expiry date')
+                            document.getElementById("expdatemessege").style.display = 'block';
                         }
                     }
-
+                    document.getElementById("qtymessege").style.display = 'none';
                 }
                 else {
-                    notification('Please select medicine quantity.');
+                    document.getElementById("qtymessege").style.display = 'block';
                 }
+                document.getElementById("rackmessege").style.display = 'none';
             }
             else {
-                notification('Please select number of racks.')
+                document.getElementById("rackmessege").style.display = 'block';
             }
+            document.getElementById("medicinemessege").style.display = 'none';
+
         }
         else {
-            if (form.elements["medicine"].value.trim() == '') {
-                notification('Medicine name can\'t be empty.');
+            if (form1.elements["medicine"].value.trim() == '') {
+                document.getElementById("medicinemessege").style.display = 'block';
             }
             if (validateName() == false) {
                 notification('Medicine already exists!');
@@ -161,20 +187,23 @@ function addMed(e) {
 //                     <td><button id='editbtn' onClick='editMed(this)'>Edit</button>
 //                         <button id='delbtn' onClick='delMed(this)'>Delete</button></td>`
 
-//         tr.id = `${form.elements["medicine"].value}-id`;
+//         tr.id = `${form1.elements["medicine"].value}-id`;
 //         table.appendChild(tr);
 //     })
 
 // }
 
 function clearInputs() {
-    form.reset();
+    form1.reset();
+    form2.reset();
+    form3.reset();
     dateinputdiv.innerHTML = '';
     document.querySelectorAll('option').forEach(el => {
         el.selected = false;
     })
-    form.elements["rack"].children[0].selected = true;
-    form.elements["batch"].children[0].selected = true;
+    form1.elements["rack"].children[0].selected = true;
+    form1.elements["batch"].children[0].selected = true;
+    suggestions.innerHTML = '';
 }
 
 function delMed(med) {
@@ -185,13 +214,13 @@ function delMed(med) {
 }
 
 function editMed(med) {
-    formwrapper.style.display = 'block';
+    form1.style.display = 'block';
     let tr = med.parentElement.parentElement;
     let medId = medicines.find(el => el.medicinename == tr.children[0].innerText);
-    form.elements["medicine"].value = medId.medicinename;
-    form.elements["qty"].value = medId.qty;
-    form.elements["rack"].value = medId.rack;
-    form.elements["batch"].value = medId.batch;
+    form1.elements["medicine"].value = medId.medicinename;
+    form1.elements["qty"].value = medId.qty;
+    form1.elements["rack"].value = medId.rack;
+    form1.elements["batch"].value = medId.batch;
     if (medId.expirydate.bydate) {
         expbydate.checked = true;
         addExpbydate();
@@ -248,22 +277,32 @@ function notification(message) {
     }, 3000)
 }
 
-closebtn.addEventListener('click', () => {
-    clearInputs();
-    formwrapper.style.display = 'none';
-    wrapper.style.opacity = '1';
-    addMedicine = null;
+closebtn.forEach(el => {
+    el.addEventListener('click', () => {
+        clearInputs();
+        if (form1.style.display == 'block') {
+            form1.style.display = 'none';
+        }
+        else if (form2.style.display == 'block') {
+            form2.style.display = 'none';
+        }
+        else if (form3.style.display == 'block') {
+            form3.style.display = 'none';
+        }
+        wrapper.style.opacity = '1';
+        addMedicine = null;
+    })
 })
 
 function updateMed(medId) {
     let trId = Array.from(table.children).find(tr => tr.id == `${medId.medicinename}-id`);
-    if (form.elements["medicine"].value.trim() != '') {
+    if (form1.elements["medicine"].value.trim() != '') {
         if (validateUpdate(trId.id) && validateDate()) {
-            medId.medicinename = form.elements["medicine"].value;
-            medId.qty = form.elements["qty"].value;
+            medId.medicinename = form1.elements["medicine"].value;
+            medId.qty = form1.elements["qty"].value;
             medId.expirydate = validateDate();
-            medId.rack = form.elements["rack"].value;
-            medId.batch = form.elements["batch"].value;
+            medId.rack = form1.elements["rack"].value;
+            medId.batch = form1.elements["batch"].value;
 
             trId.children[0].innerText = medId.medicinename;
             trId.children[1].innerText = medId.qty;
@@ -275,7 +314,7 @@ function updateMed(medId) {
 
             notification(`${medId.medicinename} updated!`);
             clearInputs();
-            formwrapper.style.display = 'none';
+            form1.style.display = 'none';
             wrapper.style.opacity = '1';
         }
         else {
@@ -311,7 +350,7 @@ function formatdate(medId) {
 }
 
 function validateName() {
-    let value = medicines.findIndex(el => el.medicinename == form.elements["medicine"].value)
+    let value = medicines.findIndex(el => el.medicinename == form1.elements["medicine"].value)
     if (value == -1) {
         return true;
     }
@@ -322,7 +361,7 @@ function validateName() {
 
 function validateUpdate(id) {
     let trs = Array.from(table.children).filter(el => el.id != id);
-    let value = trs.findIndex(el => el.children[0].innerText == form.elements["medicine"].value)
+    let value = trs.findIndex(el => el.children[0].innerText == form1.elements["medicine"].value)
     if (value == -1) {
         return true;
     }
@@ -334,4 +373,56 @@ function validateUpdate(id) {
 function addDays(med) {
     let date = new Date(med.expirydate.date).getTime() + med.expirydate.days * (1000 * 3600 * 24);;
     return new Date(date).toLocaleDateString();
+}
+
+form2.elements["searchmedicine1"].addEventListener('input', () => {
+    if (form2.elements["searchmedicine1"].value.trim() == '') {
+        suggestions.innerHTML = '';
+    }
+    else {
+        let show = [];
+        medicines.forEach(med => {
+            let regex = new RegExp(`(${form2.elements["searchmedicine1"].value.trim()})`, 'i');
+            if (med.medicinename.match(regex)) {
+                show.push(med);
+            }
+            // else{
+            //     let suggestion = document.createElement('div');
+            //     suggestion.classList.add('suggestion');
+            //     suggestion.innerText = 'No match found';
+            //     suggestions.appendChild(suggestion);
+            // }
+        })
+        showProducts(show);
+    }
+})
+
+function showProducts(show) {
+    suggestions.innerHTML = '';
+    show.forEach(el => {
+        // let suggestion = document.createElement('option');
+        // suggestion.value = el.medicinename;
+        // suggestion.classList.add('suggestion');
+        let suggestion = document.createElement('div');
+        // suggestion.id = `${el.medicinename}Id`;
+        suggestion.classList.add('suggestion');
+        suggestion.innerText = el.medicinename;
+        suggestions.appendChild(suggestion);
+    })
+
+    document.querySelectorAll('.suggestion').forEach(el => {
+        el.addEventListener('click', () => {
+            let getMed = show.find(med => med.medicinename == el.innerText)
+            form2.elements["searchmedicine1"].value = `${getMed.medicinename} | ${getMed.rack} | ${getMed.batch}`;
+            form2.elements["getqty"].value = getMed.qty;
+        })
+    })
+}
+
+
+
+form2.addEventListener('submit', addRecord);
+
+function addRecord(e) {
+    e.preventDefault();
 }
