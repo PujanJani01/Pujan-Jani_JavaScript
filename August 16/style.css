@@ -14,24 +14,31 @@ h1{
     color: blue;
 }
 .wrapper{
+    height:  100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 2rem;
 }
-#primarybtn{
+#addMedBtn, #addRecordBtn, #addOutRecoedBtn{
     border: none;
     background-color: mediumslateblue;
     color: white;
     padding: 10px 20px;
+    margin-inline: 10px;
 }
 
 .tablewrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 2rem;
     min-width: 100%;
+    height: 100%;
 }
 table{
     width: 100%;
+    /* margin-bottom: ; */
 }
 table th, td{
    padding: 0.4rem 1.5rem;
@@ -131,14 +138,20 @@ label{
     color: white;
 }
 
-/* .formwrapper{
-    display: none;
-} */
-
 #medicinemessege, #rackmessege, #batchmessege, #qtymessege, #expdatemessege{
    color: red;
    display: none;
 }
+.searchmedicine1wrapper, .searchmedicine2wrapper{
+    position: relative;
+}
+
+#suggestions1, #suggestions2{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+}
+
 .suggestion{
     padding: 5px;
     color: black;

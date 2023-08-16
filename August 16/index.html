@@ -13,12 +13,12 @@
         <h1>myMedicine</h1>
         <div>
             <button id="addMedBtn">Add medicine</button>
-            <button id="addRecordBtn">Add medicine</button>
-            <button id="addOutRecoedBtn">Add medicine</button>
+            <button id="addRecordBtn">Add record</button>
+            <button id="addOutRecoedBtn">Add out record</button>
         </div>
 
         <section class="tablewrapper">
-            <table border="1">
+            <table border="1" id ='table1'>
                 <thead>
                     <th>Medicine</th>
                     <th>Qty</th>
@@ -27,7 +27,16 @@
                     <th>Batch</th>
                     <th>Action</th>
                 </thead>
+            </table>
 
+            <table border="1" id="table2">
+                <thead>
+                    <th>Medicine</th>
+                    <th>Qty</th>
+                    <th>Rack</th>
+                    <th>Batch</th>
+                    <th>Select</th>
+                </thead>
             </table>
         </section>
     </div>
@@ -37,7 +46,7 @@
             <span class="closebtn">x</span>
             <div class="medicinewrapper">
                 <label for="medicine">Medicine</label>
-                <input  type="text" id="medicine" name="medicine">
+                <input type="text" id="medicine" name="medicine">
                 <p id="medicinemessege">field required</p>
             </div>
             <div class="rackwrapper">
@@ -50,7 +59,7 @@
             <div class="batchwrapper">
                 <label for="batch">Batch Number</label>
                 <select id="batch" name="batch" disabled>
-                    <option selected disabled>Select batch number</option>
+                    <option selected disabled>Select number of racks</option>
                 </select>
                 <p id="batchmessege">field required</p>
             </div>
@@ -83,14 +92,18 @@
             <span class="closebtn">x</span>
             <div class="searchmedicine1wrapper">
                 <label for="searchmedicine1">Medicine</label>
-                <input  type="text" id="searchmedicine1" name="searchmedicine1" autocomplete="off">
+                <input type="text" id="searchmedicine1" name="searchmedicine1" autocomplete="off">
+                <div id="suggestions1"></div>
+
                 <!-- <datalist id="suggestions"></datalist> -->
-                <div id="suggestions"></div>
             </div>
             <div class="selectwrapper">
-                <label for="select">Rack</label>
+                <label for="select">select</label>
                 <select id="select" name="select" required>
-                    <option selected disabled>Select number of racks</option>
+                    <option selected disabled>Select number</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
             </div>
             <div class="getqtywrapper">
@@ -106,12 +119,16 @@
             <span class="closebtn">x</span>
             <div class="searchmedicine2wrapper">
                 <label for="searchmedicine2">Medicine</label>
-                <input  type="text" id="searchmedicine2" name="searchmedicine2">
+                <input type="text" id="searchmedicine2" name="searchmedicine2">
+                <div id="suggestions2"></div>
             </div>
             <div class="select2wrapper">
-                <label for="select2">Rack</label>
+                <label for="select2">select</label>
                 <select id="select2" name="select2" required>
-                    <option selected disabled>Select number of racks</option>
+                    <option selected disabled>Select number</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
             </div>
             <div class="outqtywrapper">
@@ -124,7 +141,7 @@
         </form>
     </section>
 
-    
+
 
     <script src="script.js"></script>
 </body>
