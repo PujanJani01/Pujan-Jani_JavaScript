@@ -78,7 +78,7 @@ label{
 #getqty, #outqty{
   margin-bottom: 1rem;
 }
-.expirywrapper p{
+.expirywrapper span{
     padding: 0.5rem 0;
 }
 .expirywrapper{

@@ -1,20 +1,11 @@
-let addMedbtn = document.getElementById('addMedBtn');
-let addRecordBtn = document.getElementById('addRecordBtn');
-let addOutRecoedBtn = document.getElementById('addOutRecoedBtn');
-let body = document.querySelector('body');
 let wrapper = document.querySelector('.wrapper');
 let form1 = document.getElementById('form1');
 let form2 = document.getElementById('form2');
 let form3 = document.getElementById('form3');
-let expirywrapper = document.querySelector('.expirywrapper');
-let expbydate = document.getElementById('expbydate');
-let expbydays = document.getElementById('expbydays');
 let table1 = document.getElementById('table1');
 let table2 = document.getElementById('table2');
 let table3 = document.getElementById('table3');
 let dateinputdiv = document.getElementsByClassName('dateinputdiv')[0];
-let closebtn = document.querySelectorAll('.closebtn');
-let medicinewrapper = document.querySelector('.medicinewrapper');
 let suggestions1 = document.getElementById('suggestions1');
 let suggestions2 = document.getElementById('suggestions2');
 let selected;
@@ -25,21 +16,22 @@ const outRecords = [];
 let optionSelected;
 let getQty;
 let record;
-
 let medcount = 0;
 let recordcount = 0;
 let outrecordcount = 0;
 
-addMedbtn.addEventListener('click', () => {
+// when user click on a add medicine button, it opens medicine form
+document.getElementById('addMedBtn').addEventListener('click', () => {
     form1.style.display = 'block';
     form2.style.display = 'none';
     form3.style.display = 'none';
     wrapper.style.opacity = '0.5'
     document.getElementById('submitbtn').value = 'Add medicine';
-    expbydate.checked = false;
+    document.getElementById('expbydate').checked = false;
 })
 
-addRecordBtn.addEventListener('click', () => {
+// when user click on a add record button, it opens record form
+document.getElementById('addRecordBtn').addEventListener('click', () => {
     form2.style.display = 'block';
     form1.style.display = 'none';
     form3.style.display = 'none';
@@ -48,7 +40,8 @@ addRecordBtn.addEventListener('click', () => {
     document.getElementById('submitRecordBtn').value = 'Add record';
 })
 
-addOutRecoedBtn.addEventListener('click', () => {
+// when user click on a add out record button, it opens out record form
+document.getElementById('addOutRecoedBtn').addEventListener('click', () => {
     form3.style.display = 'block';
     form1.style.display = 'none';
     form2.style.display = 'none';
@@ -57,21 +50,23 @@ addOutRecoedBtn.addEventListener('click', () => {
     document.getElementById('outRecordBtn').value = 'Add out record';
 })
 
-expbydate.addEventListener('change', addExpbydate);
-
+// when user select expiry by date, it shows date input
+document.getElementById('expbydate').addEventListener('change', addExpbydate);
 function addExpbydate() {
     dateinputdiv.innerHTML = '';
     dateinputdiv.innerHTML = `<input type='date' id='dateinput'>`;
     selected = 'date';
 }
 
-expbydays.addEventListener('change', addExpbydays);
+// when user select expiry by days, it shows date and days input
+document.getElementById('expbydays').addEventListener('change', addExpbydays);
 function addExpbydays() {
     dateinputdiv.innerHTML = '';
     dateinputdiv.innerHTML = `<input type='date' id='dayinput'> <input type='number' id='daysnumber' placeholder='Enter number of days' required>`;
     selected = 'day';
 }
 
+// array of object which contains rack id and rack number
 const racks = [
     { id: 1, num: 'Rack-1' },
     { id: 2, num: 'Rack-2' },
@@ -80,6 +75,7 @@ const racks = [
     { id: 5, num: 'Rack-5' }
 ]
 
+// array of object which contains rack id and batch number
 const batches = [
     { rackid: 1, batch: 'A1' },
     { rackid: 2, batch: 'A2' },
@@ -88,6 +84,7 @@ const batches = [
     { rackid: 5, batch: 'A5' }
 ]
 
+// add rack options in rack select field
 racks.forEach(el => {
     let option = document.createElement('option');
     option.value = el.num;
@@ -95,6 +92,7 @@ racks.forEach(el => {
     form1.elements["rack"].appendChild(option);
 })
 
+// add batch options in batch field which is disabled
 batches.forEach(el => {
     let option = document.createElement('option');
     option.value = el.batch;
@@ -102,6 +100,7 @@ batches.forEach(el => {
     form1.elements["batch"].appendChild(option);
 })
 
+// when rack is selected, batch will be selected automatically accordingly rack number
 form1.elements["rack"].addEventListener('change', () => {
     form1.elements["rack"].children[0].selected = false;
     let rackId = racks.find(el => el.num == form1.elements["rack"].value);
@@ -111,8 +110,8 @@ form1.elements["rack"].addEventListener('change', () => {
     }
 })
 
+// when user submit medicine form 
 form1.addEventListener('submit', addMed);
-
 function addMed(e) {
     e.preventDefault();
     if (addMedicine) {
@@ -172,6 +171,7 @@ function addMed(e) {
     }
 }
 
+// removes field required messege when field is filled
 function removeMessege() {
     document.getElementById("expdatemessege").style.display = 'none';
     document.getElementById("medicinemessege").style.display = 'none';
@@ -181,21 +181,18 @@ function removeMessege() {
     document.getElementById("getqtymessege").style.display = 'none';
 }
 
+// reset forms
 function clearInputs() {
     form1.reset();
     form2.reset();
     form3.reset();
     dateinputdiv.innerHTML = '';
-    document.querySelectorAll('option').forEach(el => {
-        el.selected = false;
-    })
-    form1.elements["rack"].children[0].selected = true;
-    form1.elements["batch"].children[0].selected = true;
     suggestions1.innerHTML = '';
     suggestions2.innerHTML = '';
     removeMessege();
 }
 
+// delete particullar medicine from the table
 function delMed(med) {
     table1.removeChild(med.parentElement.parentElement);
     let tr = med.parentElement.parentElement;
@@ -203,6 +200,7 @@ function delMed(med) {
     medicines.splice(medicines.indexOf(medId), 1);
 }
 
+// when user click on edit button for specific medicine, form opens and fields are filled with that medicine data
 function editMed(med) {
     form1.style.display = 'block';
     let tr = med.parentElement.parentElement;
@@ -212,12 +210,12 @@ function editMed(med) {
     form1.elements["rack"].value = medId.rack;
     form1.elements["batch"].value = medId.batch;
     if (medId.expirydate.bydate) {
-        expbydate.checked = true;
+        document.getElementById('expbydate').checked = true;
         addExpbydate();
         document.getElementById('dateinput').defaultValue = formatdate(medId);
     }
     else {
-        expbydays.checked = true;
+        document.getElementById('expbydays').checked = true;
         addExpbydays();
         document.getElementById('dayinput').defaultValue = formatdate(medId);
         document.getElementById('daysnumber').defaultValue = medId.expirydate.days;
@@ -227,63 +225,7 @@ function editMed(med) {
     addMedicine = medId;
 }
 
-function validateDate() {
-    let now = new Date();
-    let selecteddate;
-    if (selected == undefined) {
-        return undefined;
-    }
-    else if (selected == 'date') {
-        dt1 = new Date(document.getElementById('dateinput').value);
-        selecteddate = dt1.getTime();
-        if (selecteddate >= now.getTime()) {
-            return { date: new Date(selecteddate).toLocaleDateString(), days: 0, bydate: true };
-        }
-        else {
-            return false;
-        }
-    }
-    else {
-        dt2 = new Date(document.getElementById('dayinput').value);
-        selecteddate = dt2.getTime() + document.getElementById('daysnumber').value * (1000 * 3600 * 24);
-        if (selecteddate >= now.getTime()) {
-            return { date: new Date(dt2.getTime()).toLocaleDateString(), days: document.getElementById('daysnumber').value, bydate: false };
-        }
-        else {
-            return false;
-        }
-    }
-
-}
-
-function notification(message) {
-    let notifi = document.createElement('div');
-    notifi.setAttribute('class', 'notification');
-    notifi.innerText = message;
-    document.getElementsByClassName('notification-div')[0].appendChild(notifi);
-
-    setTimeout(() => {
-        document.getElementsByClassName('notification-div')[0].removeChild(notifi);
-    }, 3000)
-}
-
-closebtn.forEach(el => {
-    el.addEventListener('click', () => {
-        clearInputs();
-        if (form1.style.display == 'block') {
-            form1.style.display = 'none';
-        }
-        else if (form2.style.display == 'block') {
-            form2.style.display = 'none';
-        }
-        else if (form3.style.display == 'block') {
-            form3.style.display = 'none';
-        }
-        wrapper.style.opacity = '1';
-        addMedicine = null;
-    })
-})
-
+// when user click on update medicine button this function will be called, it will update specific medicine object and table row
 function updateMed(medId) {
     let trId = Array.from(table1.children).find(tr => tr.id == `${medId.medicinename}-id`);
     if (form1.elements["medicine"].value.trim() != '') {
@@ -321,6 +263,70 @@ function updateMed(medId) {
     }
 }
 
+// checks if selected date is greater than or equal to today's date
+function validateDate() {
+    let now = new Date();
+    let selecteddate;
+    if (selected == undefined) {
+        return undefined;
+    }
+    else if (selected == 'date') {
+        dt1 = new Date(document.getElementById('dateinput').value);
+        selecteddate = dt1.getTime();
+        if (selecteddate >= now.getTime() - 1000*3600*24) {
+            return { date: new Date(selecteddate).toLocaleDateString(), days: 0, bydate: true };
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        dt2 = new Date(document.getElementById('dayinput').value);
+        selecteddate = dt2.getTime() + document.getElementById('daysnumber').value * (1000 * 3600 * 24);
+        if (selecteddate >= now.getTime() - 1000*3600*24) {
+            return { date: new Date(dt2.getTime()).toLocaleDateString(), days: document.getElementById('daysnumber').value, bydate: false };
+        }
+        else {
+            return false;
+        }
+    }
+
+}
+
+// user gets notification on specific events
+function notification(message) {
+    let notifi = document.createElement('div');
+    notifi.setAttribute('class', 'notification');
+    notifi.innerText = message;
+    document.getElementsByClassName('notification-div')[0].appendChild(notifi);
+
+    setTimeout(() => {
+        document.getElementsByClassName('notification-div')[0].removeChild(notifi);
+    }, 3000)
+}
+
+// when user click close button on form, it closes form
+document.querySelectorAll('.closebtn').forEach(el => {
+    el.addEventListener('click', () => {
+        clearInputs();
+        if (form1.style.display == 'block') {
+            form1.style.display = 'none';
+        }
+        else if (form2.style.display == 'block') {
+            form2.style.display = 'none';
+        }
+        else if (form3.style.display == 'block') {
+            form3.style.display = 'none';
+        }
+        wrapper.style.opacity = '1';
+        addMedicine = null;
+
+        document.querySelectorAll('p').forEach(el => el.style.display = 'none');
+    })
+})
+
+/* when user click on update button, form fields will filled automaticaly,
+ so to fill date field this function formate date in necessary formate */
 function formatdate(medId) {
     let exp = new Date(medId.expirydate.date);
     let formatdt;
@@ -339,6 +345,7 @@ function formatdate(medId) {
     return formatdt;
 }
 
+// while adding medicine, it checks if medicine is already exists or not
 function validateName() {
     let value = medicines.findIndex(el => el.medicinename == form1.elements["medicine"].value)
     if (value == -1) {
@@ -349,6 +356,7 @@ function validateName() {
     }
 }
 
+// while updating medicine, it checks if medicine is already exists or not except itself
 function validateUpdate(id) {
     let trs = Array.from(table1.children).filter(el => el.id != id);
     let value = trs.findIndex(el => el.children[0].innerText == form1.elements["medicine"].value)
@@ -360,11 +368,13 @@ function validateUpdate(id) {
     }
 }
 
+// if user is adding expiry date by days, it will add days in date and give final expiry date
 function addDays(med) {
     let date = new Date(med.expirydate.date).getTime() + med.expirydate.days * (1000 * 3600 * 24);;
     return new Date(date).toLocaleDateString();
 }
 
+// search medicine from medicine table 
 form2.elements["searchmedicine1"].addEventListener('input', (e) => {
     document.getElementById("searchmedicine1messege").style.display = 'none';
     optionSelected = false;
@@ -391,7 +401,7 @@ form2.elements["searchmedicine1"].addEventListener('input', (e) => {
     }
 })
 
-
+// if medicine is there in medicine table it will show suggestions below search field
 function showProducts(show) {
     suggestions1.innerHTML = '';
     if (show.length == 0) {
@@ -422,17 +432,17 @@ function showProducts(show) {
     })
 }
 
+// when user clicks add record button on form, data will be added to the reocrds - array of object
 form2.addEventListener('submit', getRecord);
-
 function getRecord(e) {
     e.preventDefault();
-    if (optionSelected == true) {
+    if (optionSelected == true && form2.elements["select"].value != 'Select number'){
         let value = isContains();
         if (value != false) {
             value.qty = Number(value.qty) + Number(form2.elements["getqty"].value);
             addRecord();
         }
-        else if (getQty <= Number(form2.elements["getqty"].value)) {
+        else{
             removeMessege();
             let record = {};
             recordcount++;
@@ -440,12 +450,14 @@ function getRecord(e) {
             record.id = `record${recordcount}`;
             record.medicinename = form2.elements["searchmedicine1"].value.trim().slice(0, form2.elements["searchmedicine1"].value.trim().indexOf(' |'));
             record.qty = form2.elements["getqty"].value;
+            // record.qty = Number(form2.elements["getqty"].value) + Number(getQty);
             record.rack = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.indexOf('| ') + 1, form2.elements["searchmedicine1"].value.lastIndexOf('|'));
             record.batch = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.lastIndexOf('| ') + 1);
             record.select = form2.elements["select"].value;
             records.push(record);
             addRecord();
         }
+        document.getElementById('selectmessege').style.display = 'none';
         notification("Record added!");
         optionSelected = false;
         clearInputs();
@@ -453,9 +465,9 @@ function getRecord(e) {
         wrapper.style.opacity = '1';
     }
     else {
-        if (getQty > Number(form2.elements["getqty"].value && optionSelected == true)) {
-            notification('Quantity should be greater than or equal to medicine quantity')
-        }
+        // if (Number(getQty) > Number(form2.elements["getqty"].value)) {
+        //     notification('Quantity should be greater than or equal to medicine quantity')
+        // }
         if (form2.elements["searchmedicine1"].value.trim() == '') {
             document.getElementById("searchmedicine1messege").style.display = 'block';
         }
@@ -465,9 +477,12 @@ function getRecord(e) {
         if (optionSelected == false) {
             notification('please select medicine');
         }
+        if(form2.elements["select"].value == "Select number")
+            document.getElementById('selectmessege').style.display = 'block';
     }
 }
 
+// record will be added to the records table
 function addRecord() {
     table2.innerHTML = `<thead>
                            <th>Medicine</th>
@@ -487,6 +502,7 @@ function addRecord() {
     })
 }
 
+// search record from records table 
 form3.elements["searchmedicine2"].addEventListener('input', (e) => {
     optionSelected = false;
     if (form3.elements["searchmedicine2"].value.trim() == '') {
@@ -503,14 +519,15 @@ form3.elements["searchmedicine2"].addEventListener('input', (e) => {
             else {
                 regex = new RegExp(`(${e.target.value.trim()})`, 'i');
             }
-            if (med.medicinename.match(regex)) {
-                show.push(med);
+            if (record.medicinename.match(regex)) {
+                show.push(record);
             }
         })
         showProducts2(show);
     }
 })
 
+// if record is there in records table it will show suggestions below search field
 function showProducts2(show) {
     suggestions2.innerHTML = '';
     if (show.length == 0) {
@@ -538,12 +555,12 @@ function showProducts2(show) {
     })
 }
 
+// when user clicks add out record button on form, data will be added to the outReocrds - array of object
 form3.addEventListener('submit', getoutRecord);
-
 function getoutRecord(e) {
     e.preventDefault();
     let out = Number(form3.elements["outqty"].value);
-    if (optionSelected == true) {
+    if (optionSelected == true && form3.elements['searchmedicine2'].value != '' && form3.elements["select2"].value != "Select number" && form3.elements["outqty"].value != "") {
         let value = isContainsOut();
         if (value != false && out <= record.qty) {
             value.qty = Number(value.qty) + out;
@@ -571,6 +588,9 @@ function getoutRecord(e) {
             outRecords.push(outRecord);
             addOutRecord();
 
+            document.getElementById('select2messege').style.display = 'none';
+            document.getElementById('searchmedicine2messege').style.display = 'none';
+            document.getElementById('outqtymessege').style.display = 'none';
             notification("Out Record added!");
             optionSelected = false;
             clearInputs();
@@ -578,16 +598,28 @@ function getoutRecord(e) {
             wrapper.style.opacity = '1';
         }
         else {
-            notification("Quantity should be less than or equal to record quantity");
+            if(out > record.qty){
+                notification("Quantity should be less than or equal to record quantity");
+            }
         }
     }
     else {
-        // if (optionSelected == false) {
+        if (optionSelected == false) {
         notification('please select record!')
-        // }
+        }
+        if(form3.elements['searchmedicine2'].value == ''){
+            document.getElementById('searchmedicine2messege').style.display = 'block';
+        }
+        if(form3.elements["select2"].value == "Select number"){
+            document.getElementById('select2messege').style.display = 'block';
+        }
+        if(form3.elements["outqty"].value == ""){
+            document.getElementById('outqtymessege').style.display = 'block';
+        }
     }
 }
 
+// quantity will be updated of selected record in out record form
 function updateRocord(out) {
     record.qty = record.qty - out;
     clearInputs();
@@ -596,6 +628,7 @@ function updateRocord(out) {
     tr.children[4].innerText = record.select;
 }
 
+// out record will be added to the out records table
 function addOutRecord() {
     table3.innerHTML = `<thead>
                            <th>Medicine</th>
@@ -615,11 +648,13 @@ function addOutRecord() {
     })
 }
 
-body.addEventListener('click', () => {
+// to close suggestion box when user click anywhere on the page 
+document.querySelector('body').addEventListener('click', () => {
     suggestions1.style.display = 'none';
     suggestions2.style.display = 'none';
 })
 
+// checks if record is already there in records or not 
 function isContains() {
     let value = records.find(el => el.medicinename == form2.elements["searchmedicine1"].value.trim().slice(0, form2.elements["searchmedicine1"].value.trim().indexOf(' |')))
     if (!value) {
@@ -630,6 +665,7 @@ function isContains() {
     }
 }
 
+// checks if out record is already there in outRecords or not 
 function isContainsOut() {
     let value = outRecords.find(el => el.medicinename == form3.elements["searchmedicine2"].value.trim().slice(0, form3.elements["searchmedicine2"].value.trim().indexOf(' |')))
     if (!value) {
