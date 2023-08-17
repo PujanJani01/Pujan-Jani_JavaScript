@@ -11,6 +11,7 @@ let expbydate = document.getElementById('expbydate');
 let expbydays = document.getElementById('expbydays');
 let table1 = document.getElementById('table1');
 let table2 = document.getElementById('table2');
+let table3 = document.getElementById('table3');
 let dateinputdiv = document.getElementsByClassName('dateinputdiv')[0];
 let closebtn = document.querySelectorAll('.closebtn');
 let medicinewrapper = document.querySelector('.medicinewrapper');
@@ -20,9 +21,14 @@ let selected;
 let addMedicine;
 const medicines = [];
 const records = [];
+const outRecords = [];
 let optionSelected;
 let getQty;
 let record;
+
+let medcount = 0;
+let recordcount = 0;
+let outrecordcount = 0;
 
 addMedbtn.addEventListener('click', () => {
     form1.style.display = 'block';
@@ -118,13 +124,15 @@ function addMed(e) {
             removeMessege();
             let tr = document.createElement('tr');
             let medicine = {};
+            medcount++;
+
+            medicine.id = `medicine${medcount}`;
             medicine.medicinename = form1.elements["medicine"].value.trim();
             medicine.qty = form1.elements["qty"].value;
             medicine.expirydate = validateDate();
             medicine.rack = form1.elements["rack"].value;
             medicine.batch = form1.elements["batch"].value;
             medicines.push(medicine);
-            // addtr();
             tr.innerHTML = `<td>${medicine.medicinename.trim()}</td>
                         <td>${medicine.qty}</td>
                         <td>${addDays(medicine)}</td>
@@ -170,7 +178,7 @@ function removeMessege() {
     document.getElementById("rackmessege").style.display = 'none';
     document.getElementById("qtymessege").style.display = 'none';
     document.getElementById("searchmedicine1messege").style.display = 'none';
-   document.getElementById("getqtymessege").style.display = 'none';
+    document.getElementById("getqtymessege").style.display = 'none';
 }
 
 function clearInputs() {
@@ -357,26 +365,27 @@ function addDays(med) {
     return new Date(date).toLocaleDateString();
 }
 
-form2.elements["searchmedicine1"].addEventListener('input', () => {
+form2.elements["searchmedicine1"].addEventListener('input', (e) => {
     document.getElementById("searchmedicine1messege").style.display = 'none';
     optionSelected = false;
     if (form2.elements["searchmedicine1"].value.trim() == '') {
         suggestions1.innerHTML = '';
+        optionSelected = false;
     }
     else {
-        suggestions1.style.display = 'block';
         let show = [];
+        suggestions1.style.display = 'block';
         medicines.forEach(med => {
-            let regex = new RegExp(`(${form2.elements["searchmedicine1"].value.trim().slice(0, form2.elements["searchmedicine1"].value.trim().indexOf(' |'))})`, 'i');
+            let regex;
+            if (e.target.value.trim().includes('|')) {
+                regex = new RegExp(`(${e.target.value.trim().slice(0, e.target.value.trim().indexOf(' |'))})`, 'i');
+            }
+            else {
+                regex = new RegExp(`(${e.target.value.trim()})`, 'i');
+            }
             if (med.medicinename.match(regex)) {
                 show.push(med);
             }
-            // else{
-            //     let suggestion = document.createElement('div');
-            //     suggestion.classList.add('suggestion');
-            //     suggestion.innerText = 'No match found';
-            //     suggestions1.appendChild(suggestion);
-            // }
         })
         showProducts(show);
     }
@@ -385,17 +394,22 @@ form2.elements["searchmedicine1"].addEventListener('input', () => {
 
 function showProducts(show) {
     suggestions1.innerHTML = '';
-    show.forEach(el => {
-        // let suggestion = document.createElement('option');
-        // suggestion.value = el.medicinename;
-        // suggestion.classList.add('suggestion');
+    if (show.length == 0) {
         let suggestion = document.createElement('div');
-        // suggestion.id = `${el.medicinename}Id`;
         suggestion.classList.add('suggestion');
-        suggestion.innerText = el.medicinename;
+        suggestion.innerText = 'No match found';
         suggestions1.appendChild(suggestion);
-    })
-
+        console.log(show);
+    }
+    else {
+        show.forEach(el => {
+            let suggestion = document.createElement('div');
+            suggestion.classList.add('suggestion');
+            suggestion.innerText = el.medicinename;
+            suggestions1.appendChild(suggestion);
+            console.log(show);
+        })
+    }
     document.querySelectorAll('.suggestion').forEach(el => {
         el.addEventListener('click', () => {
             let getMed = show.find(med => med.medicinename == el.innerText)
@@ -412,17 +426,26 @@ form2.addEventListener('submit', getRecord);
 
 function getRecord(e) {
     e.preventDefault();
-    if (optionSelected == true && getQty <= Number(form2.elements["getqty"].value)) {
-        removeMessege();
-        let record = {};
-        record.medicinename = form2.elements["searchmedicine1"].value.trim().slice(0, form2.elements["searchmedicine1"].value.trim().indexOf(' |'));
-        record.qty = form2.elements["getqty"].value;
-        record.rack = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.indexOf('| ') + 1, form2.elements["searchmedicine1"].value.lastIndexOf('|'));
-        record.batch = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.lastIndexOf('| ') + 1);
-        record.select = form2.elements["select"].value;
-        records.push(record);
+    if (optionSelected == true) {
+        let value = isContains();
+        if (value != false) {
+            value.qty = Number(value.qty) + Number(form2.elements["getqty"].value);
+            addRecord();
+        }
+        else if (getQty <= Number(form2.elements["getqty"].value)) {
+            removeMessege();
+            let record = {};
+            recordcount++;
 
-        addRecord();
+            record.id = `record${recordcount}`;
+            record.medicinename = form2.elements["searchmedicine1"].value.trim().slice(0, form2.elements["searchmedicine1"].value.trim().indexOf(' |'));
+            record.qty = form2.elements["getqty"].value;
+            record.rack = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.indexOf('| ') + 1, form2.elements["searchmedicine1"].value.lastIndexOf('|'));
+            record.batch = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.lastIndexOf('| ') + 1);
+            record.select = form2.elements["select"].value;
+            records.push(record);
+            addRecord();
+        }
         notification("Record added!");
         optionSelected = false;
         clearInputs();
@@ -433,13 +456,13 @@ function getRecord(e) {
         if (getQty > Number(form2.elements["getqty"].value && optionSelected == true)) {
             notification('Quantity should be greater than or equal to medicine quantity')
         }
-        if(form2.elements["searchmedicine1"].value.trim() == ''){
+        if (form2.elements["searchmedicine1"].value.trim() == '') {
             document.getElementById("searchmedicine1messege").style.display = 'block';
         }
-        if(form2.elements["getqty"].value == ''){
+        if (form2.elements["getqty"].value == '') {
             document.getElementById("getqtymessege").style.display = 'block';
         }
-        if(optionSelected == false){
+        if (optionSelected == false) {
             notification('please select medicine');
         }
     }
@@ -464,25 +487,25 @@ function addRecord() {
     })
 }
 
-form3.elements["searchmedicine2"].addEventListener('input', () => {
+form3.elements["searchmedicine2"].addEventListener('input', (e) => {
     optionSelected = false;
     if (form3.elements["searchmedicine2"].value.trim() == '') {
         suggestions2.innerHTML = '';
+        optionSelected = false;
     }
     else {
         suggestions2.style.display = 'block';
         let show = [];
         records.forEach(record => {
-            let regex = new RegExp(`(${form3.elements["searchmedicine2"].value.trim()})`, 'i');
-            if (record.medicinename.match(regex)) {
-                show.push(record);
+            if (e.target.value.trim().includes('|')) {
+                regex = new RegExp(`(${e.target.value.trim().slice(0, e.target.value.trim().indexOf(' |'))})`, 'i');
             }
-            // else{
-            //     let suggestion = document.createElement('div');
-            //     suggestion.classList.add('suggestion');
-            //     suggestion.innerText = 'No match found';
-            //     suggestions2.appendChild(suggestion);
-            // }
+            else {
+                regex = new RegExp(`(${e.target.value.trim()})`, 'i');
+            }
+            if (med.medicinename.match(regex)) {
+                show.push(med);
+            }
         })
         showProducts2(show);
     }
@@ -490,19 +513,24 @@ form3.elements["searchmedicine2"].addEventListener('input', () => {
 
 function showProducts2(show) {
     suggestions2.innerHTML = '';
-    show.forEach(el => {
+    if (show.length == 0) {
         let suggestion = document.createElement('div');
         suggestion.classList.add('suggestion');
-        suggestion.innerText = el.medicinename;
+        suggestion.innerText = 'No match found';
         suggestions2.appendChild(suggestion);
-    })
-
+    }
+    else {
+        show.forEach(el => {
+            let suggestion = document.createElement('div');
+            suggestion.classList.add('suggestion');
+            suggestion.innerText = el.medicinename;
+            suggestions2.appendChild(suggestion);
+        })
+    }
     document.querySelectorAll('.suggestion').forEach(el => {
         el.addEventListener('click', () => {
             let getRecord = records.find(record => record.medicinename == el.innerText)
             form3.elements["searchmedicine2"].value = `${getRecord.medicinename} | ${getRecord.rack} | ${getRecord.batch}`;
-            form3.elements["outqty"].value = getRecord.qty;
-            form3.elements["select2"].value = getRecord.qty;
             suggestions2.style.display = 'none';
             optionSelected = true;
             record = getRecord;
@@ -510,32 +538,104 @@ function showProducts2(show) {
     })
 }
 
-form3.addEventListener('submit', outRecord);
+form3.addEventListener('submit', getoutRecord);
 
-function outRecord(e) {
+function getoutRecord(e) {
     e.preventDefault();
-    if (Number(form3.elements["outqty"].value) <= record.qty && optionSelected == true) {
-        record.qty = record.qty - Number(form3.elements["outqty"].value);
-        clearInputs();
+    let out = Number(form3.elements["outqty"].value);
+    if (optionSelected == true) {
+        let value = isContainsOut();
+        if (value != false && out <= record.qty) {
+            value.qty = Number(value.qty) + out;
+            addOutRecord();
+            updateRocord(out);
 
-        let tr = Array.from(table2.children).find(el => el.children[0].innerText == record.medicinename)
-        tr.children[1].innerText = record.qty;
-        tr.children[4].innerText = record.select;
-        form3.style.display = 'none';
-        wrapper.style.opacity = '1';
-    }
-    else {
-        if(Number(form3.elements["outqty"].value) > record.qty){
+            notification("Out Record added!");
+            optionSelected = false;
+            clearInputs();
+            form3.style.display = 'none';
+            wrapper.style.opacity = '1';
+        }
+        else if (out <= record.qty) {
+            removeMessege();
+            updateRocord(out);
+            let outRecord = {};
+            outrecordcount++
+
+            outRecord.id = `outrecord${outrecordcount}`;
+            outRecord.medicinename = record.medicinename;
+            outRecord.qty = out
+            outRecord.rack = record.rack;
+            outRecord.batch = record.batch;
+            outRecord.select = form3.elements["select2"].value;
+            outRecords.push(outRecord);
+            addOutRecord();
+
+            notification("Out Record added!");
+            optionSelected = false;
+            clearInputs();
+            form3.style.display = 'none';
+            wrapper.style.opacity = '1';
+        }
+        else {
             notification("Quantity should be less than or equal to record quantity");
         }
-        if(optionSelected == false){
-            notification('please select record!')
-        }
+    }
+    else {
+        // if (optionSelected == false) {
+        notification('please select record!')
+        // }
     }
 }
 
+function updateRocord(out) {
+    record.qty = record.qty - out;
+    clearInputs();
+    let tr = Array.from(table2.children).find(el => el.children[0].innerText == record.medicinename)
+    tr.children[1].innerText = record.qty;
+    tr.children[4].innerText = record.select;
+}
 
-body.addEventListener('click', () =>{
+function addOutRecord() {
+    table3.innerHTML = `<thead>
+                           <th>Medicine</th>
+                           <th>Qty</th>
+                           <th>Rack</th>
+                           <th>Batch</th>
+                           <th>Select</th>
+                        </thead>`;
+    outRecords.forEach(record => {
+        let tr = document.createElement('tr');
+        tr.innerHTML = `<td>${record.medicinename}</td>
+        <td>${record.qty}</td>
+        <td>${record.rack}</td>
+        <td>${record.batch}</td>
+        <td>${record.select}</td>`
+        table3.appendChild(tr);
+    })
+}
+
+body.addEventListener('click', () => {
     suggestions1.style.display = 'none';
     suggestions2.style.display = 'none';
 })
+
+function isContains() {
+    let value = records.find(el => el.medicinename == form2.elements["searchmedicine1"].value.trim().slice(0, form2.elements["searchmedicine1"].value.trim().indexOf(' |')))
+    if (!value) {
+        return false;
+    }
+    else {
+        return value;
+    }
+}
+
+function isContainsOut() {
+    let value = outRecords.find(el => el.medicinename == form3.elements["searchmedicine2"].value.trim().slice(0, form3.elements["searchmedicine2"].value.trim().indexOf(' |')))
+    if (!value) {
+        return false;
+    }
+    else {
+        return value;
+    }
+}
