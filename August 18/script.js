@@ -34,6 +34,7 @@ document.getElementById('addMedBtn').addEventListener('click', () => {
     wrapper.style.opacity = '0.5'
     document.getElementById('submitbtn').value = 'Add medicine';
     document.getElementById('expbydate').checked = false;
+    wrapper.document.querySelectorAll('button').forEach(el => el.disabled = true);
 })
 
 // when user click on a add record button, it opens record form
@@ -142,8 +143,8 @@ function getMed(e) {
             medicine.batch = form1.elements["batch"].value;
             medicines.push(medicine);
             // console.log(medicines);
-            setData(medicines,"medicines");
-            setData(medcount,"medcount");
+            setData(medicines, "medicines");
+            setData(medcount, "medcount");
             addMed();
             notification(`${form1.elements["medicine"].value} added!`);
             clearInputs();
@@ -169,7 +170,6 @@ function getMed(e) {
             if (form1.elements['qty'].value == '') {
                 document.getElementById("qtymessege").style.display = 'block';
             }
-
         }
     }
 }
@@ -225,10 +225,12 @@ function clearInputs() {
 
 // delete particullar medicine from the table
 function delMed(med) {
-    table1.removeChild(med.parentElement.parentElement);
     let tr = med.parentElement.parentElement;
+    medicines = getData("medicines");
     let medId = medicines.find(el => el.medicinename == tr.children[0].innerText);
     medicines.splice(medicines.indexOf(medId), 1);
+    setData(medicines, 'medicines');
+    addMed();
 }
 
 // when user click on edit button for specific medicine, form opens and fields are filled with that medicine data
@@ -271,7 +273,7 @@ function updateMed(medId) {
                     el.batch = form1.elements["batch"].value;
                 }
             })
-            setData(medicines,"medicines");
+            setData(medicines, "medicines");
             addMed();
             notification(`${medId.medicinename} updated!`);
             clearInputs();
@@ -300,25 +302,30 @@ function validateDate() {
     if (selected == undefined) {
         return undefined;
     }
-    else if (selected == 'date' && document.getElementById('dateinput').value != null) {
-        dt1 = new Date(document.getElementById('dateinput').value);
-        selecteddate = dt1.getTime();
-        if (selecteddate >= now.getTime() - 1000 * 3600 * 24) {
-            return { date: new Date(selecteddate).toLocaleDateString(), days: 0, bydate: true };
+    else if (document.getElementById('dateinput').value != '' || document.getElementById('dayinput').value != '') {
+        if (selected == 'date' && document.getElementById('dateinput').value != null) {
+            dt1 = new Date(document.getElementById('dateinput').value);
+            selecteddate = dt1.getTime();
+            if (selecteddate >= now.getTime() - 1000 * 3600 * 24) {
+                return { date: new Date(selecteddate).toLocaleDateString(), days: 0, bydate: true };
+            }
+            else {
+                return false;
+            }
         }
         else {
-            return false;
+            dt2 = new Date(document.getElementById('dayinput').value);
+            selecteddate = dt2.getTime() + document.getElementById('daysnumber').value * (1000 * 3600 * 24);
+            if (selecteddate >= now.getTime() - 1000 * 3600 * 24) {
+                return { date: new Date(dt2.getTime()).toLocaleDateString(), days: document.getElementById('daysnumber').value, bydate: false };
+            }
+            else {
+                return false;
+            }
         }
     }
     else {
-        dt2 = new Date(document.getElementById('dayinput').value);
-        selecteddate = dt2.getTime() + document.getElementById('daysnumber').value * (1000 * 3600 * 24);
-        if (selecteddate >= now.getTime() - 1000 * 3600 * 24) {
-            return { date: new Date(dt2.getTime()).toLocaleDateString(), days: document.getElementById('daysnumber').value, bydate: false };
-        }
-        else {
-            return false;
-        }
+        return undefined;
     }
 
 }
@@ -378,7 +385,7 @@ function formatdate(medId) {
 // while adding medicine, it checks if medicine is already exists or not
 function validateName() {
     if (getData("medicines") != null) {
-        let value = getData("medicines").findIndex(el => el.medicinename == form1.elements["medicine"].value)
+        let value = getData("medicines").findIndex(el => el.medicinename.toLowerCase() == form1.elements["medicine"].value.toLowerCase())
         if (value == -1) {
             return true;
         }
@@ -473,44 +480,49 @@ function getRecord(e) {
     e.preventDefault();
     let out = Number(form2.elements["getqty"].value);
     if (optionSelected == true && form2.elements["select"].value != 'Select number' && out <= medicine.qty) {
-        let value = isContains();
-        if (value != false) {
-            records =getData("records");
-            records.forEach(el => {
-                if (value.id == el.id) {
-                    el.qty = Number(el.qty) + Number(out);
-                    value.qty = el.qty;
-                }
-            })
-            setData(records,"records");
-            addRecord();
-            updateMedicine(out);
+        if (out > 0) {
+            let value = isContains();
+            if (value != false) {
+                records = getData("records");
+                records.forEach(el => {
+                    if (value.id == el.id) {
+                        el.qty = Number(el.qty) + Number(out);
+                        value.qty = el.qty;
+                    }
+                })
+                setData(records, "records");
+                addRecord();
+                updateMedicine(out);
 
-        }
-        else {
-            removeMessege();
-            recordcount = getData("recordcount")
-            recordcount++;
+            }
+            else {
+                removeMessege();
+                recordcount = getData("recordcount")
+                recordcount++;
 
-            let record = {};
-            record.id = `record${recordcount}`;
-            record.medicinename = form2.elements["searchmedicine1"].value.trim().slice(0, form2.elements["searchmedicine1"].value.trim().indexOf(' |'));
-            record.qty = form2.elements["getqty"].value;
-            record.rack = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.indexOf('| ') + 1, form2.elements["searchmedicine1"].value.lastIndexOf('|'));
-            record.batch = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.lastIndexOf('| ') + 1);
-            record.select = form2.elements["select"].value;
-            records.push(record);
-            setData(records,"records");
-            setData(recordcount,"recordcount");
-            addRecord();
-            updateMedicine(out);
+                let record = {};
+                record.id = `record${recordcount}`;
+                record.medicinename = form2.elements["searchmedicine1"].value.trim().slice(0, form2.elements["searchmedicine1"].value.trim().indexOf(' |'));
+                record.qty = form2.elements["getqty"].value;
+                record.rack = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.indexOf('| ') + 1, form2.elements["searchmedicine1"].value.lastIndexOf('|'));
+                record.batch = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.lastIndexOf('| ') + 1);
+                record.select = form2.elements["select"].value;
+                records.push(record);
+                setData(records, "records");
+                setData(recordcount, "recordcount");
+                addRecord();
+                updateMedicine(out);
+            }
+            document.getElementById('selectmessege').style.display = 'none';
+            notification("Record added!");
+            optionSelected = false;
+            clearInputs();
+            form2.style.display = 'none';
+            wrapper.style.opacity = '1';
         }
-        document.getElementById('selectmessege').style.display = 'none';
-        notification("Record added!");
-        optionSelected = false;
-        clearInputs();
-        form2.style.display = 'none';
-        wrapper.style.opacity = '1';
+        else{
+            notification(`Quantity can't be ${out}`);
+        }
     }
     else {
         if (Number(medicine.qty) < out) {
@@ -561,7 +573,7 @@ function updateMedicine(out) {
             medicine.qty = el.qty;
         }
     })
-    setData(medicines,"medicines");
+    setData(medicines, "medicines");
     addMed();
     clearInputs();
 }
@@ -628,33 +640,38 @@ function getoutRecord(e) {
     let out = Number(form3.elements["outqty"].value);
     if (optionSelected == true && form3.elements['searchmedicine2'].value != '' && form3.elements["select2"].value != "Select number" && form3.elements["outqty"].value != "") {
         if (out <= record.qty) {
-            removeMessege();
+            if (out > 0) {
+                removeMessege();
 
-            outrecordcount = getData("outrecordcount");
-            outrecordcount++ ;
-            let outRecord = {};
+                outrecordcount = getData("outrecordcount");
+                outrecordcount++;
+                let outRecord = {};
 
-            outRecord.id = `outrecord${outrecordcount}`;
-            outRecord.medicinename = record.medicinename;
-            outRecord.qty = out
-            outRecord.rack = record.rack;
-            outRecord.batch = record.batch;
-            outRecord.select = form3.elements["select2"].value;
-            outRecords.push(outRecord);
+                outRecord.id = `outrecord${outrecordcount}`;
+                outRecord.medicinename = record.medicinename;
+                outRecord.qty = out
+                outRecord.rack = record.rack;
+                outRecord.batch = record.batch;
+                outRecord.select = form3.elements["select2"].value;
+                outRecords.push(outRecord);
 
-            setData(outRecords,"outRecords");
-            setData(outrecordcount,"outrecordcount");
-            addOutRecord();
-            updateRocord(out);
+                setData(outRecords, "outRecords");
+                setData(outrecordcount, "outrecordcount");
+                addOutRecord();
+                updateRocord(out);
 
-            document.getElementById('select2messege').style.display = 'none';
-            document.getElementById('searchmedicine2messege').style.display = 'none';
-            document.getElementById('outqtymessege').style.display = 'none';
-            notification("Out Record added!");
-            optionSelected = false;
-            clearInputs();
-            form3.style.display = 'none';
-            wrapper.style.opacity = '1';
+                document.getElementById('select2messege').style.display = 'none';
+                document.getElementById('searchmedicine2messege').style.display = 'none';
+                document.getElementById('outqtymessege').style.display = 'none';
+                notification("Out Record added!");
+                optionSelected = false;
+                clearInputs();
+                form3.style.display = 'none';
+                wrapper.style.opacity = '1';
+            }
+            else {
+                notification(`Quantity can't be ${out}`);
+            }
         }
         else {
             if (out > record.qty) {
@@ -686,7 +703,7 @@ function updateRocord(out) {
             el.qty = Number(el.qty) - Number(out);
         }
     })
-    setData(records,"records");
+    setData(records, "records");
     addRecord();
     clearInputs();
 }
@@ -737,12 +754,12 @@ function isContains() {
 }
 
 // get data from local storage
-function setData(item, itemstr){
+function setData(item, itemstr) {
     localStorage.setItem(itemstr, JSON.stringify(item));
 }
 
 // set data in local storage
-function getData(item){
+function getData(item) {
     let data = JSON.parse(localStorage.getItem(item));
     return data;
 }
