@@ -129,7 +129,7 @@ function getMed(e) {
         if (form1.elements["medicine"].value.trim() != '' && validateName() && form1.elements['rack'].value != 'Select number of racks' && form1.elements['qty'].value != '' && validateDate()) {
             removeMessege();
 
-            medcount = getId("medcount");
+            medcount = getData("medcount");
             medcount++;
 
             let medicine = {};
@@ -142,8 +142,8 @@ function getMed(e) {
             medicine.batch = form1.elements["batch"].value;
             medicines.push(medicine);
             // console.log(medicines);
-            setMedicineData();
-            setId(medcount,"medcount");
+            setData(medicines,"medicines");
+            setData(medcount,"medcount");
             addMed();
             notification(`${form1.elements["medicine"].value} added!`);
             clearInputs();
@@ -175,7 +175,7 @@ function getMed(e) {
 }
 
 function addMed() {
-    if (getMedicineData() != null) {
+    if (getData("medicines") != null) {
         table1.innerHTML = `<thead>
                                 <th>Medicine</th>
                                 <th>Qty</th>
@@ -184,7 +184,7 @@ function addMed() {
                                 <th>Batch</th>
                                 <th>Action</th>
                             </thead>`;
-        medicines = getMedicineData();
+        medicines = getData("medicines");
         medicines.forEach(medicine => {
             let tr = document.createElement('tr');
             tr.innerHTML = `<td>${medicine.medicinename}</td>
@@ -235,7 +235,7 @@ function delMed(med) {
 function editMed(med) {
     form1.style.display = 'block';
     let tr = med.parentElement.parentElement;
-    let medId = getMedicineData().find(el => el.medicinename == tr.children[0].innerText);
+    let medId = getData("medicines").find(el => el.medicinename == tr.children[0].innerText);
     form1.elements["medicine"].value = medId.medicinename;
     form1.elements["qty"].value = medId.qty;
     form1.elements["rack"].value = medId.rack;
@@ -261,7 +261,7 @@ function updateMed(medId) {
     // let trId = Array.from(table1.children).find(tr => tr.id == `${medId.medicinename}-id`);
     if (form1.elements["medicine"].value.trim() != '') {
         if (validateUpdate(medId.id) && validateDate()) {
-            medicines = getMedicineData();
+            medicines = getData("medicines");
             medicines.forEach(el => {
                 if (medId.id == el.id) {
                     el.medicinename = form1.elements["medicine"].value;
@@ -271,7 +271,7 @@ function updateMed(medId) {
                     el.batch = form1.elements["batch"].value;
                 }
             })
-            setMedicineData();
+            setData(medicines,"medicines");
             addMed();
             notification(`${medId.medicinename} updated!`);
             clearInputs();
@@ -377,8 +377,8 @@ function formatdate(medId) {
 
 // while adding medicine, it checks if medicine is already exists or not
 function validateName() {
-    if (getMedicineData() != null) {
-        let value = getMedicineData().findIndex(el => el.medicinename == form1.elements["medicine"].value)
+    if (getData("medicines") != null) {
+        let value = getData("medicines").findIndex(el => el.medicinename == form1.elements["medicine"].value)
         if (value == -1) {
             return true;
         }
@@ -393,7 +393,7 @@ function validateName() {
 
 // while updating medicine, it checks if medicine is already exists or not except itself
 function validateUpdate(id) {
-    medicines = getMedicineData();
+    medicines = getData("medicines");
     let meds = medicines.filter(el => el.id != id);
     let value = meds.findIndex(el => el.medicinename == form1.elements["medicine"].value)
     if (value == -1) {
@@ -421,7 +421,7 @@ form2.elements["searchmedicine1"].addEventListener('input', (e) => {
     else {
         let show = [];
         suggestions1.style.display = 'block';
-        getMedicineData().forEach(med => {
+        getData("medicines").forEach(med => {
             let regex;
             if (e.target.value.trim().includes('|')) {
                 regex = new RegExp(`(${e.target.value.trim().slice(0, e.target.value.trim().indexOf(' |'))})`, 'i');
@@ -457,7 +457,7 @@ function showProducts(show) {
     }
     document.querySelectorAll('.suggestion').forEach(el => {
         el.addEventListener('click', () => {
-            let getMed = getMedicineData().find(med => med.medicinename == el.innerText)
+            let getMed = getData("medicines").find(med => med.medicinename == el.innerText)
             form2.elements["searchmedicine1"].value = `${getMed.medicinename} | ${getMed.rack} | ${getMed.batch}`;
             form2.elements["getqty"].value = getMed.qty;
             suggestions1.style.display = 'none';
@@ -475,22 +475,21 @@ function getRecord(e) {
     if (optionSelected == true && form2.elements["select"].value != 'Select number' && out <= medicine.qty) {
         let value = isContains();
         if (value != false) {
-            records = getRecordsData();
+            records =getData("records");
             records.forEach(el => {
                 if (value.id == el.id) {
                     el.qty = Number(el.qty) + Number(out);
-                    console.log(value);
-                    console.log(el);
+                    value.qty = el.qty;
                 }
             })
-            setRecordsData();
+            setData(records,"records");
             addRecord();
             updateMedicine(out);
 
         }
         else {
             removeMessege();
-            recordcount = getId("recordcount")
+            recordcount = getData("recordcount")
             recordcount++;
 
             let record = {};
@@ -501,8 +500,8 @@ function getRecord(e) {
             record.batch = form2.elements["searchmedicine1"].value.slice(form2.elements["searchmedicine1"].value.lastIndexOf('| ') + 1);
             record.select = form2.elements["select"].value;
             records.push(record);
-            setRecordsData();
-            setId(recordcount,"recordcount");
+            setData(records,"records");
+            setData(recordcount,"recordcount");
             addRecord();
             updateMedicine(out);
         }
@@ -514,9 +513,9 @@ function getRecord(e) {
         wrapper.style.opacity = '1';
     }
     else {
-        // if (Number(getMed.qty) > Number(form2.elements["getqty"].value)) {
-        //     notification('Quantity should be greater than or equal to medicine quantity')
-        // }
+        if (Number(medicine.qty) < out) {
+            notification(`Only ${medicine.qty} quantity is available`)
+        }
         if (form2.elements["searchmedicine1"].value.trim() == '') {
             document.getElementById("searchmedicine1messege").style.display = 'block';
         }
@@ -533,7 +532,7 @@ function getRecord(e) {
 
 // record will be added to the records table
 function addRecord() {
-    if (getRecordsData() != null) {
+    if (getData("records") != null) {
         table2.innerHTML = `<thead>
                               <th>Medicine</th>
                               <th>Qty</th>
@@ -541,7 +540,7 @@ function addRecord() {
                               <th>Batch</th>
                               <th>Select</th>
                             </thead>`;
-        records = getRecordsData();
+        records = getData("records");
         records.forEach(record => {
             let tr = document.createElement('tr');
             tr.innerHTML = `<td>${record.medicinename}</td>
@@ -555,13 +554,14 @@ function addRecord() {
 }
 
 function updateMedicine(out) {
-    medicines = getMedicineData();
+    medicines = getData("medicines");
     medicines.forEach(el => {
         if (medicine.id == el.id) {
             el.qty = Number(el.qty) - Number(out);
+            medicine.qty = el.qty;
         }
     })
-    setMedicineData();
+    setData(medicines,"medicines");
     addMed();
     clearInputs();
 }
@@ -576,8 +576,8 @@ form3.elements["searchmedicine2"].addEventListener('input', (e) => {
     else {
         suggestions2.style.display = 'block';
         let show = [];
-        if (getRecordsData() != null) {
-            getRecordsData().forEach(record => {
+        if (getData("records") != null) {
+            getData("records").forEach(record => {
                 if (e.target.value.trim().includes('|')) {
                     regex = new RegExp(`(${e.target.value.trim().slice(0, e.target.value.trim().indexOf(' |'))})`, 'i');
                 }
@@ -612,7 +612,7 @@ function showProducts2(show) {
     }
     document.querySelectorAll('.suggestion').forEach(el => {
         el.addEventListener('click', () => {
-            let getRecord = getRecordsData().find(record => record.medicinename == el.innerText)
+            let getRecord = getData("records").find(record => record.medicinename == el.innerText)
             form3.elements["searchmedicine2"].value = `${getRecord.medicinename} | ${getRecord.rack} | ${getRecord.batch}`;
             suggestions2.style.display = 'none';
             optionSelected = true;
@@ -630,7 +630,7 @@ function getoutRecord(e) {
         if (out <= record.qty) {
             removeMessege();
 
-            outrecordcount = getId("outrecordcount");
+            outrecordcount = getData("outrecordcount");
             outrecordcount++ ;
             let outRecord = {};
 
@@ -642,8 +642,8 @@ function getoutRecord(e) {
             outRecord.select = form3.elements["select2"].value;
             outRecords.push(outRecord);
 
-            setOutRecordsData();
-            setId(outrecordcount,"outrecordcount");
+            setData(outRecords,"outRecords");
+            setData(outrecordcount,"outrecordcount");
             addOutRecord();
             updateRocord(out);
 
@@ -658,7 +658,7 @@ function getoutRecord(e) {
         }
         else {
             if (out > record.qty) {
-                notification("Quantity should be less than or equal to record quantity");
+                notification(`Only ${record.qty} quantity is available`);
             }
         }
     }
@@ -680,20 +680,20 @@ function getoutRecord(e) {
 
 // quantity will be updated of selected record in out record form
 function updateRocord(out) {
-    records = getRecordsData();
+    records = getData("records");
     records.forEach(el => {
         if (record.id == el.id) {
             el.qty = Number(el.qty) - Number(out);
         }
     })
-    setRecordsData();
+    setData(records,"records");
     addRecord();
     clearInputs();
 }
 
 // out record will be added to the out records table
 function addOutRecord() {
-    if (getOutRecordsData() != null) {
+    if (getData("outRecords") != null) {
         table3.innerHTML = `<thead>
                                 <th>Medicine</th>
                                 <th>Qty</th>
@@ -701,7 +701,7 @@ function addOutRecord() {
                                 <th>Batch</th>
                                 <th>Select</th>
                             </thead>`;
-        outRecords = getOutRecordsData();
+        outRecords = getData("outRecords");
         outRecords.forEach(record => {
             let tr = document.createElement('tr');
             tr.innerHTML = `<td>${record.medicinename}</td>
@@ -722,8 +722,8 @@ document.querySelector('body').addEventListener('click', () => {
 
 // checks if record is already there in records or not 
 function isContains() {
-    if (getRecordsData() != null) {
-        let value = getRecordsData().find(el => el.medicinename == form2.elements["searchmedicine1"].value.trim().slice(0, form2.elements["searchmedicine1"].value.trim().indexOf(' |')))
+    if (getData("records") != null) {
+        let value = getData("records").find(el => el.medicinename == form2.elements["searchmedicine1"].value.trim().slice(0, form2.elements["searchmedicine1"].value.trim().indexOf(' |')))
         if (!value) {
             return false;
         }
@@ -736,37 +736,14 @@ function isContains() {
     }
 }
 
-
-function getMedicineData() {
-    let getMedicine = JSON.parse(localStorage.getItem("medicines"));
-    return getMedicine;
-}
-function setMedicineData() {
-    localStorage.setItem("medicines", JSON.stringify(medicines));
-}
-
-
-function getRecordsData() {
-    let getRecords = JSON.parse(localStorage.getItem("records"));
-    return getRecords;
-}
-function setRecordsData() {
-    localStorage.setItem("records", JSON.stringify(records));
-}
-
-
-function getOutRecordsData() {
-    let getOutRecords = JSON.parse(localStorage.getItem("outRecords"));
-    return getOutRecords;
-}
-function setOutRecordsData() {
-    localStorage.setItem("outRecords", JSON.stringify(outRecords));
-}
-
-function setId(item, itemstr){
+// get data from local storage
+function setData(item, itemstr){
     localStorage.setItem(itemstr, JSON.stringify(item));
 }
-function getId(item){
-    let id = JSON.parse(localStorage.getItem(item));
-    return id;
+
+// set data in local storage
+function getData(item){
+    let data = JSON.parse(localStorage.getItem(item));
+    return data;
 }
+
