@@ -40,7 +40,7 @@ checkbtn.addEventListener('click', () => {
         if (promos.includes(promocode)) {
             if (Number(myamount.value) > 500 && Number(myamount.value) < 1000) {
                 if (promocode == 'OFF25') {
-                    promomessage.innerHTML = promocode + ' Applied' + '<button onClick="removePromoCode()" id="removebtn">X<button>';
+                    promomessage.innerHTML = promocode + ' Applied' + '<button onClick="removePromoCode()" id="removebtn">x<button>';
                     promomessage.style.color = 'green';
                     off25();
                 }
@@ -53,7 +53,7 @@ checkbtn.addEventListener('click', () => {
             }
             else if (Number(myamount.value) > 1000 && Number(myamount.value) < 2000) {
                 if (promocode == 'OFF25' || promocode == 'OFF50') {
-                    promomessage.innerHTML = promocode + ' Applied' + '<button onClick="removePromoCode()" id="removebtn">X<button>';
+                    promomessage.innerHTML = promocode + ' Applied' + '<button onClick="removePromoCode()" id="removebtn">x<button>';
                     promomessage.style.color = 'green';
                     if (promocode == 'OFF25') {
                         off25();
@@ -71,7 +71,7 @@ checkbtn.addEventListener('click', () => {
             }
             else if (Number(myamount.value) > 2000) {
                 if (promocode == 'OFF25' || promocode == 'OFF50' || promocode == 'OFF75') {
-                    promomessage.innerHTML = promocode + ' Applied' + '<button onClick="removePromoCode()" id="removebtn">X<button>';
+                    promomessage.innerHTML = promocode + ' Applied' + '<button onClick="removePromoCode()" id="removebtn">x<button>';
                     promomessage.style.color = 'green';
                     if (promocode == 'OFF25') {
                         off25();
