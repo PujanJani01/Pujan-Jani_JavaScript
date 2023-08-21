@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+table{
+    width: 90%;
+    text-align: center;
+}
+table thead th{
+    font-size: 18px;
+    padding: 5px;
+}
+button{
+    background-color: transparent;
+    border: none;
+    background-color: blueviolet;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 2rem 0;
+}

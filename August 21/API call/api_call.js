@@ -100,3 +100,69 @@ async function getData(){
 }
 document.getElementById("getdatabtn").addEventListener('click', getData);
 
+//--------------------------------------------------------------------------------------------------------
+
+/* fetch("https://jsonplaceholder.typicode.com/users",{
+  method: 'POST',
+  headers: {
+    'Content-type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'Pujan', username: 'pujanjani', website: 'www.pujanjani.com',
+    email: 'pujan@gmail.com', phone: '1234567890'
+  })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.log("ERROR")) */
+
+//--------------------------------------------------------------------------------------------------------
+
+/* let options = {
+  method: 'POST',
+  headers: {
+    'Content-type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'Pujan', username: 'pujanjani', website: 'www.pujanjani.com',
+    email: 'pujan@gmail.com', phone: '1234567890'
+  })
+}
+
+fetch("https://jsonplaceholder.typicode.com/users",options)
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.log("ERROR")) */
+
+//--------------------------------------------------------------------------------------------------------
+
+/* let options = {
+  method: 'PUT',
+  headers: {
+    'Content-type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'Pujan', username: 'pujanjani', website: 'www.pujanjani.com',
+    email: 'pujan@gmail.com', phone: '1234567890'
+  })
+}
+fetch("https://jsonplaceholder.typicode.com/users/5",options)
+.then(response =>{
+  console.log(response.status)
+  return response.json();
+})
+.then(data => console.log(data))
+.catch(error => console.log("ERROR")) */
+
+//--------------------------------------------------------------------------------------------------------
+
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/users');
+xhr.onreadystatechange = function(){
+  console.log(xhr.readyState);
+  if(xhr.readyState == 4){
+    console.log(this.responseText);
+  }
+}
+xhr.send();
+
