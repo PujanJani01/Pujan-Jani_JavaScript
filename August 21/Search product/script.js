@@ -1,5 +1,7 @@
 let searchbar = document.getElementById('searchbar');
-let products = document.querySelector('.products');
+let products = document.getElementById('products');
+let hidden = document.getElementById('hidden');
+// let product = document.getElementsByClassName('.product');
 let productsnames = document.getElementsByClassName('productname');
 let nomatchfoundMessege = document.getElementsByClassName('nomatchfound')[0];
 let productData;
@@ -23,16 +25,20 @@ productData = data;
 }
 
 searchbar.addEventListener('input', () => {
-    if (searchbar.value.trim() == '') {
-        for(let i=0; i < productsnames.length;i++){
+    let show = [];
+    let hide = [];
+    if (searchbar.value.trim() == '') { 
+        // show.forEach(el => {
+        //     products.removeChild(el);
+        // })
+        for(let i=0; i < productData.length;i++){
             products.appendChild(productsnames[i].parentElement.parentElement);
         }
     }
     else{
-        let show = [];
-        let hide = [];
+        
         for(let i=0; i < productsnames.length;i++){
-            if (productsnames[i].innerText.includes(searchbar.value.trim())) {
+            if (productsnames[i].innerText.toLowerCase().includes(searchbar.value.trim().toLowerCase())) {
                 show.push(productsnames[i].parentElement.parentElement);
             }
             else{
@@ -55,7 +61,7 @@ function showProducts(show) {
 function hideProducts(hide) {
     hide.forEach(el => {
         if(products.contains(el)){
-            products.removeChild(el);
+            hidden.appendChild(el);
         }
     })
 }
