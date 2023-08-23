@@ -1,7 +1,6 @@
+# Fetch API
 
-
-
-🟣 Response methods : 
+> Response methods : 
 
 1. text() - returns a promise which resolves to a string, used to get text, html, xml files, css and js.
 2. json() - returns a promise which resolves to a JSON object
@@ -14,7 +13,7 @@
 9. headers - returns a Headers object associated with the response
 
 
-🔵 Response properties : 
+> Response properties : 
 
 1. ok - returns true if the response was successful (status in the range 200-299), otherwise false
 2. redirected - returns true if the response is the result of a redirect, otherwise false
@@ -26,8 +25,19 @@
 8. bodyUsed - returns a boolean indicating whether the body has been used in a response yet
 
 
-Note: here I took example of id
+> URLSearchParams / searchParams methods :
 
-searchParams.has('id') - if id is already present then it will return true
-searchParams.get('id') - if id is already present then it will return the value
-searchParams.getAll('id') - if id is already present then it will return all the values
+1. append(name, value)- if name is already present then it will append the value
+2. set(name, value) - if name is already present then it will replace the value
+3. delete(name, value)- if name is already present then it will delete the value
+4. has(name, value) - if name is already present then it will return true
+5. get(name) - if name is already present then it will return the value
+6. getAll(name) - if name is already present then it will return all the values
+7. keys() - if name is already present then it will return all the keys
+8. values() - if name is already present then it will return all the values
+9. sort(name, value) - if name is already present then it will sort the values
+10. forEach(callback(value, key, searchParams), thisArg) - if name is already present then it will   
+                                                                    return all the values
+11. toString() - if name is already present then it will return all the values
+
+> 

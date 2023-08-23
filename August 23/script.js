@@ -193,7 +193,7 @@ getData(); */
 
 //----------------------------------------------------------------------------------------------
 
-function getData(str,idNumber) {
+/* function getData(str,idNumber) {
     let url = new URL(str);
 
     // let searchParams = new URLSearchParams({
@@ -202,21 +202,19 @@ function getData(str,idNumber) {
     // url.search = searchParams;
     
     let searchParams = url.searchParams;
-    // searchParams.append('id', idNumber);   // // if id is already present then it will append the value
+
+    searchParams.append('id', idNumber);   // // if id is already present then it will append the value
     // searchParams.set('id', idNumber);      // // if id is already present then it will replace the value
     // searchParams.delete('id', idNumber);   // // if id is already present then it will delete the value
-    // searchParams.keys();                   // // if id is already present then it will return all the keys
-    // searchParams.values();                 // // if id is already present then it will return all the values
-    // searchParams.sort();                   // // if id is already present then it will sort the values
-    // searchParams.forEach();                // // if id is already present then it will return all the values
-    // searchParams.toString();               // // if id is already present then it will return all the values
-
-
+    
     fetch(url)
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(data => console.log(data))
     .catch(error => console.log('Error'));
 }
 
 // getData('https://jsonplaceholder.typicode.com/posts', 10);
-getData('https://jsonplaceholder.typicode.com/posts/?id=50', 10);
+getData('https://jsonplaceholder.typicode.com/posts/?id=50', 10); */
+
+//----------------------------------------------------------------------------------------------
+
