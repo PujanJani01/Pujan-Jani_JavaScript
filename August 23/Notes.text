@@ -1,0 +1,33 @@
+
+
+
+🟣 Response methods : 
+
+1. text() - returns a promise which resolves to a string, used to get text, html, xml files, css and js.
+2. json() - returns a promise which resolves to a JSON object
+3. formData() - returns a promise which resolves to a FormData object
+4. arrayBuffer() - returns a promise which resolves to an ArrayBuffer
+5. blob() - returns a promise which resolves to a Blob,  used to get image, audio, video, etc
+6. clone() - creates a clone of a response object
+7. redirect() - creates a new response object with a different URL
+8. error() - creates a new response object with a different error
+9. headers - returns a Headers object associated with the response
+
+
+🔵 Response properties : 
+
+1. ok - returns true if the response was successful (status in the range 200-299), otherwise false
+2. redirected - returns true if the response is the result of a redirect, otherwise false
+3. status - returns the status code of the response (e.g., 200 for a success)
+4. statusText - returns the status message associated with the response (e.g., OK for 200)
+5. type - returns the type of the response (e.g., basic, cors)
+6. url - returns the URL of the response
+7. body - returns a ReadableStream object associated with the response body
+8. bodyUsed - returns a boolean indicating whether the body has been used in a response yet
+
+
+Note: here I took example of id
+
+searchParams.has('id') - if id is already present then it will return true
+searchParams.get('id') - if id is already present then it will return the value
+searchParams.getAll('id') - if id is already present then it will return all the values
