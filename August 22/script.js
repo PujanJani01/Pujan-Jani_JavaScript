@@ -20,7 +20,8 @@ async function getData(){
 getData(); */
 
 //----------------------------------------------------------------------------------------------------------
-let cityname;
+
+/* let cityname;
 
 document.getElementById('getweatherbtn').addEventListener('click', () => {
     cityname = document.getElementById("cityname").value.trim().toLowerCase();
@@ -44,6 +45,69 @@ document.getElementById('getweatherbtn').addEventListener('click', () => {
     }
     
     getData();
-})
+}) */
 
+//-------------------------------------------------------------------------------------------------
+
+/* fetch('https://jsonplaceholder.typicode.com/users?id=5')
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.log('Error'))
+
+fetch('https://jsonplaceholder.typicode.com/users?id=5&id=9')
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.log('Error'))
+
+fetch('https://jsonplaceholder.typicode.com/users?name=Mrs.+Dennis+Schulist&name=Chelsey+Dietrich')
+.then(response => response.json())
+.then(data => console.log(data)) 
+.catch(error => console.log('Error')) */
+
+//-------------------------------------------------------------------------------------------------
+
+/* fetch('https://jsonplaceholder.typicode.com/users',{
+    method: 'POST',
+    headers: {
+        'Content-type': 'Application/json'
+    },
+    body: JSON.stringify({
+        // id: 5,
+        name: 'pujan',
+        username: 'pujanjani'
+    })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.log('Error')) */
+
+
+//-------------------------------------------------------------------------------------------------
+
+/* fetch('https://jsonplaceholder.typicode.com/users/6',{
+    method: 'put',
+    headers: {
+        'Content-type': 'Application/json'
+    },
+    body: JSON.stringify({
+        id: 6,
+        name: 'pujan',
+        username: 'pujanjani',
+        age: 18
+    })
+})
+.then(response => response.json())
+.then(data => console.log(data)) 
+.catch(error => console.log('Error')) */
+
+//-------------------------------------------------------------------------------------------------
+
+/* fetch('https://jsonplaceholder.typicode.com/users/8',{
+    method: 'delete',
+})
+.then(response => response.json())
+.then(data => console.log(data)) 
+.catch(error => console.log('Error')) */
+
+//-------------------------------------------------------------------------------------------------
 
