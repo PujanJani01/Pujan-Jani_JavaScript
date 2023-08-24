@@ -1,5 +1,24 @@
 # Fetch API
 
+> Headers : 
+
+- headers are immutable, so we can't change the headers once it is set
+- headers are case insensitive
+- headers are iterable
+- allowed to set headers are - Accept, Accept-Language, Content-Language, Content-Type, DPR, Downlink,
+                                Save-Data, Viewport-Width, Width
+- not allowed to set headers are - Accept-Encoding, Connection, Content-Length, Cookie, Host, Keep-Alive,
+                                    Origin, Referer, Trailer, Transfer-Encoding, Upgrade, Via
+
+> Body : 
+
+- body can be a string, blob, buffer source, form data, URL search params, etc
+- can be a ReadableStream object, null, undefined
+- is not allowed in GET or HEAD requests
+- is not allowed in CORS requests or in service workers
+- is not allowed in synchronous requests
+- is not allowed in responce objects (for example, responce of a fetch() call)
+
 > Response methods : 
 
 1. text() - returns a promise which resolves to a string, used to get text, html, xml files, css and js.
@@ -37,7 +56,10 @@
 8. values() - if name is already present then it will return all the values
 9. sort(name, value) - if name is already present then it will sort the values
 10. forEach(callback(value, key, searchParams), thisArg) - if name is already present then it will   
-                                                                    return all the values
+                                                           return all the values
 11. toString() - if name is already present then it will return all the values
 
-> 
+
+> Mode : 
+
+1. core -
