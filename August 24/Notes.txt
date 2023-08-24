@@ -1,0 +1,65 @@
+# Fetch API
+
+> Headers : 
+
+- headers are immutable, so we can't change the headers once it is set
+- headers are case insensitive
+- headers are iterable
+- allowed to set headers are - Accept, Accept-Language, Content-Language, Content-Type, DPR, Downlink,
+                                Save-Data, Viewport-Width, Width
+- not allowed to set headers are - Accept-Encoding, Connection, Content-Length, Cookie, Host, Keep-Alive,
+                                    Origin, Referer, Trailer, Transfer-Encoding, Upgrade, Via
+
+> Body : 
+
+- body can be a string, blob, buffer source, form data, URL search params, etc
+- can be a ReadableStream object, null, undefined
+- is not allowed in GET or HEAD requests
+- is not allowed in CORS requests or in service workers
+- is not allowed in synchronous requests
+- is not allowed in responce objects (for example, responce of a fetch() call)
+
+> Response methods : 
+
+1. text() - returns a promise which resolves to a string, used to get text, html, xml files, css and js.
+2. json() - returns a promise which resolves to a JSON object
+3. formData() - returns a promise which resolves to a FormData object
+4. arrayBuffer() - returns a promise which resolves to an ArrayBuffer
+5. blob() - returns a promise which resolves to a Blob,  used to get image, audio, video, etc
+6. clone() - creates a clone of a response object
+7. redirect() - creates a new response object with a different URL
+8. error() - creates a new response object with a different error
+9. headers - returns a Headers object associated with the response
+
+
+> Response properties : 
+
+1. ok - returns true if the response was successful (status in the range 200-299), otherwise false
+2. redirected - returns true if the response is the result of a redirect, otherwise false
+3. status - returns the status code of the response (e.g., 200 for a success)
+4. statusText - returns the status message associated with the response (e.g., OK for 200)
+5. type - returns the type of the response (e.g., basic, cors)
+6. url - returns the URL of the response
+7. body - returns a ReadableStream object associated with the response body
+8. bodyUsed - returns a boolean indicating whether the body has been used in a response yet
+
+
+> URLSearchParams / searchParams methods :
+
+1. append(name, value)- if name is already present then it will append the value
+2. set(name, value) - if name is already present then it will replace the value
+3. delete(name, value)- if name is already present then it will delete the value
+4. has(name, value) - if name is already present then it will return true
+5. get(name) - if name is already present then it will return the value
+6. getAll(name) - if name is already present then it will return all the values
+7. keys() - if name is already present then it will return all the keys
+8. values() - if name is already present then it will return all the values
+9. sort(name, value) - if name is already present then it will sort the values
+10. forEach(callback(value, key, searchParams), thisArg) - if name is already present then it will   
+                                                           return all the values
+11. toString() - if name is already present then it will return all the values
+
+
+> Mode : 
+
+1. core -

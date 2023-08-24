@@ -216,7 +216,9 @@ getData(); */
 // getData('https://jsonplaceholder.typicode.com/posts', 10);
 getData('https://jsonplaceholder.typicode.com/posts/?id=50', 10); */
 
-//----------------------------------------------------------------------------------------------
+
+//------------------------------------- August 24 -----------------------------------------------
+
 
 /* let str = 'https://reqres.in/api/users';   
 document.getElementById('myForm').addEventListener('submit', function(e){
@@ -347,3 +349,93 @@ getData(str); */
 
 //----------------------------------------------------------------------------------------------
 
+/* let jsonstr = 'https://jsonplaceholder.typicode.com/posts';
+let imgstr =  'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80';
+
+function   getData() {
+    let imageResponse;
+    let jsonResponse;
+    fetch(imgstr)
+    .then(response =>{
+       imageResponse = response.blob();
+       return fetch(jsonstr);
+    })  
+    .then(response =>{
+        jsonResponse = response.json();
+        return Promise.all([imageResponse, jsonResponse]);
+    })
+    .then(([imageResponse, jsonResponse]) => console.log(imageResponse, jsonResponse))
+    .catch(error => console.log('Error'));
+}
+getData();
+ */
+//----------------------------------------------------------------------------------------------
+
+/* let jsonstr = 'https://jsonplaceholder.typicode.com/posts';
+let imgstr =  'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80';
+
+function   getData() {
+    let imageResponse;
+    let jsonResponse;
+    fetch(imgstr)
+    .then(response =>{
+       imageResponse = response.blob();
+       return fetch(jsonstr);
+    })  
+    .then(response =>{
+        jsonResponse = response.json();
+        return Promise.all([imageResponse, jsonResponse]);
+    })
+    .then(([imageResponse, jsonResponse]) =>{
+        console.log(imageResponse, jsonResponse);
+        let img = document.createElement('img');
+        img.src = URL.createObjectURL(imageResponse);
+        document.body.appendChild(img);
+    })
+    .catch(error => console.log('Error'));
+}
+getData(); */
+
+//----------------------------------------------------------------------------------------------
+
+/* let jsonstr = 'https://jsonplaceholder.typicode.com/posts';
+let imgstr =  'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80';
+
+function   getData() {
+   Promise.all([fetch(imgstr), fetch(jsonstr)])
+   .then(([imageResponse, jsonResponse]) => {
+       return Promise.all([imageResponse.blob(), jsonResponse.json()])
+   })
+    .then(([blob, jsonData]) =>{
+        console.log(blob, jsonData);
+        let img = document.createElement('img');
+        img.src = URL.createObjectURL(blob);
+        document.body.appendChild(img);
+    })
+}
+getData(); */
+
+//----------------------------------------------------------------------------------------------
+
+/* let url = 'https://jsonplaceholder.typicode.com/posts';
+
+const controller = new AbortController();
+const signal = controller.signal;
+
+function getData() {
+
+    document.getElementById('abort').addEventListener('click', () =>{
+        controller.abort();
+        console.log('Aborted');
+    });
+
+    fetch(url, { signal })                     
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
+}
+getData(); */
+
+//----------------------------------------------------------------------------------------------
+
+/* let url = 'https://jsonplaceholder.typicode.com/posts';
