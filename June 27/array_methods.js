@@ -189,7 +189,6 @@
 // let nums = [22,51,73,11,25];
 // console.log(nums.every(isGreater));
 
-// Doubt
 // function isSubset(arr1,arr2){
 //    arr2.every(isInclude);
 //    function isInclude(element){
